@@ -17,7 +17,8 @@
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
-
+<!-- Calendly widget CSS -->
+<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
     <!-- Bootstrap 5 CSS -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
@@ -1008,43 +1009,45 @@
          NAVIGATION BAR
          ==================================== -->
     <nav class="navbar navbar-expand-lg sticky-navbar">
-          <style>
-            .sticky-navbar {
-              position: fixed;
-              top: 0;
-              left: 0;
-              width: 100%;
-              z-index: 1030;
-              transition: opacity 0.5s, transform 0.5s;
-              background: white;
-              box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+      <style>
+        .sticky-navbar {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          z-index: 1030;
+          transition:
+            opacity 0.5s,
+            transform 0.5s;
+          background: white;
+          box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+        }
+        .navbar-hidden {
+          opacity: 0;
+          pointer-events: none;
+          transform: translateY(-60px);
+        }
+        body {
+          padding-top: 70px;
+        }
+      </style>
+      <script>
+        (function () {
+          let lastScroll = 0;
+          const navbar = document.querySelector(".sticky-navbar");
+          window.addEventListener("scroll", function () {
+            const currentScroll = window.pageYOffset;
+            if (currentScroll > lastScroll && currentScroll > 80) {
+              // Scroll down: hide navbar
+              navbar.classList.add("navbar-hidden");
+            } else {
+              // Scroll up: show navbar
+              navbar.classList.remove("navbar-hidden");
             }
-            .navbar-hidden {
-              opacity: 0;
-              pointer-events: none;
-              transform: translateY(-60px);
-            }
-            body {
-              padding-top: 70px;
-            }
-          </style>
-          <script>
-            (function() {
-              let lastScroll = 0;
-              const navbar = document.querySelector('.sticky-navbar');
-              window.addEventListener('scroll', function() {
-                const currentScroll = window.pageYOffset;
-                if (currentScroll > lastScroll && currentScroll > 80) {
-                  // Scroll down: hide navbar
-                  navbar.classList.add('navbar-hidden');
-                } else {
-                  // Scroll up: show navbar
-                  navbar.classList.remove('navbar-hidden');
-                }
-                lastScroll = currentScroll;
-              });
-            })();
-          </script>
+            lastScroll = currentScroll;
+          });
+        })();
+      </script>
       <div class="container-fluid">
         <div class="navbar-inner">
           <a class="navbar-brand" href="#home">
@@ -1595,7 +1598,7 @@
             Nos experts analysent votre projet et vous proposent une solution
             adaptée à vos besoins spécifiques.
           </p>
-          <a href="#contact" class="btn-custom btn-primary-custom">
+          <a id="calendly-popup-btn-cta" href="#" class="btn-custom btn-primary-custom">
             Demander une consultation gratuite
             <i class="bi bi-calendar-check"></i>
           </a>
@@ -1950,18 +1953,13 @@
               </ul>
 
               <!-- CTA inline -->
-              <a
-                href="#contact"
-                class="btn-custom btn-primary-custom"
-                style="display: inline-flex; align-items: center; gap: 0.6rem"
-              >
+              <a id="calendly-popup-btn-about" href="#" class="btn-custom btn-primary-custom">
                 Discutons de votre projet
-                <i class="bi bi-arrow-right"></i>
+                <i class="bi bi-calendar-check"></i>
               </a>
             </div>
           </div>
         </div>
-
         <!-- ── Stats Section ── -->
         <div
           class="animate-on-scroll"
@@ -2845,9 +2843,25 @@
             Contactez-nous pour discuter de vos besoins spécifiques. Nous
             proposons des solutions sur-mesure adaptées à votre contexte.
           </p>
-          <a href="#contact" class="btn-custom btn-primary-custom">
-            Demander une consultation gratuite
+          <a
+            id="calendly-popup-btn"
+            href="#"
+            class="btn-custom btn-primary-custom"
+            style="
+              background: linear-gradient(
+                135deg,
+                var(--primary-blue),
+                var(--teal)
+              );
+              border: none;
+              display: inline-flex;
+              align-items: center;
+              gap: 0.6rem;
+              cursor: pointer;
+            "
+          >
             <i class="bi bi-calendar-check"></i>
+            Demander une consultation gratuite
           </a>
         </div>
       </div>
@@ -4596,10 +4610,38 @@
               <div class="footer-links">
                 <h5>Liens utiles</h5>
                 <ul>
-                  <li><a href="https://www.odoo.com/fr_FR/page/tour" target="_blank" rel="noopener">Découvrir Odoo</a></li>
-                  <li><a href="https://runbot.odoo.com/" target="_blank" rel="noopener">Démo Odoo (Runbot)</a></li>
-                  <li><a href="https://www.odoo.com/fr_FR/page/pricing" target="_blank" rel="noopener">Tarifs Odoo</a></li>
-                  <li><a href="https://www.odoo.com/fr_FR/forum/aide-1" target="_blank" rel="noopener">Forum d’aide Odoo</a></li>
+                  <li>
+                    <a
+                      href="https://www.odoo.com/fr_FR/page/tour"
+                      target="_blank"
+                      rel="noopener"
+                      >Découvrir Odoo</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="https://runbot.odoo.com/"
+                      target="_blank"
+                      rel="noopener"
+                      >Démo Odoo (Runbot)</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="https://www.odoo.com/fr_FR/page/pricing"
+                      target="_blank"
+                      rel="noopener"
+                      >Tarifs Odoo</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="https://www.odoo.com/fr_FR/forum/aide-1"
+                      target="_blank"
+                      rel="noopener"
+                      >Forum d’aide Odoo</a
+                    >
+                  </li>
                 </ul>
               </div>
             </div>
@@ -4615,7 +4657,10 @@
                     </a>
                   </li>
                   <li>
-                    <a href="mailto:contact@asnl-tech.com" class="footer-contact-link">
+                    <a
+                      href="mailto:contact@asnl-tech.com"
+                      class="footer-contact-link"
+                    >
                       contact@asnl-tech.com
                     </a>
                   </li>
@@ -4625,12 +4670,22 @@
                     </a>
                   </li>
                   <li>
-                    <a href="#" data-bs-toggle="modal" data-bs-target="#faqModal" class="footer-contact-link">
+                    <a
+                      href="#"
+                      data-bs-toggle="modal"
+                      data-bs-target="#faqModal"
+                      class="footer-contact-link"
+                    >
                       FAQ
                     </a>
                   </li>
                   <li>
-                    <a href="#" data-bs-toggle="modal" data-bs-target="#realisationsModal" class="footer-contact-link">
+                    <a
+                      href="#"
+                      data-bs-toggle="modal"
+                      data-bs-target="#realisationsModal"
+                      class="footer-contact-link"
+                    >
                       Études de cas
                     </a>
                   </li>
@@ -4641,206 +4696,430 @@
         </div>
 
         <!-- Footer Divider -->
-            <div
-              style="border-top: 1px solid rgba(255, 255, 255, 0.1); margin: 2rem 0"
-            ></div>
+        <div
+          style="border-top: 1px solid rgba(255, 255, 255, 0.1); margin: 2rem 0"
+        ></div>
 
-            <!-- Footer Bottom -->
-            <div class="footer-bottom">
-              <div class="row align-items-center">
-                <div class="col-md-6 mb-3 mb-md-0">
-                  <p style="margin-bottom: 0">
-                    &copy; 2026 ASNL TECH. Tous droits réservés.
-                  </p>
-                </div>
-                <div class="col-md-6 text-md-end">
-                  <div class="footer-legal-links">
-                    <a href="#" data-bs-toggle="modal" data-bs-target="#faqModal" style="cursor: pointer">FAQ</a>
-                    <span class="footer-separator">|</span>
-                    <a
-                      href="#"
-                      data-bs-toggle="modal"
-                      data-bs-target="#mentionsLegalesModal"
-                      style="cursor: pointer"
-                    >
-                      Mentions légales
-                    </a>
-                    <span class="footer-separator">|</span>
-                    <a
-                      href="#"
-                      data-bs-toggle="modal"
-                      data-bs-target="#politiqueConfidentialiteModal"
-                      style="cursor: pointer"
-                    >
-                      Politique de confidentialité
-                    </a>
-                  </div>
-                </div>
-              </div>
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+          <div class="row align-items-center">
+            <div class="col-md-6 mb-3 mb-md-0">
+              <p style="margin-bottom: 0">
+                &copy; 2026 ASNL TECH. Tous droits réservés.
+              </p>
             </div>
-          </div>
-        </footer>
-
-        <!-- Bouton flottant WhatsApp/Appel à l'action -->
-        <a href="https://wa.me/212614550116" target="_blank" title="Discuter sur WhatsApp" id="whatsapp-float-btn" style="position: fixed; bottom: 24px; right: 24px; z-index: 9999; background: #25d366; color: white; border-radius: 50%; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 16px rgba(37,211,102,0.25); font-size: 2rem; transition: box-shadow 0.2s;">
-          <i class="bi bi-whatsapp"></i>
-        </a>
-
-        <!-- MODAL FAQ -->
-        <div class="modal fade" id="faqModal" tabindex="-1" aria-labelledby="faqModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-lg modal-dialog-scrollable">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="faqModalLabel">FAQ – Questions fréquentes</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fermer"></button>
-              </div>
-              <div class="modal-body">
-                <div class="accordion" id="faqAccordion">
-                  <div class="accordion-item">
-                    <h2 class="accordion-header" id="faq1">
-                      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1" aria-expanded="true" aria-controls="collapse1">
-                        Pourquoi choisir ASNL TECH pour mon projet Odoo ?
-                      </button>
-                    </h2>
-                    <div id="collapse1" class="accordion-collapse collapse show" aria-labelledby="faq1" data-bs-parent="#faqAccordion">
-                      <div class="accordion-body">
-                        Nous avons plus de 10 ans d’expertise, 60+ projets livrés, et un accompagnement sur-mesure pour chaque client.
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <h2 class="accordion-header" id="faq2">
-                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
-                        Combien de temps dure une migration Odoo ?
-                      </button>
-                    </h2>
-                    <div id="collapse2" class="accordion-collapse collapse" aria-labelledby="faq2" data-bs-parent="#faqAccordion">
-                      <div class="accordion-body">
-                        Cela dépend du périmètre, mais la plupart des migrations sont réalisées en 2 à 6 semaines, sans interruption d’activité.
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <h2 class="accordion-header" id="faq3">
-                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3" aria-expanded="false" aria-controls="collapse3">
-                        Proposez-vous un support après la livraison ?
-                      </button>
-                    </h2>
-                    <div id="collapse3" class="accordion-collapse collapse" aria-labelledby="faq3" data-bs-parent="#faqAccordion">
-                      <div class="accordion-body">
-                        Oui, nous assurons un support réactif (24h) et des formations pour garantir la prise en main de votre solution.
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <h2 class="accordion-header" id="faq4">
-                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4" aria-expanded="false" aria-controls="collapse4">
-                        Puis-je demander un audit gratuit ?
-                      </button>
-                    </h2>
-                    <div id="collapse4" class="accordion-collapse collapse" aria-labelledby="faq4" data-bs-parent="#faqAccordion">
-                      <div class="accordion-body">
-                        Oui, contactez-nous via le formulaire ou WhatsApp pour bénéficier d’un diagnostic offert.
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <h2 class="accordion-header" id="faq5">
-                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5" aria-expanded="false" aria-controls="collapse5">
-                        Travaillez-vous avec des PME et des grands comptes ?
-                      </button>
-                    </h2>
-                    <div id="collapse5" class="accordion-collapse collapse" aria-labelledby="faq5" data-bs-parent="#faqAccordion">
-                      <div class="accordion-body">
-                        Oui, nous accompagnons aussi bien les PME, ETI que les grandes entreprises, dans tous secteurs d’activité.
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+            <div class="col-md-6 text-md-end">
+              <div class="footer-legal-links">
+                <a
+                  href="#"
+                  data-bs-toggle="modal"
+                  data-bs-target="#faqModal"
+                  style="cursor: pointer"
+                  >FAQ</a
+                >
+                <span class="footer-separator">|</span>
+                <a
+                  href="#"
+                  data-bs-toggle="modal"
+                  data-bs-target="#mentionsLegalesModal"
+                  style="cursor: pointer"
+                >
+                  Mentions légales
+                </a>
+                <span class="footer-separator">|</span>
+                <a
+                  href="#"
+                  data-bs-toggle="modal"
+                  data-bs-target="#politiqueConfidentialiteModal"
+                  style="cursor: pointer"
+                >
+                  Politique de confidentialité
+                </a>
               </div>
             </div>
           </div>
         </div>
+      </div>
+    </footer>
 
-        <!-- MODAL ÉTUDES DE CAS / RÉALISATIONS -->
-        <div class="modal fade" id="realisationsModal" tabindex="-1" aria-labelledby="realisationsModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-lg modal-dialog-scrollable">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="realisationsModalLabel">Études de cas & Réalisations</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fermer"></button>
+    <!-- Bouton flottant WhatsApp/Appel à l'action -->
+    <a
+      href="https://wa.me/212614550116"
+      target="_blank"
+      title="Discuter sur WhatsApp"
+      id="whatsapp-float-btn"
+      style="
+        position: fixed;
+        bottom: 24px;
+        right: 24px;
+        z-index: 9999;
+        background: #25d366;
+        color: white;
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 16px rgba(37, 211, 102, 0.25);
+        font-size: 2rem;
+        transition: box-shadow 0.2s;
+      "
+    >
+      <i class="bi bi-whatsapp"></i>
+    </a>
+
+    <!-- MODAL FAQ -->
+    <div
+      class="modal fade"
+      id="faqModal"
+      tabindex="-1"
+      aria-labelledby="faqModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="faqModalLabel">
+              FAQ – Questions fréquentes
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Fermer"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="accordion" id="faqAccordion">
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="faq1">
+                  <button
+                    class="accordion-button"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapse1"
+                    aria-expanded="true"
+                    aria-controls="collapse1"
+                  >
+                    Pourquoi choisir ASNL TECH pour mon projet Odoo ?
+                  </button>
+                </h2>
+                <div
+                  id="collapse1"
+                  class="accordion-collapse collapse show"
+                  aria-labelledby="faq1"
+                  data-bs-parent="#faqAccordion"
+                >
+                  <div class="accordion-body">
+                    Nous avons plus de 10 ans d’expertise, 60+ projets livrés,
+                    et un accompagnement sur-mesure pour chaque client.
+                  </div>
+                </div>
               </div>
-              <div class="modal-body">
-                <div class="mb-4">
-                  <h6>Migration Odoo pour une industrie (Casablanca)</h6>
-                  <ul>
-                    <li><b>Contexte :</b> Odoo v12 obsolète, processus manuels, risques de perte de données.</li>
-                    <li><b>Problématique :</b> Moderniser sans interrompre l’activité.</li>
-                    <li><b>Solution :</b> Migration vers Odoo v17, automatisation, formation des équipes.</li>
-                    <li><b>Résultats :</b> +30% de productivité, 0 perte de données, satisfaction client 5/5.</li>
-                    <li><b>Témoignage :</b> “Migration rapide, équipe très pro, aucun souci. Merci ASNL TECH !”</li>
-                  </ul>
-                </div>
-                <div class="mb-4">
-                  <h6>Intégration e-commerce pour un retailer (Maroc)</h6>
-                  <ul>
-                    <li><b>Contexte :</b> Gestion séparée des stocks et commandes entre Odoo et Shopify.</li>
-                    <li><b>Problématique :</b> Double saisie, erreurs fréquentes, perte de temps.</li>
-                    <li><b>Solution :</b> Intégration API Odoo-Shopify, synchronisation automatique.</li>
-                    <li><b>Résultats :</b> -80% d’erreurs, +25% de ventes en ligne, gestion centralisée.</li>
-                    <li><b>Témoignage :</b> “Synchronisation parfaite, gain de temps énorme pour nos équipes !”</li>
-                  </ul>
-                </div>
-                <div class="mb-4">
-                  <h6>Optimisation & Reporting pour une PME de services (Rabat)</h6>
-                  <ul>
-                    <li><b>Contexte :</b> Difficulté à suivre les indicateurs clés, reporting manuel.</li>
-                    <li><b>Problématique :</b> Décisions lentes, manque de visibilité.</li>
-                    <li><b>Solution :</b> Mise en place de tableaux de bord Odoo personnalisés.</li>
-                    <li><b>Résultats :</b> Décisions accélérées, +40% de réactivité, meilleure satisfaction client.</li>
-                    <li><b>Témoignage :</b> “ASNL TECH a transformé notre pilotage d’activité, reporting simple et efficace.”</li>
-                  </ul>
-                </div>
-                <div class="mb-4">
-                  <h6>Déploiement Odoo multi-filiales pour un groupe international</h6>
-                  <ul>
-                    <li><b>Contexte :</b> Plusieurs filiales avec des systèmes différents, reporting consolidé impossible.</li>
-                    <li><b>Problématique :</b> Centraliser la gestion, harmoniser les processus, garantir la conformité multi-pays.</li>
-                    <li><b>Solution :</b> Déploiement Odoo multi-sociétés, paramétrage multi-devises, formation centralisée.</li>
-                    <li><b>Résultats :</b> Reporting consolidé, +50% d’efficacité sur la clôture mensuelle, conformité RGPD.</li>
-                    <li><b>Témoignage :</b> “Un vrai changement pour notre groupe, pilotage simplifié et visibilité globale.”</li>
-                  </ul>
-                </div>
-                <div class="mb-4">
-                  <h6>Automatisation de la facturation pour un cabinet de conseil</h6>
-                  <ul>
-                    <li><b>Contexte :</b> Facturation manuelle, erreurs fréquentes, perte de temps pour les consultants.</li>
-                    <li><b>Problématique :</b> Automatiser la génération et l’envoi des factures clients.</li>
-                    <li><b>Solution :</b> Développement d’un module Odoo sur-mesure pour la facturation automatique.</li>
-                    <li><b>Résultats :</b> -90% d’erreurs, +20h/mois économisées, paiement clients accéléré.</li>
-                    <li><b>Témoignage :</b> “L’automatisation a libéré du temps pour nos équipes, retour sur investissement immédiat.”</li>
-                  </ul>
-                </div>
-                <div class="mb-4">
-                  <h6>Migration Odoo + Intégration API pour une startup tech</h6>
-                  <ul>
-                    <li><b>Contexte :</b> Odoo Community, besoin d’intégrer des outils SaaS externes (CRM, support, marketing).</li>
-                    <li><b>Problématique :</b> Centraliser la donnée, automatiser les flux entre Odoo et les outils tiers.</li>
-                    <li><b>Solution :</b> Migration vers Odoo Enterprise, développement d’API personnalisées.</li>
-                    <li><b>Résultats :</b> Données synchronisées en temps réel, +35% de productivité, meilleure expérience client.</li>
-                    <li><b>Témoignage :</b> “ASNL TECH a su connecter tous nos outils, on a gagné en efficacité et en visibilité.”</li>
-                  </ul>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="faq2">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapse2"
+                    aria-expanded="false"
+                    aria-controls="collapse2"
+                  >
+                    Combien de temps dure une migration Odoo ?
+                  </button>
+                </h2>
+                <div
+                  id="collapse2"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="faq2"
+                  data-bs-parent="#faqAccordion"
+                >
+                  <div class="accordion-body">
+                    Cela dépend du périmètre, mais la plupart des migrations
+                    sont réalisées en 2 à 6 semaines, sans interruption
+                    d’activité.
+                  </div>
                 </div>
               </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="faq3">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapse3"
+                    aria-expanded="false"
+                    aria-controls="collapse3"
+                  >
+                    Proposez-vous un support après la livraison ?
+                  </button>
+                </h2>
+                <div
+                  id="collapse3"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="faq3"
+                  data-bs-parent="#faqAccordion"
+                >
+                  <div class="accordion-body">
+                    Oui, nous assurons un support réactif (24h) et des
+                    formations pour garantir la prise en main de votre solution.
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="faq4">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapse4"
+                    aria-expanded="false"
+                    aria-controls="collapse4"
+                  >
+                    Puis-je demander un audit gratuit ?
+                  </button>
+                </h2>
+                <div
+                  id="collapse4"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="faq4"
+                  data-bs-parent="#faqAccordion"
+                >
+                  <div class="accordion-body">
+                    Oui, contactez-nous via le formulaire ou WhatsApp pour
+                    bénéficier d’un diagnostic offert.
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="faq5">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapse5"
+                    aria-expanded="false"
+                    aria-controls="collapse5"
+                  >
+                    Travaillez-vous avec des PME et des grands comptes ?
+                  </button>
+                </h2>
+                <div
+                  id="collapse5"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="faq5"
+                  data-bs-parent="#faqAccordion"
+                >
+                  <div class="accordion-body">
+                    Oui, nous accompagnons aussi bien les PME, ETI que les
+                    grandes entreprises, dans tous secteurs d’activité.
+                  </div>
+                </div>
               </div>
             </div>
           </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Fermer
+            </button>
+          </div>
         </div>
+      </div>
+    </div>
+
+    <!-- MODAL ÉTUDES DE CAS / RÉALISATIONS -->
+    <div
+      class="modal fade"
+      id="realisationsModal"
+      tabindex="-1"
+      aria-labelledby="realisationsModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="realisationsModalLabel">
+              Études de cas & Réalisations
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Fermer"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="mb-4">
+              <h6>Migration Odoo pour une industrie (Casablanca)</h6>
+              <ul>
+                <li>
+                  <b>Contexte :</b> Odoo v12 obsolète, processus manuels,
+                  risques de perte de données.
+                </li>
+                <li>
+                  <b>Problématique :</b> Moderniser sans interrompre l’activité.
+                </li>
+                <li>
+                  <b>Solution :</b> Migration vers Odoo v17, automatisation,
+                  formation des équipes.
+                </li>
+                <li>
+                  <b>Résultats :</b> +30% de productivité, 0 perte de données,
+                  satisfaction client 5/5.
+                </li>
+                <li>
+                  <b>Témoignage :</b> “Migration rapide, équipe très pro, aucun
+                  souci. Merci ASNL TECH !”
+                </li>
+              </ul>
+            </div>
+            <div class="mb-4">
+              <h6>Intégration e-commerce pour un retailer (Maroc)</h6>
+              <ul>
+                <li>
+                  <b>Contexte :</b> Gestion séparée des stocks et commandes
+                  entre Odoo et Shopify.
+                </li>
+                <li>
+                  <b>Problématique :</b> Double saisie, erreurs fréquentes,
+                  perte de temps.
+                </li>
+                <li>
+                  <b>Solution :</b> Intégration API Odoo-Shopify,
+                  synchronisation automatique.
+                </li>
+                <li>
+                  <b>Résultats :</b> -80% d’erreurs, +25% de ventes en ligne,
+                  gestion centralisée.
+                </li>
+                <li>
+                  <b>Témoignage :</b> “Synchronisation parfaite, gain de temps
+                  énorme pour nos équipes !”
+                </li>
+              </ul>
+            </div>
+            <div class="mb-4">
+              <h6>Optimisation & Reporting pour une PME de services (Rabat)</h6>
+              <ul>
+                <li>
+                  <b>Contexte :</b> Difficulté à suivre les indicateurs clés,
+                  reporting manuel.
+                </li>
+                <li>
+                  <b>Problématique :</b> Décisions lentes, manque de visibilité.
+                </li>
+                <li>
+                  <b>Solution :</b> Mise en place de tableaux de bord Odoo
+                  personnalisés.
+                </li>
+                <li>
+                  <b>Résultats :</b> Décisions accélérées, +40% de réactivité,
+                  meilleure satisfaction client.
+                </li>
+                <li>
+                  <b>Témoignage :</b> “ASNL TECH a transformé notre pilotage
+                  d’activité, reporting simple et efficace.”
+                </li>
+              </ul>
+            </div>
+            <div class="mb-4">
+              <h6>
+                Déploiement Odoo multi-filiales pour un groupe international
+              </h6>
+              <ul>
+                <li>
+                  <b>Contexte :</b> Plusieurs filiales avec des systèmes
+                  différents, reporting consolidé impossible.
+                </li>
+                <li>
+                  <b>Problématique :</b> Centraliser la gestion, harmoniser les
+                  processus, garantir la conformité multi-pays.
+                </li>
+                <li>
+                  <b>Solution :</b> Déploiement Odoo multi-sociétés, paramétrage
+                  multi-devises, formation centralisée.
+                </li>
+                <li>
+                  <b>Résultats :</b> Reporting consolidé, +50% d’efficacité sur
+                  la clôture mensuelle, conformité RGPD.
+                </li>
+                <li>
+                  <b>Témoignage :</b> “Un vrai changement pour notre groupe,
+                  pilotage simplifié et visibilité globale.”
+                </li>
+              </ul>
+            </div>
+            <div class="mb-4">
+              <h6>
+                Automatisation de la facturation pour un cabinet de conseil
+              </h6>
+              <ul>
+                <li>
+                  <b>Contexte :</b> Facturation manuelle, erreurs fréquentes,
+                  perte de temps pour les consultants.
+                </li>
+                <li>
+                  <b>Problématique :</b> Automatiser la génération et l’envoi
+                  des factures clients.
+                </li>
+                <li>
+                  <b>Solution :</b> Développement d’un module Odoo sur-mesure
+                  pour la facturation automatique.
+                </li>
+                <li>
+                  <b>Résultats :</b> -90% d’erreurs, +20h/mois économisées,
+                  paiement clients accéléré.
+                </li>
+                <li>
+                  <b>Témoignage :</b> “L’automatisation a libéré du temps pour
+                  nos équipes, retour sur investissement immédiat.”
+                </li>
+              </ul>
+            </div>
+            <div class="mb-4">
+              <h6>Migration Odoo + Intégration API pour une startup tech</h6>
+              <ul>
+                <li>
+                  <b>Contexte :</b> Odoo Community, besoin d’intégrer des outils
+                  SaaS externes (CRM, support, marketing).
+                </li>
+                <li>
+                  <b>Problématique :</b> Centraliser la donnée, automatiser les
+                  flux entre Odoo et les outils tiers.
+                </li>
+                <li>
+                  <b>Solution :</b> Migration vers Odoo Enterprise,
+                  développement d’API personnalisées.
+                </li>
+                <li>
+                  <b>Résultats :</b> Données synchronisées en temps réel, +35%
+                  de productivité, meilleure expérience client.
+                </li>
+                <li>
+                  <b>Témoignage :</b> “ASNL TECH a su connecter tous nos outils,
+                  on a gagné en efficacité et en visibilité.”
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Fermer
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
     <!-- Bootstrap 5 JavaScript Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <!-- EmailJS Library (Official CDN) -->
@@ -4873,15 +5152,17 @@
       // ====================================
       document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
         anchor.addEventListener("click", function (e) {
+          const href = this.getAttribute("href");
+          // Ignorer les liens vides ou sans cible réelle
+          if (!href || href === "#") return;
           e.preventDefault();
-          const target = document.querySelector(this.getAttribute("href"));
+          const target = document.querySelector(href);
           if (target) {
             const navbarCollapse = document.querySelector(".navbar-collapse");
-            if (navbarCollapse.classList.contains("show")) {
+            if (navbarCollapse && navbarCollapse.classList.contains("show")) {
               const bsCollapse = new bootstrap.Collapse(navbarCollapse);
               bsCollapse.hide();
             }
-
             target.scrollIntoView({
               behavior: "smooth",
               block: "start",
@@ -5105,5 +5386,33 @@
         });
       });
     </script>
+<!-- Calendly widget JS -->
+<script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    function calendlyPopupHandler(btnId) {
+      var calendlyBtn = document.getElementById(btnId);
+      if (calendlyBtn) {
+        calendlyBtn.addEventListener('click', function (e) {
+          e.preventDefault();
+          if (window.Calendly && Calendly.initPopupWidget) {
+            Calendly.initPopupWidget({ url: 'https://calendly.com/contact-asnl-tech/30min' });
+          } else {
+            var interval = setInterval(function () {
+              if (window.Calendly && Calendly.initPopupWidget) {
+                clearInterval(interval);
+                Calendly.initPopupWidget({ url: 'https://calendly.com/contact-asnl-tech/30min' });
+              }
+            }, 200);
+            setTimeout(function () { clearInterval(interval); }, 5000);
+          }
+        });
+      }
+    }
+    calendlyPopupHandler('calendly-popup-btn');
+    calendlyPopupHandler('calendly-popup-btn-cta');
+    calendlyPopupHandler('calendly-popup-btn-about');
+  });
+</script>
   </body>
 </html>
