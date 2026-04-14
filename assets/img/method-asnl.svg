@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="620" height="520" viewBox="0 0 620 520" role="img" aria-label="Pourquoi ASNL TECH">
+  <rect width="620" height="520" rx="26" fill="#1C1B24"/>
+  <rect x="64" y="92" width="494" height="92" rx="14" fill="#2B2431"/>
+  <rect x="64" y="214" width="494" height="92" rx="14" fill="#2B2431"/>
+  <rect x="64" y="336" width="494" height="92" rx="14" fill="#2B2431"/>
+  <circle cx="104" cy="138" r="22" fill="#714B67"/>
+  <circle cx="104" cy="260" r="22" fill="#875A7B"/>
+  <circle cx="104" cy="382" r="22" fill="#A87CA0"/>
+  <text x="150" y="146" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="24" font-weight="700">Experience projet Odoo</text>
+  <text x="150" y="268" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="24" font-weight="700">Delais clairs et tenus</text>
+  <text x="150" y="390" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="24" font-weight="700">Support apres livraison</text>
+</svg>

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="420" height="420" viewBox="0 0 420 420" role="img" aria-label="Integration Odoo">
+  <rect width="420" height="420" rx="28" fill="#1C1B24"/>
+  <circle cx="126" cy="164" r="44" fill="#714B67"/>
+  <circle cx="294" cy="164" r="44" fill="#875A7B"/>
+  <circle cx="210" cy="280" r="44" fill="#A87CA0"/>
+  <line x1="166" y1="184" x2="254" y2="184" stroke="#E5D9E3" stroke-width="8"/>
+  <line x1="146" y1="203" x2="190" y2="248" stroke="#E5D9E3" stroke-width="8"/>
+  <line x1="274" y1="203" x2="230" y2="248" stroke="#E5D9E3" stroke-width="8"/>
+  <text x="66" y="364" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="28" font-weight="700">Integration API</text>
+</svg>

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="420" height="420" viewBox="0 0 420 420" role="img" aria-label="Migration Odoo">
+  <rect width="420" height="420" rx="28" fill="#1C1B24"/>
+  <rect x="72" y="132" width="126" height="156" rx="14" fill="#2B2431" stroke="#714B67" stroke-width="4"/>
+  <rect x="222" y="132" width="126" height="156" rx="14" fill="#2B2431" stroke="#875A7B" stroke-width="4"/>
+  <line x1="160" y1="210" x2="255" y2="210" stroke="#A87CA0" stroke-width="10" stroke-linecap="round"/>
+  <polygon points="248,192 278,210 248,228" fill="#A87CA0"/>
+  <text x="70" y="356" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="28" font-weight="700">Migration Odoo</text>
+</svg>

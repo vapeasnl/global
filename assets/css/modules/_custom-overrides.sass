@@ -1,0 +1,438 @@
+// Styles personnalisés pour ASNL TECH avec palette Odoo
+
+// ============================================
+// BODY & LAYOUT
+// ============================================
+
+html,
+body
+  height: 100%
+  overflow: hidden
+  overscroll-behavior: none
+  background-color: #f3f0ee
+  color: #3d3d3d
+
+// ============================================
+// TEXTES & TITRES
+// ============================================
+
+.about--details,
+.selected-pack-note,
+.selected-pack-services,
+.method-card p,
+.method-card ul,
+.method-card li,
+.pack-services-panel,
+.pack-services-panel ul,
+.pack-services-panel li,
+.contact--lockup .modal--information p,
+.contact--lockup .modal--information a,
+.pack-services-panel .pack-actions a,
+.intro--banner .hero-note,
+.intro--trust span,
+.selected-pack-services .pack-title,
+.pack-services-panel h3,
+.method-card h3,
+.work-request-group h3,
+.header--logo p,
+.header--cta,
+.side-nav > li span,
+.side-nav > li,
+.outer-nav > li
+  color: #4b3b4f !important
+
+// ============================================
+// BOUTONS & CTA
+// ============================================
+
+.header--cta,
+.pack-services-panel .pack-actions a,
+.service-pack-tags span.is-selected,
+.method-card .method-step,
+.selected-pack-services .pack-title,
+.pack-services-panel h3,
+.method-card h3
+  color: $odoo-primary !important
+
+.pack-services-panel .pack-actions a,
+.intro--banner .hero-cta-link
+  background: #f8f4f0 !important
+  color: $odoo-primary !important
+  border: 1px solid $odoo-primary !important
+
+  &:hover
+    background: $odoo-primary !important
+    color: #fff !important
+
+// ============================================
+// FORMULAIRE
+// ============================================
+
+.work-request--information .information-field input,
+.work-request--information .information-field textarea
+  color: #4b3b4f !important
+  border-bottom: 1px solid $odoo-primary !important
+  background: #fff7f0 !important
+
+.work-request--information .information-field label
+  color: $odoo-primary !important
+
+.work-request--information .information-field input:focus,
+.work-request--information .information-field textarea:focus
+  outline: none
+  background-color: #f8f4f0 !important
+  color: #3d3d3d !important
+
+// ============================================
+// HEADER & NAV
+// ============================================
+
+.header--logo p,
+.header--nav-toggle span,
+.header--nav-toggle::before,
+.header--nav-toggle::after
+  color: $odoo-primary !important
+  background: $odoo-primary !important
+
+.side-nav > li.is-active,
+.side-nav > li.is-active span
+  color: $odoo-primary !important
+
+.side-nav > li span
+  color: #4b3b4f !important
+
+.outer-nav > li.is-active
+  color: $odoo-primary !important
+
+.outer-nav > li
+  color: #4b3b4f !important
+
+// ============================================
+// TAGS & SERVICES
+// ============================================
+
+.service-pack-tags
+  display: flex
+  flex-wrap: wrap
+  gap: 8px
+  justify-content: center
+  margin: 0 0 14px 0
+
+  span
+    background: #f8f4f0 !important
+    color: $odoo-primary !important
+    border: 1px solid #d9c9d6 !important
+    cursor: pointer
+    font-size: 11px
+    font-weight: 700
+    letter-spacing: .4px
+    padding: 4px 8px
+    text-transform: uppercase
+
+    &.is-selected
+      background: $odoo-primary !important
+      color: #fff !important
+
+// ============================================
+// PANNEAUX & CARTES
+// ============================================
+
+.selected-pack-note
+  color: #c6c6c6
+  font-size: 13px
+  margin: 10px 0 0
+  text-align: center
+
+.selected-pack-services
+  margin-top: 12px
+  text-align: left
+  color: #c6c6c6
+  font-size: 13px
+
+  p
+    margin: 0 0 8px 0
+
+  .pack-block
+    margin-bottom: 8px
+
+  .pack-title
+    color: #ffffff
+    font-size: 12px
+    font-weight: 700
+    margin: 0 0 4px 0
+    text-transform: uppercase
+
+  ul
+    margin: 0
+    padding-left: 16px
+
+  li
+    margin: 2px 0
+
+.pack-services-panel
+  border: 1px solid rgba($odoo-primary, 0.45)
+  margin: 0 auto 18px
+  max-width: 760px
+  padding: 18px 20px
+  text-align: left
+  background: #fff7f0 !important
+  border: 1px solid #e9ecef !important
+  box-shadow: 0 2px 12px 0 rgba($odoo-primary, 0.07)
+
+  &.is-empty
+    opacity: 0.9
+
+  h3
+    color: #ffffff
+    font-size: 14px
+    margin: 0 0 8px 0
+    text-transform: uppercase
+
+  .pack-actions
+    display: flex
+    gap: 12px
+    flex-wrap: wrap
+    margin-top: 14px
+
+    a
+      border: 1px solid $odoo-primary
+      color: #ffffff
+      padding: 10px 14px
+      text-decoration: none
+      text-transform: uppercase
+      font-size: 11px
+      font-weight: 700
+      letter-spacing: .4px
+
+// ============================================
+// INTRO & TRUST
+// ============================================
+
+.intro--trust
+  display: flex
+  flex-wrap: wrap
+  gap: 12px
+  margin-top: 18px
+
+  span
+    border: 1px solid rgba($odoo-primary, 0.45)
+    color: #c6c6c6
+    font-size: 12px
+    font-weight: 700
+    letter-spacing: .3px
+    padding: 8px 10px
+    text-transform: uppercase
+
+.intro--banner .hero-note
+  color: #c6c6c6
+  font-size: 14px
+  line-height: 1.7
+  margin: 14px 0 0
+  max-width: 520px
+
+.intro--banner .hero-cta-link
+  display: inline-block
+  color: #ffffff
+  border: 1px solid $odoo-primary
+  margin-top: 16px
+  padding: 10px 14px
+  text-decoration: none
+  text-transform: uppercase
+  font-size: 11px
+  font-weight: 700
+  letter-spacing: .4px
+
+// ============================================
+// MÉTHODE CARDS
+// ============================================
+
+.method-cards
+  display: grid
+  gap: 10px
+  grid-template-columns: repeat(3, minmax(0, 1fr))
+  margin-top: 14px
+
+.method-card
+  border: 1px solid rgba($odoo-primary, 0.45)
+  padding: 14px 14px
+  background: rgba(20, 20, 20, 0.15)
+
+  .method-step
+    color: $odoo-primary
+    font-size: 10px
+    font-weight: 700
+    letter-spacing: .5px
+    margin: 0 0 6px 0
+    text-transform: uppercase
+
+  h3
+    color: #ffffff
+    font-size: 16px
+    margin: 0 0 6px 0
+
+  p
+    color: #c6c6c6
+    font-size: 13px
+    line-height: 1.5
+    margin: 0 0 8px 0
+
+  ul
+    color: #c6c6c6
+    margin: 0
+    padding-left: 16px
+
+  li
+    margin: 3px 0
+
+#methode .about--banner
+  margin-bottom: 8px
+
+  img
+    max-width: 320px
+
+#methode .about--options
+  margin-top: 10px
+
+#methode .about--details
+  margin-top: 12px
+
+// ============================================
+// FORMULAIRE - WORK REQUEST
+// ============================================
+
+.work-request--information
+  flex-wrap: wrap
+  gap: 20px 4%
+
+  .information-field
+    position: relative
+    width: 48%
+    min-height: 50px
+    font-size: 30px
+    font-weight: 300
+
+    &--full
+      width: 100%
+      min-height: 120px
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    textarea
+      width: 100%
+      padding: 0 0 5px 0
+      background-color: transparent
+      border: none
+      border-bottom: 1px solid #fff
+      border-radius: 0
+      color: #fff
+
+    textarea
+      min-height: 110px
+      resize: vertical
+
+    label
+      position: absolute
+      top: 0
+      left: 0
+      pointer-events: none
+      transition: top .2s ease-in-out, font-size .2s ease-in-out
+
+    input:focus + label,
+    input.has-value + label,
+    textarea:focus + label,
+    textarea.has-value + label
+      top: -15px
+      font-size: 14px
+
+#devis .hire
+  max-height: calc(100vh - 120px)
+  overflow-y: auto
+  overflow-x: hidden
+  justify-content: flex-start
+  padding-top: 14px
+  padding-bottom: 10px
+  padding-right: 0
+  -ms-overflow-style: none
+  scrollbar-width: none
+
+  &::-webkit-scrollbar
+    width: 0
+    height: 0
+
+.work-request-group
+  width: 100%
+  margin-bottom: 12px
+
+  h3
+    margin: 0 0 8px 0
+    color: #ffffff
+    font-size: 13px
+    font-weight: 700
+    text-transform: uppercase
+    letter-spacing: .4px
+
+.work-request--information
+  margin-bottom: 18px
+
+// ============================================
+// RESPONSIVE
+// ============================================
+
+@media (max-width: 900px)
+  .method-cards
+    grid-template-columns: 1fr
+    margin-top: 10px
+
+  .work-request--information .information-field,
+  .work-request--information .information-field--full
+    width: 100%
+
+  #devis .hire
+    max-height: calc(100vh - 100px)
+
+  #methode .about--banner img
+    max-width: 260px
+
+@media (max-width: 600px)
+  #methode .about--banner
+    margin-bottom: 4px
+
+  #methode .about--banner img
+    max-width: 220px
+
+  #methode .about--options
+    margin-top: 6px
+
+  #methode .about--details
+    margin-top: 8px
+
+  .method-cards
+    gap: 8px
+    margin-top: 10px
+
+  .method-card
+    padding: 12px 12px
+
+    h3
+      font-size: 15px
+
+    p
+      font-size: 12px
+      line-height: 1.45
+
+  .work-request-group
+    margin-bottom: 10px
+
+    h3
+      margin: 0 0 6px 0
+
+  .selected-pack-note
+    margin-top: 6px
+
+  .selected-pack-services
+    margin-top: 6px
+
+  #devis .hire
+    max-height: calc(100vh - 84px)
+    padding-top: 10px

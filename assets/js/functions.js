@@ -2,12 +2,89 @@
 
 $( document ).ready(function() {
 
+  var sectionIds = ['accueil', 'services', 'methode', 'contact', 'devis'];
+  var activePackFilter = null;
+  var enableAutoSectionNavigation = false;
+
+  function getVisibleSliderItems() {
+    return $('.slider--item').filter(function() {
+      return $(this).css('display') !== 'none';
+    });
+  }
+
+  function setSliderWindow($visibleItems, startIndex) {
+    var total = $visibleItems.length;
+    if (!total) {
+      return;
+    }
+
+    $('.slider--item')
+      .removeClass('slider--item-left slider--item-center slider--item-right')
+      .hide();
+
+    $visibleItems.eq(startIndex % total).show().addClass('slider--item-left');
+
+    if (total > 1) {
+      $visibleItems.eq((startIndex + 1) % total).show().addClass('slider--item-center');
+    }
+
+    if (total > 2) {
+      $visibleItems.eq((startIndex + 2) % total).show().addClass('slider--item-right');
+    }
+  }
+
+  function applySliderFilter(packKey) {
+    activePackFilter = packKey || null;
+
+    if (!activePackFilter) {
+      $('.slider--item').show();
+      $('.slider--prev, .slider--next').show();
+      setSliderWindow(getVisibleSliderItems(), 0);
+      return;
+    }
+
+    $('.slider--item').each(function() {
+      var match = $(this).data('pack') === activePackFilter;
+      $(this).toggle(match);
+    });
+
+    var $primaryItem = $('.slider--item[data-pack="' + activePackFilter + '"][data-pack-primary="true"]').first();
+
+    var $filteredItems = getVisibleSliderItems();
+    $('.slider--prev, .slider--next').show();
+
+    if (!$filteredItems.length) {
+      return;
+    }
+
+    var startIndex = 0;
+    if ($primaryItem.length) {
+      startIndex = $filteredItems.index($primaryItem);
+      if (startIndex < 0) {
+        startIndex = 0;
+      }
+    }
+
+    setSliderWindow($filteredItems, startIndex);
+  }
+
+  window.applySliderFilter = applySliderFilter;
+
   // DOMMouseScroll included for firefox support
   var canScroll = true,
       scrollController = null;
   $(this).on('mousewheel DOMMouseScroll', function(e){
 
+    if (!enableAutoSectionNavigation) {
+      return;
+    }
+
     if (!($('.outer-nav').hasClass('is-vis'))) {
+
+      var isDevisActive = $('.main-content .section--is-active').attr('id') === 'devis';
+      if (isDevisActive) {
+        return;
+      }
 
       e.preventDefault();
 
@@ -68,12 +145,18 @@ $( document ).ready(function() {
       mc = new Hammer(targetElement);
   mc.get('swipe').set({ direction: Hammer.DIRECTION_VERTICAL });
   mc.on('swipeup swipedown', function(e) {
+    if (!enableAutoSectionNavigation) {
+      return;
+    }
 
     updateHelper(e);
 
   });
 
   $(document).keyup(function(e){
+    if (!enableAutoSectionNavigation) {
+      return;
+    }
 
     if (!($('.outer-nav').hasClass('is-vis'))) {
       e.preventDefault();
@@ -149,6 +232,32 @@ $( document ).ready(function() {
       $('.header--cta').removeClass('is-active');
     }
 
+    var activeSectionId = $('.main-content').children().eq(nextPos).attr('id');
+    if (activeSectionId === 'devis') {
+      $('#devis .hire').scrollTop(0);
+    }
+
+    if (activeSectionId && window.history && window.history.replaceState) {
+      window.history.replaceState(null, '', '#' + activeSectionId);
+    }
+
+  }
+
+  function goToSectionByHash() {
+
+    var hash = window.location.hash ? window.location.hash.replace('#', '') : '';
+    var nextPos = sectionIds.indexOf(hash);
+
+    if (nextPos === -1) {
+      return;
+    }
+
+    var curActive = $('.side-nav').find('.is-active');
+    var curPos = $('.side-nav').children().index(curActive);
+    var lastItem = $('.side-nav').children().length - 1;
+
+    updateNavs(nextPos);
+    updateContent(curPos, nextPos, lastItem);
   }
 
   function outerNav() {
@@ -180,69 +289,32 @@ $( document ).ready(function() {
     $('.slider--prev, .slider--next').click(function() {
 
       var $this = $(this),
-          curLeft = $('.slider').find('.slider--item-left'),
-          curLeftPos = $('.slider').children().index(curLeft),
-          curCenter = $('.slider').find('.slider--item-center'),
-          curCenterPos = $('.slider').children().index(curCenter),
-          curRight = $('.slider').find('.slider--item-right'),
-          curRightPos = $('.slider').children().index(curRight),
-          totalWorks = $('.slider').children().length,
-          $left = $('.slider--item-left'),
-          $center = $('.slider--item-center'),
-          $right = $('.slider--item-right'),
-          $item = $('.slider--item');
+          $visibleItems = getVisibleSliderItems(),
+          totalWorks = $visibleItems.length,
+          leftPos = $visibleItems.index($visibleItems.filter('.slider--item-left').first()),
+          centerPos = $visibleItems.index($visibleItems.filter('.slider--item-center').first()),
+          rightPos = $visibleItems.index($visibleItems.filter('.slider--item-right').first());
+
+      if (!totalWorks) {
+        return;
+      }
+
+      if (leftPos === -1 || centerPos === -1 || rightPos === -1) {
+        setSliderWindow($visibleItems, 0);
+        leftPos = 0;
+        centerPos = totalWorks > 1 ? 1 : 0;
+        rightPos = totalWorks > 2 ? 2 : centerPos;
+      }
 
       $('.slider').animate({ opacity : 0 }, 400);
 
       setTimeout(function(){
 
       if ($this.hasClass('slider--next')) {
-        if (curLeftPos < totalWorks - 1 && curCenterPos < totalWorks - 1 && curRightPos < totalWorks - 1) {
-          $left.removeClass('slider--item-left').next().addClass('slider--item-left');
-          $center.removeClass('slider--item-center').next().addClass('slider--item-center');
-          $right.removeClass('slider--item-right').next().addClass('slider--item-right');
-        }
-        else {
-          if (curLeftPos === totalWorks - 1) {
-            $item.removeClass('slider--item-left').first().addClass('slider--item-left');
-            $center.removeClass('slider--item-center').next().addClass('slider--item-center');
-            $right.removeClass('slider--item-right').next().addClass('slider--item-right');
-          }
-          else if (curCenterPos === totalWorks - 1) {
-            $left.removeClass('slider--item-left').next().addClass('slider--item-left');
-            $item.removeClass('slider--item-center').first().addClass('slider--item-center');
-            $right.removeClass('slider--item-right').next().addClass('slider--item-right');
-          }
-          else {
-            $left.removeClass('slider--item-left').next().addClass('slider--item-left');
-            $center.removeClass('slider--item-center').next().addClass('slider--item-center');
-            $item.removeClass('slider--item-right').first().addClass('slider--item-right');
-          }
-        }
+        setSliderWindow($visibleItems, (leftPos + 1) % totalWorks);
       }
       else {
-        if (curLeftPos !== 0 && curCenterPos !== 0 && curRightPos !== 0) {
-          $left.removeClass('slider--item-left').prev().addClass('slider--item-left');
-          $center.removeClass('slider--item-center').prev().addClass('slider--item-center');
-          $right.removeClass('slider--item-right').prev().addClass('slider--item-right');
-        }
-        else {
-          if (curLeftPos === 0) {
-            $item.removeClass('slider--item-left').last().addClass('slider--item-left');
-            $center.removeClass('slider--item-center').prev().addClass('slider--item-center');
-            $right.removeClass('slider--item-right').prev().addClass('slider--item-right');
-          }
-          else if (curCenterPos === 0) {
-            $left.removeClass('slider--item-left').prev().addClass('slider--item-left');
-            $item.removeClass('slider--item-center').last().addClass('slider--item-center');
-            $right.removeClass('slider--item-right').prev().addClass('slider--item-right');
-          }
-          else {
-            $left.removeClass('slider--item-left').prev().addClass('slider--item-left');
-            $center.removeClass('slider--item-center').prev().addClass('slider--item-center');
-            $item.removeClass('slider--item-right').last().addClass('slider--item-right');
-          }
-        }
+        setSliderWindow($visibleItems, (leftPos - 1 + totalWorks) % totalWorks);
       }
 
     }, 400);
@@ -255,7 +327,7 @@ $( document ).ready(function() {
 
   function transitionLabels() {
 
-    $('.work-request--information input').focusout(function(){
+    $('.work-request--information input, .work-request--information textarea').focusout(function(){
 
       var textVal = $(this).val();
 
@@ -276,5 +348,10 @@ $( document ).ready(function() {
   outerNav();
   workSlider();
   transitionLabels();
+  goToSectionByHash();
+
+  $(window).on('hashchange', function() {
+    goToSectionByHash();
+  });
 
 });

@@ -1,55 +1,518 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
-  <title>Global</title>
+  <title>ASNL TECH | Consultant Odoo, Audit, Migration et Integration</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="description" content="HTML5 website template">
-  <meta name="keywords" content="global, template, html, sass, jquery">
-  <meta name="author" content="Bucky Maler">
+  <meta name="description" content="Consultant Odoo pour audit, migration, integration e-commerce, developpement sur mesure et support technique.">
+  <meta name="keywords" content="consultant odoo, migration odoo, audit odoo, integration odoo shopify, support odoo">
+  <meta name="author" content="ASNL TECH">
+  <meta property="og:title" content="ASNL TECH | Consultant Odoo, Audit, Migration et Integration">
+  <meta property="og:description" content="Accompagnement Odoo de bout en bout: cadrage, implementation, integration et maintenance.">
+  <meta property="og:type" content="website">
   <link rel="stylesheet" href="assets/css/main.css">
+  <style>
+    html,
+    body {
+      height: 100%;
+      overflow: hidden;
+      overscroll-behavior: none;
+      background-color: #f3f0ee;
+      color: #3d3d3d;
+    }
+
+    .about--details,
+    .selected-pack-note,
+    .selected-pack-services,
+    .method-card p,
+    .method-card ul,
+    .method-card li,
+    .pack-services-panel,
+    .pack-services-panel ul,
+    .pack-services-panel li,
+    .contact--lockup .modal--information p,
+    .contact--lockup .modal--information a,
+    .pack-services-panel .pack-actions a,
+    .intro--banner .hero-note,
+    .intro--trust span,
+    .selected-pack-services .pack-title,
+    .pack-services-panel h3,
+    .method-card h3,
+    .work-request-group h3,
+    .header--logo p,
+    .header--cta,
+    .side-nav>li span,
+    .side-nav>li,
+    .outer-nav>li {
+      color: #4b3b4f !important;
+    }
+
+    .header--cta,
+    .pack-services-panel .pack-actions a,
+    .service-pack-tags span.is-selected,
+    .method-card .method-step,
+    .selected-pack-services .pack-title,
+    .pack-services-panel h3,
+    .method-card h3 {
+      color: #714B67 !important;
+    }
+
+    .pack-services-panel .pack-actions a,
+    .intro--banner .hero-cta-link {
+      background: #f8f4f0 !important;
+      color: #714B67 !important;
+      border: 1px solid #714B67 !important;
+    }
+
+    .pack-services-panel .pack-actions a:hover,
+    .intro--banner .hero-cta-link:hover {
+      background: #714B67 !important;
+      color: #fff !important;
+    }
+
+    .work-request--information .information-field input,
+    .work-request--information .information-field textarea {
+      color: #4b3b4f !important;
+      border-bottom: 1px solid #714B67 !important;
+      background: #fff7f0 !important;
+    }
+
+    .work-request--information .information-field label {
+      color: #714B67 !important;
+    }
+
+    .header--logo p,
+    .header--nav-toggle span,
+    .header--nav-toggle::before,
+    .header--nav-toggle::after {
+      color: #714B67 !important;
+      background: #714B67 !important;
+    }
+
+    .side-nav>li.is-active,
+    .side-nav>li.is-active span {
+      color: #714B67 !important;
+    }
+
+    .side-nav>li span {
+      color: #4b3b4f !important;
+    }
+
+    .outer-nav>li.is-active {
+      color: #714B67 !important;
+    }
+
+    .outer-nav>li {
+      color: #4b3b4f !important;
+    }
+
+    .service-pack-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center;
+      margin: 0 0 14px 0;
+    }
+
+    .service-pack-tags span {
+      background: #f8f4f0 !important;
+      color: #714B67 !important;
+      border: 1px solid #d9c9d6 !important;
+      cursor: pointer;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .4px;
+      padding: 4px 8px;
+      text-transform: uppercase;
+    }
+
+    .service-pack-tags span.is-selected {
+      background: #714B67 !important;
+      color: #fff !important;
+    }
+
+    .selected-pack-note {
+      color: #c6c6c6;
+      font-size: 13px;
+      margin: 10px 0 0;
+      text-align: center;
+    }
+
+    .selected-pack-services {
+      margin-top: 12px;
+      text-align: left;
+      color: #c6c6c6;
+      font-size: 13px;
+    }
+
+    .selected-pack-services p {
+      margin: 0 0 8px 0;
+    }
+
+    .selected-pack-services .pack-block {
+      margin-bottom: 8px;
+    }
+
+    .selected-pack-services .pack-title {
+      color: #ffffff;
+      font-size: 12px;
+      font-weight: 700;
+      margin: 0 0 4px 0;
+      text-transform: uppercase;
+    }
+
+    .selected-pack-services ul {
+      margin: 0;
+      padding-left: 16px;
+    }
+
+    .selected-pack-services li {
+      margin: 2px 0;
+    }
+
+    .pack-services-panel {
+      border: 1px solid rgba(113, 75, 103, 0.45);
+      margin: 0 auto 18px;
+      max-width: 760px;
+      padding: 18px 20px;
+      text-align: left;
+      background: #fff7f0 !important;
+      border: 1px solid #e9ecef !important;
+      box-shadow: 0 2px 12px 0 rgba(113,75,103,0.07);
+    }
+
+    .pack-services-panel.is-empty {
+      opacity: 0.9;
+    }
+
+    .pack-services-panel h3 {
+      color: #ffffff;
+      font-size: 14px;
+      margin: 0 0 8px 0;
+      text-transform: uppercase;
+    }
+
+    .pack-services-panel .pack-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 14px;
+    }
+
+    .pack-services-panel .pack-actions a {
+      border: 1px solid #714B67;
+      color: #ffffff;
+      padding: 10px 14px;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .4px;
+    }
+
+    .intro--trust {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .intro--trust span {
+      border: 1px solid rgba(113, 75, 103, 0.45);
+      color: #c6c6c6;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .3px;
+      padding: 8px 10px;
+      text-transform: uppercase;
+    }
+
+    .intro--banner .hero-note {
+      color: #c6c6c6;
+      font-size: 14px;
+      line-height: 1.7;
+      margin: 14px 0 0;
+      max-width: 520px;
+    }
+
+    .intro--banner .hero-cta-link {
+      display: inline-block;
+      color: #ffffff;
+      border: 1px solid #714B67;
+      margin-top: 16px;
+      padding: 10px 14px;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .4px;
+    }
+
+    .method-cards {
+      display: grid;
+      gap: 10px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      margin-top: 14px;
+    }
+
+    .method-card {
+      border: 1px solid rgba(113, 75, 103, 0.45);
+      padding: 14px 14px;
+      background: rgba(20, 20, 20, 0.15);
+    }
+
+    .method-card .method-step {
+      color: #714B67;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .5px;
+      margin: 0 0 6px 0;
+      text-transform: uppercase;
+    }
+
+    .method-card h3 {
+      color: #ffffff;
+      font-size: 16px;
+      margin: 0 0 6px 0;
+    }
+
+    .method-card p {
+      color: #c6c6c6;
+      font-size: 13px;
+      line-height: 1.5;
+      margin: 0 0 8px 0;
+    }
+
+    .method-card ul {
+      color: #c6c6c6;
+      margin: 0;
+      padding-left: 16px;
+    }
+
+    .method-card li {
+      margin: 3px 0;
+    }
+
+    #methode .about--banner {
+      margin-bottom: 8px;
+    }
+
+    #methode .about--banner img {
+      max-width: 320px;
+    }
+
+    #methode .about--options {
+      margin-top: 10px;
+    }
+
+    #methode .about--details {
+      margin-top: 12px;
+    }
+
+    .work-request--information {
+      flex-wrap: wrap;
+      gap: 20px 4%;
+    }
+
+    .work-request--information .information-field {
+      position: relative;
+      width: 48%;
+      min-height: 50px;
+      font-size: 30px;
+      font-weight: 300;
+    }
+
+    .work-request--information .information-field--full {
+      width: 100%;
+      min-height: 120px;
+    }
+
+    .work-request--information .information-field input[type="text"],
+    .work-request--information .information-field input[type="email"],
+    .work-request--information .information-field input[type="tel"],
+    .work-request--information .information-field textarea {
+      width: 100%;
+      padding: 0 0 5px 0;
+      background-color: transparent;
+      border: none;
+      border-bottom: 1px solid #fff;
+      border-radius: 0;
+      color: #fff;
+    }
+
+    .work-request--information .information-field textarea {
+      min-height: 110px;
+      resize: vertical;
+    }
+
+    .work-request--information .information-field input:focus,
+    .work-request--information .information-field textarea:focus {
+      outline: none;
+      background-color: #f8f4f0 !important;
+      color: #3d3d3d !important;
+    }
+
+    .work-request--information .information-field label {
+      position: absolute;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      transition: top .2s ease-in-out, font-size .2s ease-in-out;
+    }
+
+    .work-request--information .information-field input:focus + label,
+    .work-request--information .information-field input.has-value + label,
+    .work-request--information .information-field textarea:focus + label,
+    .work-request--information .information-field textarea.has-value + label {
+      top: -15px;
+      font-size: 14px;
+    }
+
+    #devis .hire {
+      max-height: calc(100vh - 120px);
+      overflow-y: auto;
+      overflow-x: hidden;
+      justify-content: flex-start;
+      padding-top: 14px;
+      padding-bottom: 10px;
+      padding-right: 0;
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    #devis .hire::-webkit-scrollbar {
+      width: 0;
+      height: 0;
+    }
+
+    .work-request-group {
+      width: 100%;
+      margin-bottom: 12px;
+    }
+
+    .work-request-group h3 {
+      margin: 0 0 8px 0;
+      color: #ffffff;
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .4px;
+    }
+
+    .work-request--information {
+      margin-bottom: 18px;
+    }
+
+    @media (max-width: 900px) {
+      .method-cards {
+        grid-template-columns: 1fr;
+        margin-top: 10px;
+      }
+
+      .work-request--information .information-field,
+      .work-request--information .information-field--full {
+        width: 100%;
+      }
+
+      #devis .hire {
+        max-height: calc(100vh - 100px);
+      }
+
+      #methode .about--banner img {
+        max-width: 260px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      #methode .about--banner {
+        margin-bottom: 4px;
+      }
+
+      #methode .about--banner img {
+        max-width: 220px;
+      }
+
+      #methode .about--options {
+        margin-top: 6px;
+      }
+
+      #methode .about--details {
+        margin-top: 8px;
+      }
+
+      .method-cards {
+        gap: 8px;
+        margin-top: 10px;
+      }
+
+      .method-card {
+        padding: 12px 12px;
+      }
+
+      .method-card h3 {
+        font-size: 15px;
+      }
+
+      .method-card p {
+        font-size: 12px;
+        line-height: 1.45;
+      }
+
+      .work-request-group {
+        margin-bottom: 10px;
+      }
+
+      .work-request-group h3 {
+        margin: 0 0 6px 0;
+      }
+
+      .selected-pack-note {
+        margin-top: 6px;
+      }
+
+      .selected-pack-services {
+        margin-top: 6px;
+      }
+
+      #devis .hire {
+        max-height: calc(100vh - 84px);
+        padding-top: 10px;
+      }
+    }
+  </style>
 </head>
 <body>
-
-<!-- notification for small viewports and landscape oriented smartphones -->
-<div class="device-notification">
-  <a class="device-notification--logo" href="#0">
-    <img src="assets/img/logo.png" alt="Global">
-    <p>Global</p>
-  </a>
-  <p class="device-notification--message">Global has so much to offer that we must request you orient your device to portrait or find a larger screen. You won't be disappointed.</p>
-</div>
 
 <div class="perspective effect-rotate-left">
   <div class="container"><div class="outer-nav--return"></div>
     <div id="viewport" class="l-viewport">
       <div class="l-wrapper">
         <header class="header">
-          <a class="header--logo" href="#0">
-            <img src="assets/img/logo.png" alt="Global">
-            <p>Global</p>
+          <a class="header--logo" href="#accueil">
+            <img src="assets/img/logo.png" alt="ASNL TECH">
+            <p>ASNL TECH</p>
           </a>
-          <button class="header--cta cta">Hire Us</button>
+          <button class="header--cta cta">Demander un audit</button>
           <div class="header--nav-toggle">
             <span></span>
           </div>
         </header>
         <nav class="l-side-nav">
           <ul class="side-nav">
-            <li class="is-active"><span>Home</span></li>
-            <li><span>Works</span></li>
-            <li><span>About</span></li>
+            <li class="is-active"><span>Accueil</span></li>
+            <li><span>Services</span></li>
+            <li><span>Methode</span></li>
             <li><span>Contact</span></li>
-            <li><span>Hire us</span></li>
+            <li><span>Devis</span></li>
           </ul>
         </nav>
         <ul class="l-main-content main-content">
-          <li class="l-section section section--is-active">
+          <li id="accueil" class="l-section section section--is-active">
             <div class="intro">
               <div class="intro--banner">
-                <h1>Your next<br>interactive<br>experience</h1>
-                <button class="cta">Hire Us
+                <h1>Consultant<br>Odoo pour<br>accelerer<br>vos operations</h1>
+                <button class="cta">Demander un audit
                   <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 150 118" style="enable-background:new 0 0 150 118;" xml:space="preserve">
                   <g transform="translate(0.000000,118.000000) scale(0.100000,-0.100000)">
                     <path d="M870,1167c-34-17-55-57-46-90c3-15,81-100,194-211l187-185l-565-1c-431,0-571-3-590-13c-55-28-64-94-18-137c21-20,33-20,597-20h575l-192-193C800,103,794,94,849,39c20-20,39-29,61-29c28,0,63,30,298,262c147,144,272,271,279,282c30,51,23,60-219,304C947,1180,926,1196,870,1167z"/>
@@ -57,54 +520,267 @@
                   </svg>
                   <span class="btn-background"></span>
                 </button>
-                <img src="assets/img/introduction-visual.png" alt="Welcome">
+                <img src="assets/img/introduction-visual.png" alt="Services Odoo">
               </div>
               <div class="intro--options">
-                <a href="#0">
-                  <h3>Metiew &amp; Smith</h3>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do.</p>
+                <a href="#devis">
+                  <h3>Audit &amp; optimisation Odoo</h3>
+                  <p>Analyse complete de votre instance, roadmap priorisee et actions rapides a fort impact.</p>
                 </a>
-                <a href="#0">
-                  <h3>Fantasy interactive</h3>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do.</p>
+                <a href="#devis">
+                  <h3>Migration Odoo v16-v19</h3>
+                  <p>Migration maitrisee avec controle des risques, reprise de donnees et plan de validation.</p>
                 </a>
-                <a href="#0">
-                  <h3>Paul &amp; shark</h3>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do.</p>
+                <a href="#devis">
+                  <h3>Integrations API &amp; e-commerce</h3>
+                  <p>Connexion Odoo a Shopify, WooCommerce, CRM et ERP tiers pour automatiser vos flux.</p>
                 </a>
               </div>
             </div>
           </li>
-          <li class="l-section section">
+          <li id="services" class="l-section section">
             <div class="work">
-              <h2>Selected work</h2>
+              <h2>Prestations phares</h2>
+              <div class="service-pack-tags">
+                <span role="button" tabindex="0" data-pack="audit">Pack Audit</span>
+                <span role="button" tabindex="0" data-pack="migration">Pack Migration</span>
+                <span role="button" tabindex="0" data-pack="integration">Pack Integration</span>
+                <span role="button" tabindex="0" data-pack="support">Pack Support</span>
+                <span role="button" tabindex="0" data-pack="formation">Pack Formation</span>
+                <span role="button" tabindex="0" data-pack="metier">Pack Metier</span>
+              </div>
+              <div id="pack-services-panel" class="pack-services-panel is-empty" aria-live="polite">
+                <h3>Selectionnez un pack pour filtrer les services</h3>
+                <p>Les services correspondants s afficheront ici avant la demande de devis.</p>
+                <div class="pack-actions">
+                  <a href="#devis">Aller au devis</a>
+                </div>
+              </div>
               <div class="work--lockup">
                 <ul class="slider">
-                  <li class="slider--item slider--item-left">
-                    <a href="#0">
+                  <li class="slider--item slider--item-left" data-pack="audit" data-pack-primary="true">
+                    <a href="#devis">
                       <div class="slider--item-image">
-                        <img src="assets/img/work-victory.jpg" alt="Victory">
+                        <img src="assets/img/work-victory.jpg" alt="Audit technique Odoo">
                       </div>
-                      <p class="slider--item-title">Victory</p>
-                      <p class="slider--item-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do.</p>
+                      <p class="slider--item-title">Pack Audit - Audit technique Odoo</p>
+                      <p class="slider--item-description">Performance, securite, dette technique, qualite des modules et plan d'amelioration.</p>
                     </a>
                   </li>
-                  <li class="slider--item slider--item-center">
-                    <a href="#0">
+                  <li class="slider--item slider--item-center" data-pack="migration" data-pack-primary="true">
+                    <a href="#devis">
                       <div class="slider--item-image">
-                        <img src="assets/img/work-metiew-smith.jpg" alt="Metiew and Smith">
+                        <img src="assets/img/work-metiew-smith.jpg" alt="Migration Odoo v17 vers v18">
                       </div>
-                      <p class="slider--item-title">Metiew &amp; Smith</p>
-                      <p class="slider--item-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do.</p>
+                      <p class="slider--item-title">Pack Migration - Odoo v17 vers v18</p>
+                      <p class="slider--item-description">Upgrade version, tests fonctionnels, corrections et mise en production controlee.</p>
                     </a>
                   </li>
-                  <li class="slider--item slider--item-right">
-                    <a href="#0">
+                  <li class="slider--item slider--item-right" data-pack="integration" data-pack-primary="true">
+                    <a href="#devis">
                       <div class="slider--item-image">
-                        <img src="assets/img/work-alex-nowak.jpg" alt="Alex Nowak">
+                        <img src="assets/img/work-alex-nowak.jpg" alt="Integration Odoo et Shopify">
                       </div>
-                      <p class="slider--item-title">Alex Nowak</p>
-                      <p class="slider--item-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do.</p>
+                      <p class="slider--item-title">Pack Integration - Odoo + Shopify</p>
+                      <p class="slider--item-description">Synchronisation commandes, stock, clients et facturation en temps reel.</p>
+                    </a>
+                  </li>
+                  <li class="slider--item" data-pack="support" data-pack-primary="true">
+                    <a href="#devis">
+                      <div class="slider--item-image">
+                        <img src="assets/img/work-victory.jpg" alt="Support et maintenance Odoo">
+                      </div>
+                      <p class="slider--item-title">Pack Support - Maintenance Odoo</p>
+                      <p class="slider--item-description">Prise en charge corrective et evolutive pour maintenir une plateforme stable.</p>
+                    </a>
+                  </li>
+                  <li class="slider--item" data-pack="support">
+                    <a href="#devis">
+                      <div class="slider--item-image">
+                        <img src="assets/img/work-metiew-smith.jpg" alt="Securite et sauvegarde Odoo">
+                      </div>
+                      <p class="slider--item-title">Pack Support - Securite et sauvegarde</p>
+                      <p class="slider--item-description">Protection des donnees, plan de backup et procedure de restauration.</p>
+                    </a>
+                  </li>
+                  <li class="slider--item" data-pack="support">
+                    <a href="#devis">
+                      <div class="slider--item-image">
+                        <img src="assets/img/work-alex-nowak.jpg" alt="Configuration serveur Odoo">
+                      </div>
+                      <p class="slider--item-title">Pack Support - Configuration serveur</p>
+                      <p class="slider--item-description">Dimensionnement, securisation et optimisation de votre infrastructure.</p>
+                    </a>
+                  </li>
+                  <li class="slider--item" data-pack="support">
+                    <a href="#devis">
+                      <div class="slider--item-image">
+                        <img src="assets/img/work-victory.jpg" alt="Installation Odoo cloud ou on premise">
+                      </div>
+                      <p class="slider--item-title">Pack Support - Installation Odoo</p>
+                      <p class="slider--item-description">Mise en place complete avec parametres de base et bonnes pratiques.</p>
+                    </a>
+                  </li>
+                  <li class="slider--item" data-pack="metier">
+                    <a href="#devis">
+                      <div class="slider--item-image">
+                        <img src="assets/img/work-metiew-smith.jpg" alt="Implementation CRM Odoo">
+                      </div>
+                      <p class="slider--item-title">Pack Metier - Implementation CRM</p>
+                      <p class="slider--item-description">Pipeline commercial, automatisations et tableaux de bord de suivi.</p>
+                    </a>
+                  </li>
+                  <li class="slider--item" data-pack="metier">
+                    <a href="#devis">
+                      <div class="slider--item-image">
+                        <img src="assets/img/work-alex-nowak.jpg" alt="Implementation vente et facturation">
+                      </div>
+                      <p class="slider--item-title">Pack Metier - Vente et facturation</p>
+                      <p class="slider--item-description">Cycle devis-commande-facture optimise pour vos equipes.</p>
+                    </a>
+                  </li>
+                  <li class="slider--item" data-pack="metier">
+                    <a href="#devis">
+                      <div class="slider--item-image">
+                        <img src="assets/img/work-victory.jpg" alt="Implementation gestion de stock">
+                      </div>
+                      <p class="slider--item-title">Pack Metier - Gestion de stock</p>
+                      <p class="slider--item-description">Flux logistiques, emplacements, reappro et tracabilite.</p>
+                    </a>
+                  </li>
+                  <li class="slider--item" data-pack="metier">
+                    <a href="#devis">
+                      <div class="slider--item-image">
+                        <img src="assets/img/work-metiew-smith.jpg" alt="Implementation comptabilite Odoo">
+                      </div>
+                      <p class="slider--item-title">Pack Metier - Comptabilite Odoo</p>
+                      <p class="slider--item-description">Parametrage comptable, taxes, journaux et cloture efficace.</p>
+                    </a>
+                  </li>
+                  <li class="slider--item" data-pack="integration">
+                    <a href="#devis">
+                      <div class="slider--item-image">
+                        <img src="assets/img/work-alex-nowak.jpg" alt="Integration Odoo WooCommerce">
+                      </div>
+                      <p class="slider--item-title">Pack Integration - Odoo + WooCommerce</p>
+                      <p class="slider--item-description">Synchronisation catalogue, clients, commandes et retours.</p>
+                    </a>
+                  </li>
+                  <li class="slider--item" data-pack="formation" data-pack-primary="true">
+                    <a href="#devis">
+                      <div class="slider--item-image">
+                        <img src="assets/img/work-victory.jpg" alt="Formation administrateur et utilisateurs Odoo">
+                      </div>
+                      <p class="slider--item-title">Pack Formation - Admin et utilisateurs</p>
+                      <p class="slider--item-description">Formation ciblee par profil pour adoption rapide de la solution.</p>
+                    </a>
+                  </li>
+                  <li class="slider--item" data-pack="metier" data-pack-primary="true">
+                    <a href="#devis">
+                      <div class="slider--item-image">
+                        <img src="assets/img/work-metiew-smith.jpg" alt="Configuration point de vente Odoo">
+                      </div>
+                      <p class="slider--item-title">Pack Metier - Configuration POS</p>
+                      <p class="slider--item-description">Parametrage caisse, tickets, utilisateurs, sessions et regles magasins.</p>
+                    </a>
+                  </li>
+                  <li class="slider--item" data-pack="metier">
+                    <a href="#devis">
+                      <div class="slider--item-image">
+                        <img src="assets/img/work-alex-nowak.jpg" alt="POS multi boutiques multi sessions">
+                      </div>
+                      <p class="slider--item-title">Pack Metier - POS multi-boutiques</p>
+                      <p class="slider--item-description">Gestion centralisee de plusieurs points de vente avec supervision unifiee.</p>
+                    </a>
+                  </li>
+                  <li class="slider--item" data-pack="metier">
+                    <a href="#devis">
+                      <div class="slider--item-image">
+                        <img src="assets/img/work-victory.jpg" alt="Implementation site e-commerce Odoo">
+                      </div>
+                      <p class="slider--item-title">Pack Metier - E-commerce Odoo</p>
+                      <p class="slider--item-description">Mise en place de votre boutique connectee aux ventes, stock et logistique.</p>
+                    </a>
+                  </li>
+                  <li class="slider--item" data-pack="audit">
+                    <a href="#devis">
+                      <div class="slider--item-image">
+                        <img src="assets/img/work-metiew-smith.jpg" alt="Audit avant migration Odoo">
+                      </div>
+                      <p class="slider--item-title">Pack Audit - Avant migration</p>
+                      <p class="slider--item-description">Evaluation complete des risques avant passage vers une nouvelle version Odoo.</p>
+                    </a>
+                  </li>
+                  <li class="slider--item" data-pack="migration">
+                    <a href="#devis">
+                      <div class="slider--item-image">
+                        <img src="assets/img/work-alex-nowak.jpg" alt="Migration Odoo v16 vers v17">
+                      </div>
+                      <p class="slider--item-title">Pack Migration - Odoo v16 vers v17</p>
+                      <p class="slider--item-description">Mise a niveau complete avec verification des modules et reprise des donnees.</p>
+                    </a>
+                  </li>
+                  <li class="slider--item" data-pack="migration">
+                    <a href="#devis">
+                      <div class="slider--item-image">
+                        <img src="assets/img/work-victory.jpg" alt="Migration Odoo vers v19">
+                      </div>
+                      <p class="slider--item-title">Pack Migration - Odoo vers v19</p>
+                      <p class="slider--item-description">Preparation technique, compatibilite et trajectoire de migration securisee.</p>
+                    </a>
+                  </li>
+                  <li class="slider--item" data-pack="integration">
+                    <a href="#devis">
+                      <div class="slider--item-image">
+                        <img src="assets/img/work-metiew-smith.jpg" alt="Integration API Odoo">
+                      </div>
+                      <p class="slider--item-title">Pack Integration - API Odoo</p>
+                      <p class="slider--item-description">Connecteurs API pour echanger vos donnees avec applications tierces.</p>
+                    </a>
+                  </li>
+                  <li class="slider--item" data-pack="integration">
+                    <a href="#devis">
+                      <div class="slider--item-image">
+                        <img src="assets/img/work-alex-nowak.jpg" alt="Integration Odoo CRM externe">
+                      </div>
+                      <p class="slider--item-title">Pack Integration - Odoo + CRM externe</p>
+                      <p class="slider--item-description">Synchronisation des leads, opportunites et activites avec votre CRM existant.</p>
+                    </a>
+                  </li>
+                  <li class="slider--item" data-pack="integration">
+                    <a href="#devis">
+                      <div class="slider--item-image">
+                        <img src="assets/img/work-victory.jpg" alt="Integration Odoo ERP externe">
+                      </div>
+                      <p class="slider--item-title">Pack Integration - Odoo + ERP externe</p>
+                      <p class="slider--item-description">Interconnexion fiable entre Odoo et votre systeme ERP historique.</p>
+                    </a>
+                  </li>
+                  <li class="slider--item" data-pack="integration">
+                    <a href="#devis">
+                      <div class="slider--item-image">
+                        <img src="assets/img/work-metiew-smith.jpg" alt="Automatisation des flux de donnees Odoo">
+                      </div>
+                      <p class="slider--item-title">Pack Integration - Flux de donnees</p>
+                      <p class="slider--item-description">Automatisations metiers pour reduire les ressaisies et les erreurs operationnelles.</p>
+                    </a>
+                  </li>
+                  <li class="slider--item" data-pack="integration">
+                    <a href="#devis">
+                      <div class="slider--item-image">
+                        <img src="assets/img/work-alex-nowak.jpg" alt="Synchronisation des bases de donnees">
+                      </div>
+                      <p class="slider--item-title">Pack Integration - Synchronisation BDD</p>
+                      <p class="slider--item-description">Synchronisation bidirectionnelle des donnees critiques entre systemes.</p>
+                    </a>
+                  </li>
+                  <li class="slider--item" data-pack="metier">
+                    <a href="#devis">
+                      <div class="slider--item-image">
+                        <img src="assets/img/work-victory.jpg" alt="Implementation production MRP Odoo">
+                      </div>
+                      <p class="slider--item-title">Pack Metier - Production MRP</p>
+                      <p class="slider--item-description">Planification fabrication, nomenclatures et suivi atelier avec Odoo MRP.</p>
                     </a>
                   </li>
                 </ul>
@@ -128,134 +804,171 @@
               </div>
             </div>
           </li>
-          <li class="l-section section">
+          <li id="methode" class="l-section section">
             <div class="about">
               <div class="about--banner">
-                <h2>We<br>believe in<br>passionate<br>people</h2>
-                <a href="#0">Career
-                  <span>
-                    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 150 118" style="enable-background:new 0 0 150 118;" xml:space="preserve">
-                    <g transform="translate(0.000000,118.000000) scale(0.100000,-0.100000)">
-                      <path d="M870,1167c-34-17-55-57-46-90c3-15,81-100,194-211l187-185l-565-1c-431,0-571-3-590-13c-55-28-64-94-18-137c21-20,33-20,597-20h575l-192-193C800,103,794,94,849,39c20-20,39-29,61-29c28,0,63,30,298,262c147,144,272,271,279,282c30,51,23,60-219,304C947,1180,926,1196,870,1167z"/>
-                    </g>
-                    </svg>
-                  </span>
-                </a>
-                <img src="assets/img/about-visual.png" alt="About Us">
+                <h2>Une<br>methode<br>claire et<br>orientee resultat</h2>
+                <a href="#devis">Demarrer un projet</a>
+                <img src="assets/img/about-visual.png" alt="Methode de projet Odoo">
               </div>
               <div class="about--options">
-                <a href="#0">
-                  <h3>Winners</h3>
+                <a href="#methode">
+                  <h3>Cadrage</h3>
                 </a>
-                <a href="#0">
-                  <h3>Philosophy</h3>
+                <a href="#methode">
+                  <h3>Execution</h3>
                 </a>
-                <a href="#0">
-                  <h3>History</h3>
+                <a href="#methode">
+                  <h3>Suivi</h3>
                 </a>
               </div>
-            </div>
-          </li>
-          <li class="l-section section">
-            <div class="contact">
-              <div class="contact--lockup">
-                <div class="modal">
-                  <div class="modal--information">
-                    <p>Pawia 5, 31-154 Kraków, Poland</p>
-                    <a href="mailto:ouremail@gmail.com">ouremail@gmail.com</a>
-                    <a href="tel:+148126287560">+48 12 628 75 60</a>
-                  </div>
-                  <ul class="modal--options">
-                    <li><a href="#0">Bēhance</a></li>
-                    <li><a href="#0">dribbble</a></li>
-                    <li><a href="mailto:ouremail@gmail.com">Contact Us</a></li>
+              <div class="about--details">
+                <p><strong>Notre approche:</strong> on commence par comprendre vos process, puis on livre rapidement des actions utiles et mesurables.</p>
+                <p><strong>Objectif:</strong> reduire les frictions, fiabiliser vos donnees et accelerer vos equipes sans complexifier votre usage d Odoo.</p>
+                <p><strong>Resultat attendu:</strong> un projet lisible, des etapes courtes, un suivi clair et une adoption plus rapide par vos utilisateurs.</p>
+              </div>
+              <div class="method-cards">
+                <div class="method-card">
+                  <p class="method-step">Etape 1</p>
+                  <h3>Analyse & cadrage</h3>
+                  <p>Audit des besoins, lecture des flux, identification des points bloquants et priorisation des actions a fort impact.</p>
+                  <ul>
+                    <li>ateliers de cadrage</li>
+                    <li>liste des risques</li>
+                    <li>plan de travail priorise</li>
+                  </ul>
+                </div>
+                <div class="method-card">
+                  <p class="method-step">Etape 2</p>
+                  <h3>Execution & livraison</h3>
+                  <p>Configuration, developpement, integration et parametres de recette avec un point de validation regulier.</p>
+                  <ul>
+                    <li>configuration Odoo</li>
+                    <li>developpements utiles</li>
+                    <li>tests de validation</li>
+                  </ul>
+                </div>
+                <div class="method-card">
+                  <p class="method-step">Etape 3</p>
+                  <h3>Suivi & optimisation</h3>
+                  <p>Accompagnement au demarrage, corrections rapides et ajustements selon vos retours et vos KPI metier.</p>
+                  <ul>
+                    <li>support post-livraison</li>
+                    <li>stabilisation</li>
+                    <li>ameliorations continues</li>
                   </ul>
                 </div>
               </div>
             </div>
           </li>
-          <li class="l-section section">
+          <li id="contact" class="l-section section">
+            <div class="contact">
+              <div class="contact--lockup">
+                <div class="modal">
+                  <div class="modal--information">
+                    <p>Intervention a distance et sur site (France / Europe)</p>
+                    <a href="mailto:nada.asnl.dev@gmail.com">nada.asnl.dev@gmail.com</a>
+                    <a href="tel:+212614550116">+212614550116</a>
+                  </div>
+                  <ul class="modal--options">
+                    <li><a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+                    <li><a href="https://calendly.com" target="_blank" rel="noopener noreferrer">Calendly</a></li>
+                    <li><a href="mailto:nada.asnl.dev@gmail.com">Ecrire un email</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li id="devis" class="l-section section">
             <div class="hire">
-              <h2>You want us to do</h2>
-              <!-- checkout formspree.io for easy form setup -->
-              <form class="work-request">
-                <div class="work-request--options">
-                  <span class="options-a">
-                    <input id="opt-1" type="checkbox" value="app design">
-                    <label for="opt-1">
-                      <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                      viewBox="0 0 150 111" style="enable-background:new 0 0 150 111;" xml:space="preserve">
-                      <g transform="translate(0.000000,111.000000) scale(0.100000,-0.100000)">
-                        <path d="M950,705L555,310L360,505C253,612,160,700,155,700c-6,0-44-34-85-75l-75-75l278-278L550-5l475,475c261,261,475,480,475,485c0,13-132,145-145,145C1349,1100,1167,922,950,705z"/>
-                      </g>
-                      </svg>
-                      App Design
-                    </label>
-                    <input id="opt-2" type="checkbox" value="graphic design">
-                    <label for="opt-2">
-                      <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                      viewBox="0 0 150 111" style="enable-background:new 0 0 150 111;" xml:space="preserve">
-                      <g transform="translate(0.000000,111.000000) scale(0.100000,-0.100000)">
-                        <path d="M950,705L555,310L360,505C253,612,160,700,155,700c-6,0-44-34-85-75l-75-75l278-278L550-5l475,475c261,261,475,480,475,485c0,13-132,145-145,145C1349,1100,1167,922,950,705z"/>
-                      </g>
-                      </svg>
-                      Graphic Design
-                    </label>
-                    <input id="opt-3" type="checkbox" value="motion design">
-                    <label for="opt-3">
-                      <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                      viewBox="0 0 150 111" style="enable-background:new 0 0 150 111;" xml:space="preserve">
-                      <g transform="translate(0.000000,111.000000) scale(0.100000,-0.100000)">
-                        <path d="M950,705L555,310L360,505C253,612,160,700,155,700c-6,0-44-34-85-75l-75-75l278-278L550-5l475,475c261,261,475,480,475,485c0,13-132,145-145,145C1349,1100,1167,922,950,705z"/>
-                      </g>
-                      </svg>
-                      Motion Design
-                    </label>
-                  </span>
-                  <span class="options-b">
-                    <input id="opt-4" type="checkbox" value="ux design">
-                    <label for="opt-4">
-                      <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                      viewBox="0 0 150 111" style="enable-background:new 0 0 150 111;" xml:space="preserve">
-                      <g transform="translate(0.000000,111.000000) scale(0.100000,-0.100000)">
-                        <path d="M950,705L555,310L360,505C253,612,160,700,155,700c-6,0-44-34-85-75l-75-75l278-278L550-5l475,475c261,261,475,480,475,485c0,13-132,145-145,145C1349,1100,1167,922,950,705z"/>
-                      </g>
-                      </svg>
-                      UX Design
-                    </label>
-                    <input id="opt-5" type="checkbox" value="webdesign">
-                    <label for="opt-5">
-                      <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                      viewBox="0 0 150 111" style="enable-background:new 0 0 150 111;" xml:space="preserve">
-                      <g transform="translate(0.000000,111.000000) scale(0.100000,-0.100000)">
-                        <path d="M950,705L555,310L360,505C253,612,160,700,155,700c-6,0-44-34-85-75l-75-75l278-278L550-5l475,475c261,261,475,480,475,485c0,13-132,145-145,145C1349,1100,1167,922,950,705z"/>
-                      </g>
-                      </svg>
-                      Webdesign
-                    </label>
-                    <input id="opt-6" type="checkbox" value="marketing">
-                    <label for="opt-6">
-                      <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                      viewBox="0 0 150 111" style="enable-background:new 0 0 150 111;" xml:space="preserve">
-                      <g transform="translate(0.000000,111.000000) scale(0.100000,-0.100000)">
-                        <path d="M950,705L555,310L360,505C253,612,160,700,155,700c-6,0-44-34-85-75l-75-75l278-278L550-5l475,475c261,261,475,480,475,485c0,13-132,145-145,145C1349,1100,1167,922,950,705z"/>
-                      </g>
-                      </svg>
-                      Marketing
-                    </label>
-                  </span>
-                </div>
-                <div class="work-request--information">
-                  <div class="information-name">
-                    <input id="name" type="text" spellcheck="false">
-                    <label for="name">Name</label>
-                  </div>
-                  <div class="information-email">
-                    <input id="email" type="email" spellcheck="false">
-                    <label for="email">Email</label>
+              <h2>Parlez-moi de votre projet Odoo</h2>
+              <form class="work-request" action="https://formsubmit.co/nada.asnl.dev@gmail.com" method="POST">
+                <input type="hidden" name="_subject" value="Nouveau lead depuis le site ASNL TECH">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" id="selected-pack" name="selected_pack" value="">
+                <input type="hidden" id="selected-pack-services" name="selected_pack_services" value="">
+
+                <div class="work-request-group">
+                  <h3>Choix du pack</h3>
+                  <div class="work-request--options">
+                    <span class="options-a">
+                      <input id="opt-1" type="checkbox" name="services[]" value="Pack Audit">
+                      <label for="opt-1">Pack Audit</label>
+
+                      <input id="opt-2" type="checkbox" name="services[]" value="Pack Migration">
+                      <label for="opt-2">Pack Migration</label>
+
+                      <input id="opt-3" type="checkbox" name="services[]" value="Pack Integration">
+                      <label for="opt-3">Pack Integration</label>
+                    </span>
+
+                    <span class="options-b">
+                      <input id="opt-4" type="checkbox" name="services[]" value="Pack Support">
+                      <label for="opt-4">Pack Support</label>
+
+                      <input id="opt-5" type="checkbox" name="services[]" value="Pack Formation">
+                      <label for="opt-5">Pack Formation</label>
+
+                      <input id="opt-6" type="checkbox" name="services[]" value="Pack Metier">
+                      <label for="opt-6">Pack Metier</label>
+                    </span>
                   </div>
                 </div>
-                <input type="submit" value="Send Request">
+
+                <p id="selected-pack-note" class="selected-pack-note">Cliquez sur un pack dans la section Services pour preselectionner votre demande.</p>
+                <div id="selected-pack-services-preview" class="selected-pack-services"></div>
+
+                <div class="work-request-group">
+                  <h3>Coordonnees</h3>
+                  <div class="work-request--information">
+                    <div class="information-field">
+                      <input id="last-name" type="text" name="nom" spellcheck="false" required>
+                      <label for="last-name">Nom</label>
+                    </div>
+                    <div class="information-field">
+                      <input id="first-name" type="text" name="prenom" spellcheck="false" required>
+                      <label for="first-name">Prenom</label>
+                    </div>
+                    <div class="information-field">
+                      <input id="email" type="email" name="email" spellcheck="false" required>
+                      <label for="email">Adresse email</label>
+                    </div>
+                    <div class="information-field">
+                      <input id="phone" type="tel" name="telephone" spellcheck="false" required>
+                      <label for="phone">Numero telephone</label>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="work-request-group">
+                  <h3>Adresse</h3>
+                  <div class="work-request--information">
+                    <div class="information-field information-field--full">
+                      <input id="address" type="text" name="adresse" spellcheck="false" required>
+                      <label for="address">Adresse</label>
+                    </div>
+                    <div class="information-field">
+                      <input id="city" type="text" name="ville" spellcheck="false" required>
+                      <label for="city">Ville</label>
+                    </div>
+                    <div class="information-field">
+                      <input id="country" type="text" name="pays" spellcheck="false" required>
+                      <label for="country">Pays</label>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="work-request-group">
+                  <h3>Votre besoin</h3>
+                  <div class="work-request--information">
+                    <div class="information-field information-field--full">
+                      <textarea id="comment" name="commentaire" spellcheck="false" required></textarea>
+                      <label for="comment">Commentaire</label>
+                    </div>
+                  </div>
+                </div>
+
+                <input type="submit" value="Envoyer la demande">
               </form>
             </div>
           </li>
@@ -264,16 +977,191 @@
     </div>
   </div>
   <ul class="outer-nav">
-    <li class="is-active">Home</li>
-    <li>Works</li>
-    <li>About</li>
+    <li class="is-active">Accueil</li>
+    <li>Services</li>
+    <li>Methode</li>
     <li>Contact</li>
-    <li>Hire us</li>
+    <li>Devis</li>
   </ul>
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="assets/js/vendor/jquery-2.2.4.min.js"><\/script>')</script>
-<script src="assets/js/functions-min.js"></script>
+<script src="assets/js/vendor/hammer-2.0.8.js"></script>
+<script src="assets/js/functions.js"></script>
+<script>
+  (function($) {
+    if (!$) return;
+
+    var packMap = {
+      audit: 'opt-1',
+      migration: 'opt-2',
+      integration: 'opt-3',
+      support: 'opt-4',
+      formation: 'opt-5',
+      metier: 'opt-6'
+    };
+
+    var packServices = {
+      audit: [
+        'Audit technique et fonctionnel',
+        'Priorisation des corrections',
+        'Roadmap d optimisation'
+      ],
+      migration: [
+        'Preparation pre-migration',
+        'Reprise des donnees',
+        'Tests et validation post-migration'
+      ],
+      integration: [
+        'Connecteurs API',
+        'Synchronisation e-commerce/CRM/ERP',
+        'Automatisation des flux de donnees'
+      ],
+      support: [
+        'Maintenance corrective',
+        'Maintenance evolutive',
+        'Securite, sauvegarde et supervision'
+      ],
+      formation: [
+        'Formation administrateurs',
+        'Formation utilisateurs metier',
+        'Guides de bonnes pratiques'
+      ],
+      metier: [
+        'Implementation CRM/Ventes',
+        'Stock, comptabilite, POS',
+        'MRP et processus operationnels'
+      ]
+    };
+
+    var packLabelByKey = {
+      audit: 'Pack Audit',
+      migration: 'Pack Migration',
+      integration: 'Pack Integration',
+      support: 'Pack Support',
+      formation: 'Pack Formation',
+      metier: 'Pack Metier'
+    };
+
+    var keyByCheckboxId = {
+      'opt-1': 'audit',
+      'opt-2': 'migration',
+      'opt-3': 'integration',
+      'opt-4': 'support',
+      'opt-5': 'formation',
+      'opt-6': 'metier'
+    };
+
+    function renderPackServices(keys) {
+      var $preview = $('#selected-pack-services-preview');
+      var $panel = $('#pack-services-panel');
+      if (!keys.length) {
+        $preview.empty();
+        $panel.addClass('is-empty').html('<h3>Selectionnez un pack pour filtrer les services</h3><p>Les services correspondants s afficheront ici avant la demande de devis.</p><div class="pack-actions"><a href="#devis">Aller au devis</a></div>');
+        $('#selected-pack-services').val('');
+        return;
+      }
+
+      var html = '<p>Services inclus pour le pack coche:</p>';
+      var panelHtml = '';
+      var submittedLines = [];
+
+      keys.forEach(function(key) {
+        var services = packServices[key] || [];
+        var packLabel = packLabelByKey[key] || key;
+
+        html += '<div class="pack-block">';
+        html += '<p class="pack-title">' + packLabel + '</p>';
+        html += '<ul>';
+
+        submittedLines.push(packLabel + ': ' + services.join(', '));
+
+        services.forEach(function(service) {
+          html += '<li>' + service + '</li>';
+        });
+
+        html += '</ul>';
+        html += '</div>';
+
+        panelHtml += '<h3>' + packLabel + '</h3>';
+        panelHtml += '<ul>';
+        services.forEach(function(service) {
+          panelHtml += '<li>' + service + '</li>';
+        });
+        panelHtml += '</ul>';
+      });
+
+      $preview.html(html);
+      $panel.removeClass('is-empty').html(panelHtml + '<div class="pack-actions"><a href="#devis">Continuer vers le devis</a></div>');
+      $('#selected-pack-services').val(submittedLines.join(' | '));
+    }
+
+    function syncFromCheckedPacks() {
+      var selectedKeys = [];
+
+      $('input[name="services[]"]:checked').each(function() {
+        var key = keyByCheckboxId[this.id];
+        if (key) {
+          selectedKeys.push(key);
+        }
+      });
+
+      $('.service-pack-tags span').removeClass('is-selected');
+      selectedKeys.forEach(function(key) {
+        $('.service-pack-tags span[data-pack="' + key + '"]').addClass('is-selected');
+      });
+
+      if (selectedKeys.length === 1) {
+        $('#selected-pack').val(packLabelByKey[selectedKeys[0]]);
+        $('#selected-pack-note').text('Pack preselectionne: ' + packLabelByKey[selectedKeys[0]]);
+      } else if (selectedKeys.length > 1) {
+        $('#selected-pack').val(selectedKeys.map(function(key) { return packLabelByKey[key]; }).join(', '));
+        $('#selected-pack-note').text('Packs preselectionnes: ' + selectedKeys.length);
+      } else {
+        $('#selected-pack').val('');
+        $('#selected-pack-note').text('Cliquez sur un pack dans la section Services pour preselectionner votre demande.');
+      }
+
+      renderPackServices(selectedKeys);
+    }
+
+    function applyPackSelection(packKey) {
+      var targetId = packMap[packKey];
+      if (!targetId) return;
+
+      $('input[name="services[]"]').prop('checked', false);
+      $('#' + targetId).prop('checked', true);
+
+      var selectedValue = $('#' + targetId).val();
+      $('#selected-pack').val(selectedValue);
+      $('#selected-pack-note').text('Pack preselectionne: ' + selectedValue);
+
+      $('.service-pack-tags span').removeClass('is-selected');
+      $('.service-pack-tags span[data-pack="' + packKey + '"]').addClass('is-selected');
+
+      if (window.applySliderFilter) {
+        window.applySliderFilter(packKey);
+      }
+
+      renderPackServices([packKey]);
+    }
+
+    $('.service-pack-tags').on('click', 'span[data-pack]', function() {
+      applyPackSelection($(this).data('pack'));
+    });
+
+    $('.service-pack-tags').on('keydown', 'span[data-pack]', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        applyPackSelection($(this).data('pack'));
+      }
+    });
+
+    $('input[name="services[]"]').on('change', function() {
+      syncFromCheckedPacks();
+    });
+  })(window.jQuery);
+</script>
 </body>
 </html>
