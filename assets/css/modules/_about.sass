@@ -1,19 +1,33 @@
+// Compact, centered, and visually improved about section
 .about
   position: relative
   display: flex
-  width: 900px
-  max-width: 75%
-  height: 100%
   flex-direction: column
-  justify-content: center
-  margin: 0 auto
+  width: 900px
+  max-width: 98vw
+  min-width: 320px
+  margin: 40px auto 0 auto
+  padding: 32px 24px 24px 24px
+  background: rgba(30, 18, 36, 0.92)
+  border-radius: 18px
+  box-shadow: 0 4px 32px 0 rgba(30,18,36,0.18)
 
   @media (max-width: 1180px)
-    max-width: 100%
+    width: 820px
+    max-width: 96vw
+    min-width: 280px
+    margin: 32px auto 0 auto
+    padding: 28px 18px 18px 18px
+    background: rgba(30, 18, 36, 0.97)
+    border-radius: 20px
+    box-shadow: 0 6px 32px 0 rgba(30,18,36,0.22)
+    width: 100vw
+    padding: 0
 
   &--banner
     position: relative
-    height: 475px
+    min-height: 260px
+    height: auto
 
     &::before
       content: ""
@@ -22,7 +36,7 @@
       left: 200px
       transform: rotate(-25deg)
       border: 5px solid $highlight
-      border-right-color: transparent
+      min-height: 180px
       border-bottom-color: transparent
 
     &::after
@@ -37,20 +51,22 @@
 
     h2
       position: relative
-      margin-top: 35px
-      font-size: 68px
+      margin-top: 18px
+      font-size: 48px
       font-weight: 900
-      line-height: 1
+      line-height: 1.1
       z-index: 1
+      color: $odoo-accent
+      text-shadow: 1px 1px 6px rgba(0,0,0,0.7)
 
-      &::before
-        content: ""
-        position: absolute
-        top: 60px
-        left: 268px
-        width: 30px
-        height: 30px
-        background-color: $highlight
+        position: relative
+        margin: 0 0 0 0
+        font-size: 38px
+        font-weight: 900
+        line-height: 1.15
+        z-index: 1
+        color: $odoo-accent
+        text-shadow: 1px 1px 6px rgba(0,0,0,0.7)
         border-radius: 50%
 
       &::after
@@ -63,34 +79,48 @@
         background-color: $highlight
 
     a
-      padding: 5px 17px 5px 0
+      padding: 10px 28px
       text-decoration: none
-      color: $white
+      color: $color-white !important
       font-weight: 700
       text-transform: uppercase
-      background-color: transparent
-
-      &:hover
-        svg
-          left: 10px
-
+      background: $odoo-primary !important
+      border-radius: 8px
+      border: 2px solid $odoo-accent !important
+      font-size: 18px
+      box-shadow: 0 2px 12px 0 rgba(30,18,36,0.18)
+      transition: background 0.2s
+      display: inline-flex
+      align-items: center
+      margin-top: 18px
+      opacity: 1 !important
+      visibility: visible !important
+      font-size: 17px
+      background: $odoo-accent !important
+      color: $odoo-primary-dark !important
+      // Correction d'imbrication
       svg
         position: relative
         left: 5px
-        width: 15px
-        fill: $white
+        width: 18px
+        fill: $color-white
         transition: left .2s ease-in-out
+  p, strong
+    color: $color-white
+    font-size: 20px
+    text-shadow: 1px 1px 6px rgba(0,0,0,0.7)
+    margin-bottom: 10px
 
     img
       position: absolute
       bottom: -90px
       right: -12px
 
-  &--options
+      font-size: 18px
     display: flex
-    max-width: 600px
+      margin-bottom: 8px
     justify-content: space-between
-    margin: 0
+    margin: 0 0 24px 0
     padding: 0
     list-style: none
 
@@ -99,17 +129,17 @@
       width: 150px
       height: 75px
       text-decoration: none
-      color: $white
+      margin: 0 0 18px 0
       border: 10px solid $highlight
       background:
         position: center
         size: cover
         repeat: no-repeat
-
-      &:nth-child(1)
+        width: 150px
+        height: 60px
         background-image: url("../img/about-winners.jpg")
 
-      &:nth-child(2)
+        border: 6px solid $highlight
         background-image: url("../img/about-philosophy.jpg")
 
       &:nth-child(3)
@@ -127,63 +157,107 @@
       text-transform: uppercase
       transition: bottom .2s ease-in-out, left .2s ease-in-out
 
+// Responsive adjustments
 @media (max-width: 767px)
-
   .about
-
     &--banner
-      height: 305px
-
-      &::before
-        top: 0
-        left: 125px
-
-      &::after
-        top: 35px
-        left: 260px
-
+      min-height: 180px
+        font-size: 15px
       h2
         margin-top: 10px
-        font-size: 44px
-
-        &::before
-          top: 28px
-          left: 168px
-
-        &::after
-          top: 163px
-          left: 163px
-
+        font-size: 32px
       img
-        width: 315px
+        width: 180px
+    &--options
+      flex-direction: column
+      gap: 8px
+      max-width: 100vw
+      margin: 0 0 12px 0
+      a
+        width: 100%
+        height: 60px
+        font-size: 14px
+  // Méthode : grille compacte et harmonieuse
+  .about .method-cards
+    display: flex
+    flex-wrap: wrap
+    justify-content: center
+    gap: 18px
+    margin-top: 18px
+    margin-bottom: 0
 
+    .method-card
+      background: rgba(40, 30, 50, 0.93)
+      border: 1.5px solid $odoo-accent
+      border-radius: 14px
+      box-shadow: 0 2px 12px 0 rgba(30,18,36,0.10)
+      width: 270px
+      min-width: 220px
+      max-width: 98vw
+      margin: 0 0 0 0
+      padding: 18px 16px 14px 16px
+      display: flex
+      flex-direction: column
+      align-items: flex-start
+      transition: box-shadow .2s
+      &:hover
+        box-shadow: 0 4px 24px 0 rgba(30,18,36,0.18)
+      .method-step
+        font-size: 15px
+        font-weight: 700
+        color: $odoo-accent
+        margin-bottom: 2px
+        letter-spacing: 0.5px
+      h3
+        font-size: 19px
+        margin: 0 0 6px 0
+        color: $odoo-primary-light
+        font-weight: 800
+      p
+        font-size: 15px
+        margin: 0 0 8px 0
+        color: $color-white
+      ul
+        margin: 0 0 0 14px
+        padding: 0
+        li
+          font-size: 14px
+          margin-bottom: 2px
+          color: #e0e0e0
+
+  @media (max-width: 900px)
+    .about .method-cards
+      gap: 10px
+      .method-card
+        width: 98vw
+        min-width: unset
+        padding: 14px 8px
+        h3
+          font-size: 16px
+        p, ul li
+          font-size: 13px
+
+  @media (max-width: 600px)
+    .about .method-cards
+      flex-direction: column
+      gap: 6px
+      .method-card
+        width: 100%
+        padding: 10px 4px
+        h3
+          font-size: 15px
+        p, ul li
+          font-size: 12px
 @media (max-width: 600px)
-
   .about
-
+    padding: 0
     &--banner
-      height: auto
-
-      &::before
-        left: 155px
-
-      &::after
-        left: 310px
-
+      min-height: 120px
       h2
-        margin-top: 0
-        font-size: 55px
-
-        &::before
-          top: 43px
-          left: 214px
-
-        &::after
-          top: 205px
-          left: 205px
-
+        font-size: 22px
       img
         display: none
-
     &--options
       display: none
+  .about .method-cards
+    gap: 6px

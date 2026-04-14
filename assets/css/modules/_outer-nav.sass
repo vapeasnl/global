@@ -53,6 +53,23 @@
   &.is-vis
     visibility: visible
 
+  li
+    color: $color-white !important
+    font-size: 22px
+    font-weight: 700
+    text-shadow: 1px 1px 6px rgba(0,0,0,0.7)
+    background: rgba(30,18,36,0.7)
+    border-radius: 8px
+    margin-bottom: 12px
+    padding: 8px 0
+    transition: background 0.2s
+    &.is-active
+      color: $odoo-accent !important
+      background: $color-white !important
+      border: 2px solid $odoo-accent
+      box-shadow: 0 2px 12px 0 rgba(30,18,36,0.18)
+      text-shadow: none
+
   &--return
     position: absolute
     top: 0

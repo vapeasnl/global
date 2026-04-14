@@ -14,19 +14,21 @@
   & > li
     position: relative
     top: -5px
-    color: $white
-    font-size: 6px
+    color: $odoo-accent
+    font-size: 16px
+    font-weight: 700
     cursor: pointer
+    text-shadow: 1px 1px 6px rgba(0,0,0,0.7)
 
     span
       position: relative
       top: 3px
       left: 10px
-      color: $white
+      color: $color-white
       font-size: 14px
-      font-weight: 300
-      opacity: 0
-      visibility: hidden
+      font-weight: 700
+      opacity: 1
+      visibility: visible
 
     &::before
       position: absolute
@@ -52,10 +54,11 @@
     content: "05"
 
   li.is-active
-    color: $highlight
+    color: $odoo-accent
     transition: color .4s ease-in-out
 
     span
+      color: $odoo-accent
       opacity: 1
       visibility: visible
       transition: opacity .4s ease-in-out

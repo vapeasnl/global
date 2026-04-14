@@ -1,3 +1,35 @@
+@import 'base/odoo-vars'
+// Contraste pour les panels de packs et formulaires
+.pack-services-panel, .work-request, .method-cards, .contact--lockup .modal
+	background: rgba(30, 18, 36, 0.92) !important
+	color: $color-white !important
+	border-radius: 18px
+	box-shadow: 0 4px 32px 0 rgba(30,18,36,0.18)
+
+.pack-services-panel h3, .pack-title, .work-request-group h3, .method-card h3
+	color: $odoo-accent !important
+
+.pack-services-panel .pack-actions a
+	background: $odoo-primary !important
+	color: $color-white !important
+	border: 1px solid $odoo-accent !important
+	border-radius: 8px
+
+.pack-services-panel .pack-actions a:hover
+	background: $odoo-accent !important
+	color: $odoo-primary-dark !important
+
+.service-pack-tags span
+	background: rgba(241,196,15,0.12) !important
+	color: $odoo-accent !important
+	border: 1px solid $odoo-accent !important
+
+.service-pack-tags span.is-selected
+	background: $odoo-accent !important
+	color: $odoo-primary-dark !important
+
+.selected-pack-note, .selected-pack-services, .method-card p, .method-card ul, .method-card li
+	color: #e0e0e0 !important
 // This is the single file output by sass. It is intended to ONLY @import other files.
 
 

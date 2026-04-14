@@ -1,0 +1,5109 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ASNL TECH | Consultant Odoo, Audit, Migration, Intégration</title>
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23875a7b'/><text x='50' y='65' font-size='70' font-weight='bold' text-anchor='middle' fill='%23ffffff' font-family='Arial'>A</text></svg>"
+    />
+
+    <!-- Premium Fonts from Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap 5 CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap Icons (Premium Icon Set) -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+
+    <style>
+      /* ====================================
+           CSS VARIABLES - Easy Theme Customization
+           ==================================== */
+      :root {
+        /* Palette Odoo */
+        --primary-blue: #875a7b; /* Violet Odoo */
+        --primary-blue-dark: #6d4862;
+        --primary-blue-light: #a87ca0;
+        --accent-yellow: #f1c40f;
+        --teal: #017e84;
+        --gray-50: #f8fafc;
+        --gray-100: #f3f0ee;
+        --gray-200: #e2e8f0;
+        --gray-300: #d9c9d6;
+        --gray-400: #bdbdbd;
+        --gray-500: #8e8e8e;
+        --gray-600: #4b3b4f;
+        --gray-700: #34495e;
+        --gray-800: #2c2c2c;
+        --gray-900: #1a1a1a;
+        --black: #000000;
+        --white: #ffffff;
+
+        /* Typography */
+        --font-display: "Playfair Display", serif;
+        --font-body: "DM Sans", sans-serif;
+
+        /* Spacing & Layout */
+        --section-padding: 100px;
+        --container-max: 1200px;
+
+        /* Shadows */
+        --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+        --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+
+        /* Transitions */
+        --transition-fast: 150ms ease-in-out;
+        --transition-base: 300ms ease-in-out;
+        --transition-slow: 500ms ease-in-out;
+      }
+
+      /* ====================================
+           BASE STYLES & RESET
+           ==================================== */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: var(--font-body);
+        font-size: 16px;
+        line-height: 1.7;
+        color: var(--gray-700);
+        background-color: var(--white);
+        overflow-x: hidden;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family: var(--font-display);
+        font-weight: 700;
+        line-height: 1.2;
+        color: var(--gray-900);
+        margin-bottom: 1rem;
+      }
+
+      h1 {
+        font-size: clamp(2.5rem, 5vw, 4rem);
+      }
+      h2 {
+        font-size: clamp(2rem, 4vw, 3rem);
+      }
+      h3 {
+        font-size: clamp(1.5rem, 3vw, 2rem);
+      }
+
+      p {
+        margin-bottom: 1rem;
+        color: var(--gray-600);
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+        transition: all var(--transition-base);
+      }
+
+      img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      section {
+        padding: var(--section-padding) 0;
+      }
+
+      /* ====================================
+           NAVBAR CENTERED LAYOUT
+           ==================================== */
+      .navbar-inner {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        position: relative;
+        gap: 0;
+      }
+
+      .navbar-brand {
+        position: absolute;
+        left: 0;
+        margin: 0;
+      }
+
+      .navbar-toggler {
+        position: absolute;
+        right: 0;
+        margin: 0;
+      }
+
+      .navbar-collapse {
+        flex-grow: 0 !important;
+        margin: 0 !important;
+      }
+
+      .navbar-nav {
+        display: flex;
+        gap: 0;
+        margin: 0;
+      }
+
+      @media (max-width: 991px) {
+        .navbar-inner {
+          justify-content: space-between;
+          position: relative;
+        }
+
+        .navbar-brand {
+          position: static;
+        }
+
+        .navbar-toggler {
+          position: static;
+        }
+
+        .navbar-collapse {
+          flex-basis: 100% !important;
+          margin-top: 1rem !important;
+        }
+
+        .navbar-nav {
+          width: 100%;
+          flex-direction: column;
+          gap: 0;
+        }
+      }
+      /* ====================================
+           HERO SECTION
+           ==================================== */
+      .hero-section {
+        position: relative;
+        min-height: 90vh;
+        display: flex;
+        align-items: center;
+        background: linear-gradient(
+          135deg,
+          var(--gray-900) 0%,
+          var(--gray-800) 100%
+        );
+        overflow: hidden;
+        padding: 0;
+      }
+
+      .hero-section::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: url("https://images.unsplash.com/photo-1553877522-43269d4ea984?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8d29ya3xlbnwwfHwwfHx8MA%3D%3D");
+        background-size: cover;
+        background-position: center;
+        opacity: 0.15;
+        z-index: 0;
+      }
+
+      .hero-section::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(
+          135deg,
+          rgba(37, 99, 235, 0.1) 0%,
+          rgba(15, 23, 42, 0.3) 100%
+        );
+        z-index: 1;
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 2;
+        color: var(--white);
+        animation: fadeInUp 1s ease-out;
+      }
+
+      .hero-content h1 {
+        color: var(--white);
+        margin-bottom: 1.5rem;
+        font-weight: 700;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      }
+
+      .hero-content p.lead {
+        font-size: 1.25rem;
+        margin-bottom: 2.5rem;
+        color: var(--gray-100);
+        max-width: 600px;
+        line-height: 1.8;
+      }
+
+      .hero-stats {
+        display: flex;
+        gap: 3rem;
+        margin-top: 3rem;
+        flex-wrap: wrap;
+      }
+
+      .hero-stat {
+        text-align: left;
+      }
+
+      .hero-stat-number {
+        font-family: var(--font-display);
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: var(--primary-blue-light);
+        display: block;
+        line-height: 1;
+        margin-bottom: 0.5rem;
+      }
+
+      .hero-stat-label {
+        font-size: 0.95rem;
+        color: var(--gray-300);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      /* ====================================
+           BUTTONS
+           ==================================== */
+      .btn-custom {
+        font-family: var(--font-body);
+        font-weight: 600;
+        padding: 1rem 2.5rem;
+        border-radius: 50px;
+        font-size: 1rem;
+        border: none;
+        cursor: pointer;
+        transition: all var(--transition-base);
+        display: inline-flex;
+        align-items: center;
+        gap: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      .btn-primary-custom {
+        background: linear-gradient(
+          135deg,
+          var(--primary-blue) 0%,
+          var(--primary-blue-dark) 100%
+        );
+        color: var(--white);
+        box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+      }
+
+      .btn-primary-custom:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+        color: var(--white);
+      }
+
+      .btn-outline-custom {
+        background: transparent;
+        color: var(--white);
+        border: 2px solid var(--white);
+      }
+
+      .btn-outline-custom:hover {
+        background: var(--white);
+        color: var(--primary-blue);
+        transform: translateY(-2px);
+      }
+
+      /* Pack-specific hover effects */
+      .pack-migration::before {
+        background: linear-gradient(
+          90deg,
+          var(--teal) 0%,
+          var(--teal) 100%
+        ) !important;
+      }
+
+      .pack-integration::before {
+        background: linear-gradient(
+          90deg,
+          var(--accent-yellow) 0%,
+          var(--accent-yellow) 100%
+        ) !important;
+      }
+
+      /* Ensure the default pack audit uses primary-blue */
+      .service-card:not(.pack-migration):not(.pack-integration)::before {
+        background: linear-gradient(
+          90deg,
+          var(--primary-blue) 0%,
+          var(--primary-blue-light) 100%
+        ) !important;
+      }
+      /* ====================================
+           ABOUT US SECTION
+           ==================================== */
+      .about-section {
+        background-color: var(--white);
+        position: relative;
+      }
+
+      .section-header {
+        text-align: center;
+        margin-bottom: 4rem;
+        animation: fadeInUp 0.8s ease-out;
+      }
+
+      .section-subtitle {
+        color: var(--primary-blue);
+        font-size: 0.95rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin-bottom: 1rem;
+        display: inline-block;
+      }
+
+      .section-title {
+        font-size: clamp(2rem, 4vw, 3rem);
+        margin-bottom: 1.5rem;
+      }
+
+      .section-description {
+        font-size: 1.125rem;
+        color: var(--gray-600);
+        max-width: 700px;
+        margin: 0 auto;
+        line-height: 1.8;
+      }
+
+      .about-image-wrapper {
+        position: relative;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: var(--shadow-xl);
+        animation: fadeInLeft 1s ease-out;
+      }
+
+      .about-image-wrapper img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform var(--transition-slow);
+      }
+
+      .about-image-wrapper:hover img {
+        transform: scale(1.05);
+      }
+
+      .about-content {
+        animation: fadeInRight 1s ease-out;
+      }
+
+      .about-content h3 {
+        margin-bottom: 1.5rem;
+        font-size: 1.75rem;
+      }
+
+      .about-content p {
+        margin-bottom: 1.5rem;
+        font-size: 1.05rem;
+        line-height: 1.8;
+      }
+
+      .feature-list {
+        list-style: none;
+        padding: 0;
+        margin: 2rem 0;
+      }
+
+      .feature-list li {
+        padding: 1rem 0;
+        display: flex;
+        align-items: flex-start;
+        gap: 1rem;
+        border-bottom: 1px solid var(--gray-200);
+      }
+
+      .feature-list li:last-child {
+        border-bottom: none;
+      }
+
+      .feature-list i {
+        color: var(--primary-blue);
+        font-size: 1.5rem;
+        flex-shrink: 0;
+      }
+
+      .feature-list-content h4 {
+        font-size: 1.1rem;
+        margin-bottom: 0.5rem;
+        color: var(--gray-900);
+      }
+
+      .feature-list-content p {
+        margin-bottom: 0;
+        font-size: 0.95rem;
+        color: var(--gray-600);
+      }
+
+      /* About Stats */
+      .about-stat {
+        padding: 1.5rem;
+      }
+
+      .about-stat-number {
+        font-family: var(--font-display);
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: var(--primary-blue);
+        display: block;
+        line-height: 1;
+        margin-bottom: 0.5rem;
+      }
+
+      .about-stat-label {
+        font-size: 0.95rem;
+        color: var(--gray-600);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-weight: 600;
+      }
+      /* ====================================
+           SERVICES SECTION
+           ==================================== */
+      .services-section {
+        background: linear-gradient(
+          180deg,
+          var(--gray-50) 0%,
+          var(--white) 100%
+        );
+      }
+
+      .service-card {
+        background: var(--white);
+        border-radius: 16px;
+        padding: 2.5rem;
+        height: 100%;
+        box-shadow: var(--shadow-md);
+        transition: all var(--transition-base);
+        border: 1px solid var(--gray-200);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .service-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(
+          90deg,
+          var(--primary-blue) 0%,
+          var(--primary-blue-light) 100%
+        );
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform var(--transition-base);
+      }
+
+      .service-card:hover {
+        transform: translateY(-8px);
+        box-shadow: var(--shadow-xl);
+      }
+
+      .service-card:hover::before {
+        transform: scaleX(1);
+      }
+
+      .service-icon {
+        width: 70px;
+        height: 70px;
+        background: linear-gradient(
+          135deg,
+          var(--primary-blue-light) 0%,
+          var(--primary-blue) 100%
+        );
+        border-radius: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1.5rem;
+        transition: all var(--transition-base);
+      }
+
+      .service-card:hover .service-icon {
+        transform: scale(1.1) rotate(5deg);
+      }
+
+      .service-icon i {
+        font-size: 2rem;
+        color: var(--white);
+      }
+
+      .service-card h3 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        color: var(--gray-900);
+      }
+
+      .service-card p {
+        font-size: 1rem;
+        line-height: 1.7;
+        color: var(--gray-600);
+        margin-bottom: 1.5rem;
+      }
+
+      .service-link {
+        color: var(--primary-blue);
+        font-weight: 600;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.95rem;
+        transition: gap var(--transition-base);
+      }
+
+      .service-link:hover {
+        gap: 1rem;
+        color: var(--primary-blue-dark);
+      }
+
+      /* Service Features List */
+      .service-features {
+        list-style: none;
+        padding: 0;
+        margin: 1.5rem 0;
+        flex-grow: 1;
+      }
+
+      .service-features li {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        margin-bottom: 0.75rem;
+        font-size: 0.95rem;
+        color: var(--gray-600);
+      }
+
+      .service-features i {
+        color: var(--primary-blue);
+        font-size: 1.1rem;
+        flex-shrink: 0;
+      }
+
+      /* Service Hidden Items */
+      .service-hidden {
+        display: none;
+        animation: fadeInUp 0.6s ease-out forwards;
+      }
+
+      .service-hidden.show {
+        display: block;
+      }
+
+      /* Show More Button */
+      #showMoreBtn {
+        transition: all var(--transition-base);
+      }
+
+      #showMoreBtn:hover {
+        transform: translateY(-2px);
+      }
+
+      #showMoreBtn.hidden {
+        display: none;
+      }
+      /* ====================================
+           CONTACT SECTION
+           ==================================== */
+      .contact-section {
+        background: linear-gradient(
+          135deg,
+          var(--gray-900) 0%,
+          var(--gray-800) 100%
+        );
+        color: var(--white);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .contact-section::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: url("https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1920&q=80");
+        background-size: cover;
+        background-position: center;
+        opacity: 0.08;
+        z-index: 0;
+      }
+
+      .contact-section .section-header {
+        position: relative;
+        z-index: 2;
+      }
+
+      .contact-section .section-subtitle {
+        color: var(--primary-blue-light);
+      }
+
+      .contact-section .section-title,
+      .contact-section .section-description {
+        color: var(--white);
+      }
+
+      .contact-info {
+        position: relative;
+        z-index: 2;
+      }
+
+      .contact-item {
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 16px;
+        padding: 2rem;
+        margin-bottom: 1.5rem;
+        transition: all var(--transition-base);
+      }
+
+      .contact-item:hover {
+        background: rgba(255, 255, 255, 0.08);
+        transform: translateX(8px);
+      }
+
+      .contact-item i {
+        font-size: 2rem;
+        color: var(--primary-blue-light);
+        margin-bottom: 1rem;
+        display: block;
+      }
+
+      .contact-item h4 {
+        color: var(--white);
+        font-size: 1.25rem;
+        margin-bottom: 0.75rem;
+      }
+
+      .contact-item p {
+        color: var(--gray-300);
+        margin-bottom: 0;
+        font-size: 1rem;
+      }
+
+      .contact-item a {
+        color: var(--primary-blue-light);
+        transition: color var(--transition-base);
+      }
+
+      .contact-item a:hover {
+        color: var(--white);
+      }
+
+      .contact-form {
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 20px;
+        padding: 3rem;
+        position: relative;
+        z-index: 2;
+      }
+
+      .form-group {
+        margin-bottom: 1.5rem;
+      }
+
+      .form-label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+        color: var(--white);
+        font-size: 0.95rem;
+      }
+
+      .form-control {
+        width: 100%;
+        padding: 1rem 1.25rem;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.08);
+        color: var(--white);
+        font-family: var(--font-body);
+        font-size: 1rem;
+        transition: all var(--transition-base);
+      }
+
+      .form-control::placeholder {
+        color: var(--gray-400);
+      }
+
+      .form-control:focus {
+        outline: none;
+        border-color: var(--primary-blue-light);
+        background: rgba(255, 255, 255, 0.12);
+        box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+      }
+
+      textarea.form-control {
+        resize: vertical;
+        min-height: 150px;
+      }
+
+      /* ====================================
+           FOOTER
+           ==================================== */
+      .footer {
+        background-color: var(--gray-900);
+        color: var(--gray-400);
+        padding: 3rem 0 1.5rem;
+      }
+
+      .footer-content {
+        border-bottom: 1px solid var(--gray-800);
+        padding-bottom: 2rem;
+        margin-bottom: 2rem;
+      }
+
+      .footer-brand {
+        font-family: var(--font-display);
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--white);
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+      }
+
+      .footer-brand img {
+        height: 35px;
+        width: auto;
+      }
+
+      .footer-brand span {
+        color: var(--primary-blue);
+      }
+
+      .footer-description {
+        color: var(--gray-400);
+        margin-bottom: 1.5rem;
+        line-height: 1.7;
+      }
+
+      .social-links {
+        display: flex;
+        gap: 1rem;
+      }
+
+      .social-link {
+        width: 45px;
+        height: 45px;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--gray-400);
+        transition: all var(--transition-base);
+      }
+
+      .social-link:hover {
+        background: var(--primary-blue);
+        border-color: var(--primary-blue);
+        color: var(--white);
+        transform: translateY(-3px);
+      }
+
+      .footer-links h5 {
+        color: var(--white);
+        font-size: 1.1rem;
+        margin-bottom: 1.5rem;
+        font-family: var(--font-body);
+      }
+
+      .footer-links ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      .footer-links li {
+        margin-bottom: 0.75rem;
+      }
+
+      .footer-links a {
+        color: var(--gray-400);
+        transition: all var(--transition-base);
+        display: inline-block;
+      }
+
+      .footer-links a:hover {
+        color: var(--primary-blue-light);
+        transform: translateX(5px);
+      }
+
+      .footer-bottom {
+        text-align: center;
+      }
+
+      .footer-bottom p {
+        margin-bottom: 0;
+        color: var(--gray-500);
+        font-size: 0.9rem;
+      }
+
+      /* ====================================
+           ANIMATIONS
+           ==================================== */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes fadeInLeft {
+        from {
+          opacity: 0;
+          transform: translateX(-30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      @keyframes fadeInRight {
+        from {
+          opacity: 0;
+          transform: translateX(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      /* Scroll animation trigger */
+      .animate-on-scroll {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.8s ease-out;
+      }
+
+      .animate-on-scroll.animated {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* ====================================
+           RESPONSIVE DESIGN
+           ==================================== */
+      @media (max-width: 991px) {
+        :root {
+          --section-padding: 60px;
+        }
+
+        .navbar-collapse {
+          background: var(--white);
+          padding: 1.5rem;
+          margin-top: 1rem;
+          border-radius: 12px;
+          box-shadow: var(--shadow-lg);
+        }
+
+        .hero-stats {
+          gap: 2rem;
+        }
+
+        .about-image-wrapper {
+          margin-bottom: 3rem;
+        }
+
+        .service-card {
+          margin-bottom: 2rem;
+        }
+
+        .contact-info {
+          margin-bottom: 3rem;
+        }
+      }
+
+      @media (max-width: 767px) {
+        .hero-section {
+          min-height: 70vh;
+        }
+
+        .hero-content h1 {
+          font-size: 2rem;
+        }
+
+        .hero-content p.lead {
+          font-size: 1.1rem;
+        }
+
+        .btn-custom {
+          padding: 0.875rem 2rem;
+          font-size: 0.9rem;
+        }
+
+        .hero-stats {
+          gap: 1.5rem;
+        }
+
+        .hero-stat-number {
+          font-size: 2rem;
+        }
+
+        .contact-form {
+          padding: 2rem;
+        }
+      }
+
+      @media (max-width: 575px) {
+        .hero-stats {
+          flex-direction: column;
+          gap: 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ====================================
+         NAVIGATION BAR
+         ==================================== -->
+    <nav class="navbar navbar-expand-lg sticky-navbar">
+          <style>
+            .sticky-navbar {
+              position: fixed;
+              top: 0;
+              left: 0;
+              width: 100%;
+              z-index: 1030;
+              transition: opacity 0.5s, transform 0.5s;
+              background: white;
+              box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+            }
+            .navbar-hidden {
+              opacity: 0;
+              pointer-events: none;
+              transform: translateY(-60px);
+            }
+            body {
+              padding-top: 70px;
+            }
+          </style>
+          <script>
+            (function() {
+              let lastScroll = 0;
+              const navbar = document.querySelector('.sticky-navbar');
+              window.addEventListener('scroll', function() {
+                const currentScroll = window.pageYOffset;
+                if (currentScroll > lastScroll && currentScroll > 80) {
+                  // Scroll down: hide navbar
+                  navbar.classList.add('navbar-hidden');
+                } else {
+                  // Scroll up: show navbar
+                  navbar.classList.remove('navbar-hidden');
+                }
+                lastScroll = currentScroll;
+              });
+            })();
+          </script>
+      <div class="container-fluid">
+        <div class="navbar-inner">
+          <a class="navbar-brand" href="#home">
+            <!-- Logo Odoo ou ton logo ici -->
+            <span style="color: var(--primary-blue); font-weight: 700"
+              >ASNL TECH</span
+            >
+            <span style="color: var(--teal); font-weight: 700"
+              >| Consultant Odoo</span
+            >
+          </a>
+          <button
+            class="navbar-toggler border-0"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+          >
+            <i
+              class="bi bi-list"
+              style="font-size: 1.75rem; color: var(--gray-900)"
+            ></i>
+          </button>
+          <div
+            class="collapse navbar-collapse justify-content-center"
+            id="navbarNav"
+          >
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="#home">Accueil</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#about">À propos</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#services">Services</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#processus">Notre méthode</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#contact">Contact</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!-- ====================================
+         HERO SECTION
+         ==================================== -->
+    <!-- Call-to-action Odoo -->
+    <div
+      style="
+        background: linear-gradient(
+          90deg,
+          var(--primary-blue-light),
+          var(--teal) 80%
+        );
+        color: var(--white);
+        padding: 0.5rem 0;
+        text-align: center;
+        font-weight: 600;
+        letter-spacing: 1px;
+      "
+    >
+      Besoin d’un expert Odoo ?
+      <a
+        href="#contact"
+        style="color: var(--accent-yellow); text-decoration: underline"
+        >Contactez-nous pour un audit gratuit</a
+      >
+    </div>
+    <section id="home" class="hero-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8">
+            <div class="hero-content">
+              <h1>Consultant Odoo : Audit, Migration, Intégration & Support</h1>
+              <p class="lead" style="font-size: 1.3rem">
+                <b>Optimisez, digitalisez, innovez !</b> ASNL TECH accompagne
+                PME, ETI et grands comptes dans la réussite de leur projet
+                Odoo : audit, migration, intégration e-commerce, développement
+                sur mesure, support et formation.
+              </p>
+              <ul style="margin-bottom: 2rem; padding-left: 1.2em">
+                <li>✔️ Diagnostic & audit complet de votre instance</li>
+                <li>✔️ Migration sécurisée (Odoo v12 à v19+)</li>
+                <li>✔️ Intégration e-commerce, CRM, ERP, API</li>
+                <li>✔️ Développements spécifiques & automatisations</li>
+                <li>✔️ Formation utilisateurs & support réactif</li>
+              </ul>
+              <div class="d-flex gap-3 flex-wrap">
+                <a href="#contact" class="btn-custom btn-primary-custom">
+                  Demander un audit
+                  <i class="bi bi-search"></i>
+                </a>
+                <a href="#services" class="btn-custom btn-outline-custom">
+                  Nos services
+                  <i class="bi bi-briefcase"></i>
+                </a>
+              </div>
+
+              <!-- Hero Stats -->
+              <div class="hero-stats">
+                <div class="hero-stat">
+                  <span class="hero-stat-number">60+</span>
+                  <span class="hero-stat-label">Projets Odoo livrés</span>
+                </div>
+                <div class="hero-stat">
+                  <span class="hero-stat-number">100%</span>
+                  <span class="hero-stat-label">Clients satisfaits</span>
+                </div>
+                <div class="hero-stat">
+                  <span class="hero-stat-number">10+ ans</span>
+                  <span class="hero-stat-label">Expertise Odoo</span>
+                </div>
+                <div class="hero-stat">
+                  <span class="hero-stat-number">24h</span>
+                  <span class="hero-stat-label">Support réactif</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================
+         PACKS ODOO SECTION
+         ==================================== -->
+
+    <section
+      id="packs"
+      style="background: var(--gray-100); padding: 80px 0 60px 0"
+    >
+      <div class="container">
+        <div class="section-header">
+          <span class="section-subtitle">Packs Odoo</span>
+          <h2 class="section-title">Des offres adaptées à chaque besoin</h2>
+          <p class="section-description">
+            Choisissez le pack qui correspond à votre projet ou demandez un
+            accompagnement sur-mesure.
+          </p>
+        </div>
+        <div class="row">
+          <!-- Pack Audit -->
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div
+              class="service-card animate-on-scroll"
+              style="
+                border-top: 4px solid var(--primary-blue);
+                display: flex;
+                flex-direction: column;
+              "
+            >
+              <div class="service-icon"><i class="bi bi-search"></i></div>
+              <h3>Pack Audit</h3>
+              <p style="margin-bottom: 1.5rem">
+                Diagnostic complet, analyse technique et fonctionnelle, rapport
+                d'audit détaillé, recommandations d'optimisation.
+              </p>
+              <ul
+                class="pack-features"
+                style="
+                  list-style: none;
+                  padding: 0;
+                  margin-bottom: 2rem;
+                  flex-grow: 1;
+                "
+              >
+                <li
+                  style="
+                    margin-bottom: 0.75rem;
+                    display: flex;
+                    align-items: flex-start;
+                    gap: 0.75rem;
+                  "
+                >
+                  <i
+                    class="bi bi-check-circle-fill"
+                    style="
+                      color: var(--primary-blue);
+                      flex-shrink: 0;
+                      margin-top: 2px;
+                    "
+                  ></i>
+                  <span>Analyse complète de votre instance</span>
+                </li>
+                <li
+                  style="
+                    margin-bottom: 0.75rem;
+                    display: flex;
+                    align-items: flex-start;
+                    gap: 0.75rem;
+                  "
+                >
+                  <i
+                    class="bi bi-check-circle-fill"
+                    style="
+                      color: var(--primary-blue);
+                      flex-shrink: 0;
+                      margin-top: 2px;
+                    "
+                  ></i>
+                  <span>Rapport détaillé</span>
+                </li>
+                <li
+                  style="
+                    margin-bottom: 0.75rem;
+                    display: flex;
+                    align-items: flex-start;
+                    gap: 0.75rem;
+                  "
+                >
+                  <i
+                    class="bi bi-check-circle-fill"
+                    style="
+                      color: var(--primary-blue);
+                      flex-shrink: 0;
+                      margin-top: 2px;
+                    "
+                  ></i>
+                  <span>Recommandations priorisées</span>
+                </li>
+                <li
+                  style="
+                    margin-bottom: 0.75rem;
+                    display: flex;
+                    align-items: flex-start;
+                    gap: 0.75rem;
+                  "
+                >
+                  <i
+                    class="bi bi-check-circle-fill"
+                    style="
+                      color: var(--primary-blue);
+                      flex-shrink: 0;
+                      margin-top: 2px;
+                    "
+                  ></i>
+                  <span>Plan d'action sur 12 mois</span>
+                </li>
+                <li
+                  style="
+                    margin-bottom: 0.75rem;
+                    display: flex;
+                    align-items: flex-start;
+                    gap: 0.75rem;
+                  "
+                >
+                  <i
+                    class="bi bi-check-circle-fill"
+                    style="
+                      color: var(--primary-blue);
+                      flex-shrink: 0;
+                      margin-top: 2px;
+                    "
+                  ></i>
+                  <span>Réunion de restitution</span>
+                </li>
+              </ul>
+              <a
+                href="#contact"
+                class="btn-custom btn-primary-custom w-100 d-flex justify-content-center"
+                style="margin-top: auto"
+              >
+                Demander un audit
+                <i class="bi bi-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Pack Migration -->
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div
+              class="service-card animate-on-scroll pack-migration"
+              style="
+                border-top: 4px solid var(--teal);
+                display: flex;
+                flex-direction: column;
+                position: relative;
+                transform: scale(1.02);
+              "
+            >
+              <div
+                style="
+                  position: absolute;
+                  top: -15px;
+                  right: 20px;
+                  background: var(--teal);
+                  color: white;
+                  padding: 0.5rem 1rem;
+                  border-radius: 20px;
+                  font-size: 0.85rem;
+                  font-weight: 600;
+                "
+              >
+                POPULAIRE
+              </div>
+              <div class="service-icon"><i class="bi bi-arrow-repeat"></i></div>
+              <h3>Pack Migration</h3>
+              <p style="margin-bottom: 1.5rem">
+                Migration sécurisée de vos données et modules vers Odoo
+                v16/v17/v19. Gestion des risques, reprise de données, validation
+                métier.
+              </p>
+              <ul
+                class="pack-features"
+                style="
+                  list-style: none;
+                  padding: 0;
+                  margin-bottom: 2rem;
+                  flex-grow: 1;
+                "
+              >
+                <li
+                  style="
+                    margin-bottom: 0.75rem;
+                    display: flex;
+                    align-items: flex-start;
+                    gap: 0.75rem;
+                  "
+                >
+                  <i
+                    class="bi bi-check-circle-fill"
+                    style="color: var(--teal); flex-shrink: 0; margin-top: 2px"
+                  ></i>
+                  <span>Audit de migration préalable</span>
+                </li>
+                <li
+                  style="
+                    margin-bottom: 0.75rem;
+                    display: flex;
+                    align-items: flex-start;
+                    gap: 0.75rem;
+                  "
+                >
+                  <i
+                    class="bi bi-check-circle-fill"
+                    style="color: var(--teal); flex-shrink: 0; margin-top: 2px"
+                  ></i>
+                  <span>Reprise de données complète</span>
+                </li>
+                <li
+                  style="
+                    margin-bottom: 0.75rem;
+                    display: flex;
+                    align-items: flex-start;
+                    gap: 0.75rem;
+                  "
+                >
+                  <i
+                    class="bi bi-check-circle-fill"
+                    style="color: var(--teal); flex-shrink: 0; margin-top: 2px"
+                  ></i>
+                  <span>Tests de validation métier</span>
+                </li>
+                <li
+                  style="
+                    margin-bottom: 0.75rem;
+                    display: flex;
+                    align-items: flex-start;
+                    gap: 0.75rem;
+                  "
+                >
+                  <i
+                    class="bi bi-check-circle-fill"
+                    style="color: var(--teal); flex-shrink: 0; margin-top: 2px"
+                  ></i>
+                  <span>Sécurisation des modules</span>
+                </li>
+                <li
+                  style="
+                    margin-bottom: 0.75rem;
+                    display: flex;
+                    align-items: flex-start;
+                    gap: 0.75rem;
+                  "
+                >
+                  <i
+                    class="bi bi-check-circle-fill"
+                    style="color: var(--teal); flex-shrink: 0; margin-top: 2px"
+                  ></i>
+                  <span>Support 1 mois post-migration</span>
+                </li>
+              </ul>
+              <a
+                href="#contact"
+                class="btn-custom btn-primary-custom w-100 d-flex justify-content-center"
+                style="margin-top: auto"
+              >
+                Demander un devis
+                <i class="bi bi-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Pack Intégration -->
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div
+              class="service-card animate-on-scroll pack-integration"
+              style="
+                border-top: 4px solid var(--accent-yellow);
+                display: flex;
+                flex-direction: column;
+              "
+            >
+              <div class="service-icon"><i class="bi bi-plug"></i></div>
+              <h3>Pack Intégration</h3>
+              <p style="margin-bottom: 1.5rem">
+                Connexion Odoo à Shopify, WooCommerce, CRM, ERP, automatisation
+                des flux, synchronisation catalogue et commandes.
+              </p>
+              <ul
+                class="pack-features"
+                style="
+                  list-style: none;
+                  padding: 0;
+                  margin-bottom: 2rem;
+                  flex-grow: 1;
+                "
+              >
+                <li
+                  style="
+                    margin-bottom: 0.75rem;
+                    display: flex;
+                    align-items: flex-start;
+                    gap: 0.75rem;
+                  "
+                >
+                  <i
+                    class="bi bi-check-circle-fill"
+                    style="
+                      color: var(--accent-yellow);
+                      flex-shrink: 0;
+                      margin-top: 2px;
+                    "
+                  ></i>
+                  <span>Intégration e-commerce (Shopify, WooCommerce)</span>
+                </li>
+                <li
+                  style="
+                    margin-bottom: 0.75rem;
+                    display: flex;
+                    align-items: flex-start;
+                    gap: 0.75rem;
+                  "
+                >
+                  <i
+                    class="bi bi-check-circle-fill"
+                    style="
+                      color: var(--accent-yellow);
+                      flex-shrink: 0;
+                      margin-top: 2px;
+                    "
+                  ></i>
+                  <span>Synchronisation catalogue & commandes</span>
+                </li>
+                <li
+                  style="
+                    margin-bottom: 0.75rem;
+                    display: flex;
+                    align-items: flex-start;
+                    gap: 0.75rem;
+                  "
+                >
+                  <i
+                    class="bi bi-check-circle-fill"
+                    style="
+                      color: var(--accent-yellow);
+                      flex-shrink: 0;
+                      margin-top: 2px;
+                    "
+                  ></i>
+                  <span>Automatisation des flux</span>
+                </li>
+                <li
+                  style="
+                    margin-bottom: 0.75rem;
+                    display: flex;
+                    align-items: flex-start;
+                    gap: 0.75rem;
+                  "
+                >
+                  <i
+                    class="bi bi-check-circle-fill"
+                    style="
+                      color: var(--accent-yellow);
+                      flex-shrink: 0;
+                      margin-top: 2px;
+                    "
+                  ></i>
+                  <span>Gestion des erreurs & logs</span>
+                </li>
+                <li
+                  style="
+                    margin-bottom: 0.75rem;
+                    display: flex;
+                    align-items: flex-start;
+                    gap: 0.75rem;
+                  "
+                >
+                  <i
+                    class="bi bi-check-circle-fill"
+                    style="
+                      color: var(--accent-yellow);
+                      flex-shrink: 0;
+                      margin-top: 2px;
+                    "
+                  ></i>
+                  <span>Documentation technique</span>
+                </li>
+              </ul>
+              <a
+                href="#contact"
+                class="btn-custom btn-primary-custom w-100 d-flex justify-content-center"
+                style="margin-top: auto"
+              >
+                Demander un devis
+                <i class="bi bi-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- CTA Section -->
+        <div
+          class="animate-on-scroll"
+          style="
+            text-align: center;
+            margin-top: 4rem;
+            padding: 3rem;
+            background: white;
+            border-radius: 16px;
+            box-shadow: var(--shadow-md);
+          "
+        >
+          <h3 style="margin-bottom: 1rem">
+            Besoin d'un accompagnement sur-mesure ?
+          </h3>
+          <p
+            style="
+              margin-bottom: 2rem;
+              color: var(--gray-600);
+              font-size: 1.05rem;
+            "
+          >
+            Nos experts analysent votre projet et vous proposent une solution
+            adaptée à vos besoins spécifiques.
+          </p>
+          <a href="#contact" class="btn-custom btn-primary-custom">
+            Demander une consultation gratuite
+            <i class="bi bi-calendar-check"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================
+         ABOUT US SECTION
+         ==================================== -->
+    <section
+      id="about"
+      class="about-section"
+      style="padding: var(--section-padding) 0; overflow: hidden"
+    >
+      <div class="container">
+        <!-- ── Section Header ── -->
+        <div class="section-header animate-on-scroll">
+          <span
+            class="section-subtitle"
+            style="display: inline-flex; align-items: center; gap: 0.4rem"
+          >
+            <i class="bi bi-award-fill" style="color: var(--primary-blue)"></i>
+            À propos de nous
+          </span>
+
+          <h2 class="section-title">
+            Votre Expert Odoo de confiance<br />
+            <span
+              style="
+                background: linear-gradient(
+                  135deg,
+                  var(--primary-blue),
+                  var(--teal)
+                );
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+              "
+              >depuis plus de 10 ans</span
+            >
+          </h2>
+
+          <!-- Ligne décorative animée -->
+          <div
+            style="
+              width: 70px;
+              height: 4px;
+              background: linear-gradient(
+                90deg,
+                var(--primary-blue),
+                var(--teal)
+              );
+              border-radius: 2px;
+              margin: 1.5rem auto 2rem;
+            "
+          ></div>
+
+          <p class="section-description">
+            <strong>ASNL TECH</strong> accompagne les entreprises dans la
+            réussite de leurs projets Odoo : implémentation, migration,
+            intégration e-commerce et optimisation métier.
+          </p>
+
+          <!-- Citation mise en valeur -->
+          <div
+            style="
+              display: inline-flex;
+              align-items: flex-start;
+              gap: 1rem;
+              background: linear-gradient(
+                135deg,
+                rgba(37, 99, 235, 0.06),
+                rgba(1, 126, 132, 0.06)
+              );
+              border-left: 4px solid var(--primary-blue);
+              padding: 1.25rem 1.75rem;
+              border-radius: 0 12px 12px 0;
+              margin: 1.5rem auto 0;
+              max-width: 680px;
+              text-align: left;
+            "
+          >
+            <i
+              class="bi bi-quote"
+              style="
+                font-size: 2rem;
+                color: var(--primary-blue);
+                opacity: 0.5;
+                flex-shrink: 0;
+                margin-top: -4px;
+              "
+            ></i>
+            <p
+              style="
+                margin: 0;
+                font-style: italic;
+                color: var(--gray-700);
+                font-size: 1.05rem;
+                line-height: 1.7;
+              "
+            >
+              Notre mission : garantir la réussite de vos projets ERP, CRM,
+              e-commerce, automatisation métier et reporting.
+            </p>
+          </div>
+
+          <!-- Badges de confiance -->
+          <!-- <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 1rem; margin-top: 2.5rem;">
+            <span style="
+              display: inline-flex; align-items: center; gap: 0.6rem;
+              background: var(--white); border: 1.5px solid rgba(37,99,235,0.15);
+              border-radius: 50px; padding: 0.6rem 1.4rem;
+              font-size: 0.9rem; font-weight: 600; color: var(--gray-700);
+              box-shadow: 0 2px 12px rgba(37,99,235,0.08);
+              transition: all 0.3s ease;
+            " onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 6px 20px rgba(37,99,235,0.15)'"
+               onmouseout="this.style.transform='';this.style.boxShadow='0 2px 12px rgba(37,99,235,0.08)'">
+              <i class="bi bi-patch-check-fill" style="color: var(--primary-blue); font-size: 1rem;"></i>
+              60+ Projets livrés
+            </span>
+            <span style="
+              display: inline-flex; align-items: center; gap: 0.6rem;
+              background: var(--white); border: 1.5px solid rgba(241,196,15,0.25);
+              border-radius: 50px; padding: 0.6rem 1.4rem;
+              font-size: 0.9rem; font-weight: 600; color: var(--gray-700);
+              box-shadow: 0 2px 12px rgba(241,196,15,0.1);
+              transition: all 0.3s ease;
+            " onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 6px 20px rgba(241,196,15,0.2)'"
+               onmouseout="this.style.transform='';this.style.boxShadow='0 2px 12px rgba(241,196,15,0.1)'">
+              <i class="bi bi-star-fill" style="color: var(--accent-yellow); font-size: 1rem;"></i>
+              100% Clients satisfaits
+            </span>
+            <span style="
+              display: inline-flex; align-items: center; gap: 0.6rem;
+              background: var(--white); border: 1.5px solid rgba(1,126,132,0.15);
+              border-radius: 50px; padding: 0.6rem 1.4rem;
+              font-size: 0.9rem; font-weight: 600; color: var(--gray-700);
+              box-shadow: 0 2px 12px rgba(1,126,132,0.08);
+              transition: all 0.3s ease;
+            " onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 6px 20px rgba(1,126,132,0.15)'"
+               onmouseout="this.style.transform='';this.style.boxShadow='0 2px 12px rgba(1,126,132,0.08)'">
+              <i class="bi bi-shield-fill-check" style="color: var(--teal); font-size: 1rem;"></i>
+              Support 24h/24
+            </span>
+          </div> -->
+        </div>
+
+        <!-- ── Image + Contenu ── -->
+        <div class="row align-items-center g-5">
+          <div class="col-lg-6">
+            <div
+              class="about-image-wrapper animate-on-scroll"
+              style="position: relative"
+            >
+              <img
+                src="https://plus.unsplash.com/premium_photo-1661526579038-aea87aecd898?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fHRlYW13b3JrfGVufDB8fDB8fHww"
+                alt="Team collaboration in modern office"
+              />
+              <!-- Badge flottant -->
+              <div
+                style="
+                  position: absolute;
+                  bottom: 2rem;
+                  left: -1.5rem;
+                  background: var(--white);
+                  border-radius: 16px;
+                  padding: 1rem 1.5rem;
+                  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+                  display: flex;
+                  align-items: center;
+                  gap: 1rem;
+                  min-width: 200px;
+                "
+              >
+                <div
+                  style="
+                    width: 48px;
+                    height: 48px;
+                    background: linear-gradient(
+                      135deg,
+                      var(--primary-blue),
+                      var(--teal)
+                    );
+                    border-radius: 12px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    flex-shrink: 0;
+                  "
+                >
+                  <i
+                    class="bi bi-trophy-fill"
+                    style="color: white; font-size: 1.4rem"
+                  ></i>
+                </div>
+                <div>
+                  <div
+                    style="
+                      font-size: 1.4rem;
+                      font-weight: 700;
+                      color: var(--gray-900);
+                      line-height: 1;
+                    "
+                  >
+                    60+
+                  </div>
+                  <div
+                    style="
+                      font-size: 0.8rem;
+                      color: var(--gray-500);
+                      font-weight: 600;
+                      text-transform: uppercase;
+                      letter-spacing: 0.5px;
+                    "
+                  >
+                    Projets réussis
+                  </div>
+                </div>
+              </div>
+              <!-- Badge flottant 2 -->
+              <div
+                style="
+                  position: absolute;
+                  top: 2rem;
+                  right: -1.5rem;
+                  background: linear-gradient(
+                    135deg,
+                    var(--primary-blue),
+                    var(--primary-blue-dark)
+                  );
+                  border-radius: 16px;
+                  padding: 1rem 1.5rem;
+                  box-shadow: 0 8px 30px rgba(37, 99, 235, 0.3);
+                  display: flex;
+                  align-items: center;
+                  gap: 0.75rem;
+                  color: white;
+                "
+              >
+                <i class="bi bi-clock-fill" style="font-size: 1.3rem"></i>
+                <div>
+                  <div
+                    style="font-size: 1.2rem; font-weight: 700; line-height: 1"
+                  >
+                    10+ ans
+                  </div>
+                  <div
+                    style="font-size: 0.78rem; opacity: 0.85; font-weight: 500"
+                  >
+                    d'expertise Odoo
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="about-content animate-on-scroll">
+              <!-- Feature List améliorée -->
+              <ul class="feature-list" style="margin-bottom: 2rem">
+                <li style="padding: 1.1rem 0">
+                  <div
+                    style="
+                      width: 44px;
+                      height: 44px;
+                      flex-shrink: 0;
+                      background: linear-gradient(
+                        135deg,
+                        rgba(37, 99, 235, 0.1),
+                        rgba(37, 99, 235, 0.2)
+                      );
+                      border-radius: 12px;
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                    "
+                  >
+                    <i
+                      class="bi bi-patch-check-fill"
+                      style="color: var(--primary-blue); font-size: 1.3rem"
+                    ></i>
+                  </div>
+                  <div class="feature-list-content">
+                    <h4>Expérience certifiée</h4>
+                    <p>
+                      Plus de 60 projets Odoo livrés avec succès, tous secteurs
+                      (services, industrie, retail, e-commerce, B2B…)
+                    </p>
+                  </div>
+                </li>
+                <li style="padding: 1.1rem 0">
+                  <div
+                    style="
+                      width: 44px;
+                      height: 44px;
+                      flex-shrink: 0;
+                      background: linear-gradient(
+                        135deg,
+                        rgba(1, 126, 132, 0.1),
+                        rgba(1, 126, 132, 0.2)
+                      );
+                      border-radius: 12px;
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                    "
+                  >
+                    <i
+                      class="bi bi-people-fill"
+                      style="color: var(--teal); font-size: 1.3rem"
+                    ></i>
+                  </div>
+                  <div class="feature-list-content">
+                    <h4>Expertise technique & métier</h4>
+                    <p>
+                      Développement custom, intégration API, automatisation,
+                      reporting avancé, formation utilisateurs
+                    </p>
+                  </div>
+                </li>
+                <li style="padding: 1.1rem 0">
+                  <div
+                    style="
+                      width: 44px;
+                      height: 44px;
+                      flex-shrink: 0;
+                      background: linear-gradient(
+                        135deg,
+                        rgba(241, 196, 15, 0.15),
+                        rgba(241, 196, 15, 0.3)
+                      );
+                      border-radius: 12px;
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                    "
+                  >
+                    <i
+                      class="bi bi-trophy-fill"
+                      style="color: var(--accent-yellow); font-size: 1.3rem"
+                    ></i>
+                  </div>
+                  <div class="feature-list-content">
+                    <h4>Accompagnement premium</h4>
+                    <p>
+                      Conseil stratégique, support réactif, suivi projet,
+                      amélioration continue, relation de confiance durable
+                    </p>
+                  </div>
+                </li>
+              </ul>
+
+              <!-- CTA inline -->
+              <a
+                href="#contact"
+                class="btn-custom btn-primary-custom"
+                style="display: inline-flex; align-items: center; gap: 0.6rem"
+              >
+                Discutons de votre projet
+                <i class="bi bi-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Stats Section ── -->
+        <div
+          class="animate-on-scroll"
+          style="
+            margin-top: 5rem;
+            padding-top: 3rem;
+            border-top: 1px solid var(--gray-200);
+          "
+        >
+          <div class="row text-center g-4">
+            <div class="col-md-3 col-sm-6">
+              <div
+                class="about-stat"
+                style="
+                  background: var(--white);
+                  border-radius: 16px;
+                  padding: 2rem 1.5rem;
+                  box-shadow: var(--shadow-md);
+                  border: 1px solid var(--gray-100);
+                  transition: all 0.3s ease;
+                "
+                onmouseover="
+                  this.style.transform = 'translateY(-4px)';
+                  this.style.boxShadow = 'var(--shadow-xl)';
+                "
+                onmouseout="
+                  this.style.transform = '';
+                  this.style.boxShadow = 'var(--shadow-md)';
+                "
+              >
+                <div
+                  style="
+                    width: 56px;
+                    height: 56px;
+                    background: linear-gradient(
+                      135deg,
+                      rgba(37, 99, 235, 0.1),
+                      rgba(37, 99, 235, 0.2)
+                    );
+                    border-radius: 14px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin: 0 auto 1rem;
+                  "
+                >
+                  <i
+                    class="bi bi-briefcase-fill"
+                    style="color: var(--primary-blue); font-size: 1.5rem"
+                  ></i>
+                </div>
+                <div class="about-stat-number">60+</div>
+                <div class="about-stat-label">Projets Odoo</div>
+              </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+              <div
+                class="about-stat"
+                style="
+                  background: var(--white);
+                  border-radius: 16px;
+                  padding: 2rem 1.5rem;
+                  box-shadow: var(--shadow-md);
+                  border: 1px solid var(--gray-100);
+                  transition: all 0.3s ease;
+                "
+                onmouseover="
+                  this.style.transform = 'translateY(-4px)';
+                  this.style.boxShadow = 'var(--shadow-xl)';
+                "
+                onmouseout="
+                  this.style.transform = '';
+                  this.style.boxShadow = 'var(--shadow-md)';
+                "
+              >
+                <div
+                  style="
+                    width: 56px;
+                    height: 56px;
+                    background: linear-gradient(
+                      135deg,
+                      rgba(241, 196, 15, 0.15),
+                      rgba(241, 196, 15, 0.3)
+                    );
+                    border-radius: 14px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin: 0 auto 1rem;
+                  "
+                >
+                  <i
+                    class="bi bi-star-fill"
+                    style="color: var(--accent-yellow); font-size: 1.5rem"
+                  ></i>
+                </div>
+                <div class="about-stat-number">100%</div>
+                <div class="about-stat-label">Clients satisfaits</div>
+              </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+              <div
+                class="about-stat"
+                style="
+                  background: var(--white);
+                  border-radius: 16px;
+                  padding: 2rem 1.5rem;
+                  box-shadow: var(--shadow-md);
+                  border: 1px solid var(--gray-100);
+                  transition: all 0.3s ease;
+                "
+                onmouseover="
+                  this.style.transform = 'translateY(-4px)';
+                  this.style.boxShadow = 'var(--shadow-xl)';
+                "
+                onmouseout="
+                  this.style.transform = '';
+                  this.style.boxShadow = 'var(--shadow-md)';
+                "
+              >
+                <div
+                  style="
+                    width: 56px;
+                    height: 56px;
+                    background: linear-gradient(
+                      135deg,
+                      rgba(1, 126, 132, 0.1),
+                      rgba(1, 126, 132, 0.2)
+                    );
+                    border-radius: 14px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin: 0 auto 1rem;
+                  "
+                >
+                  <i
+                    class="bi bi-calendar-check-fill"
+                    style="color: var(--teal); font-size: 1.5rem"
+                  ></i>
+                </div>
+                <div class="about-stat-number">10+</div>
+                <div class="about-stat-label">Ans d'expertise</div>
+              </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+              <div
+                class="about-stat"
+                style="
+                  background: var(--white);
+                  border-radius: 16px;
+                  padding: 2rem 1.5rem;
+                  box-shadow: var(--shadow-md);
+                  border: 1px solid var(--gray-100);
+                  transition: all 0.3s ease;
+                "
+                onmouseover="
+                  this.style.transform = 'translateY(-4px)';
+                  this.style.boxShadow = 'var(--shadow-xl)';
+                "
+                onmouseout="
+                  this.style.transform = '';
+                  this.style.boxShadow = 'var(--shadow-md)';
+                "
+              >
+                <div
+                  style="
+                    width: 56px;
+                    height: 56px;
+                    background: linear-gradient(
+                      135deg,
+                      rgba(37, 99, 235, 0.1),
+                      rgba(1, 126, 132, 0.15)
+                    );
+                    border-radius: 14px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin: 0 auto 1rem;
+                  "
+                >
+                  <i
+                    class="bi bi-headset"
+                    style="color: var(--primary-blue); font-size: 1.5rem"
+                  ></i>
+                </div>
+                <div class="about-stat-number">24h</div>
+                <div class="about-stat-label">Support réactif</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Values Section ── -->
+        <div class="animate-on-scroll" style="margin-top: 5rem">
+          <div style="text-align: center; margin-bottom: 3rem">
+            <span class="section-subtitle">Ce qui nous définit</span>
+            <h3
+              style="
+                font-size: clamp(1.5rem, 3vw, 2rem);
+                color: var(--gray-900);
+                margin-top: 0.5rem;
+              "
+            >
+              Nos valeurs fondamentales
+            </h3>
+          </div>
+
+          <div class="row g-4">
+            <!-- Value 1: Excellence -->
+            <div class="col-md-4">
+              <div
+                style="
+                  background: var(--white);
+                  border-radius: 20px;
+                  padding: 2.5rem 2rem;
+                  text-align: center;
+                  box-shadow: var(--shadow-md);
+                  border: 1px solid var(--gray-100);
+                  height: 100%;
+                  transition: all 0.3s ease;
+                  position: relative;
+                  overflow: hidden;
+                "
+                onmouseover="
+                  this.style.transform = 'translateY(-6px)';
+                  this.style.boxShadow = 'var(--shadow-xl)';
+                "
+                onmouseout="
+                  this.style.transform = '';
+                  this.style.boxShadow = 'var(--shadow-md)';
+                "
+              >
+                <!-- Accent top bar -->
+                <div
+                  style="
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    height: 4px;
+                    background: linear-gradient(90deg, #a87ca0, #875a7b);
+                  "
+                ></div>
+                <div
+                  style="
+                    width: 80px;
+                    height: 80px;
+                    background: linear-gradient(135deg, #a87ca0, #875a7b);
+                    border-radius: 20px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin: 0 auto 1.75rem;
+                    box-shadow: 0 8px 20px rgba(168, 124, 160, 0.3);
+                  "
+                >
+                  <svg width="38" height="38" viewBox="0 0 24 24" fill="white">
+                    <path
+                      d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+                    ></path>
+                  </svg>
+                </div>
+                <h4
+                  style="
+                    font-size: 1.3rem;
+                    margin-bottom: 1rem;
+                    color: var(--gray-900);
+                    font-weight: 700;
+                  "
+                >
+                  Excellence
+                </h4>
+                <p
+                  style="
+                    color: var(--gray-600);
+                    margin-bottom: 0;
+                    font-size: 0.95rem;
+                    line-height: 1.7;
+                  "
+                >
+                  Qualité irréprochable dans chaque projet, attention aux
+                  détails et engagement total envers vos objectifs.
+                </p>
+              </div>
+            </div>
+
+            <!-- Value 2: Partenariat -->
+            <div class="col-md-4">
+              <div
+                style="
+                  background: var(--white);
+                  border-radius: 20px;
+                  padding: 2.5rem 2rem;
+                  text-align: center;
+                  box-shadow: var(--shadow-md);
+                  border: 1px solid var(--gray-100);
+                  height: 100%;
+                  transition: all 0.3s ease;
+                  position: relative;
+                  overflow: hidden;
+                "
+                onmouseover="
+                  this.style.transform = 'translateY(-6px)';
+                  this.style.boxShadow = 'var(--shadow-xl)';
+                "
+                onmouseout="
+                  this.style.transform = '';
+                  this.style.boxShadow = 'var(--shadow-md)';
+                "
+              >
+                <div
+                  style="
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    height: 4px;
+                    background: linear-gradient(90deg, #017e84, #00a8b0);
+                  "
+                ></div>
+                <div
+                  style="
+                    width: 80px;
+                    height: 80px;
+                    background: linear-gradient(135deg, #017e84, #00a8b0);
+                    border-radius: 20px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin: 0 auto 1.75rem;
+                    box-shadow: 0 8px 20px rgba(1, 126, 132, 0.3);
+                  "
+                >
+                  <svg
+                    width="38"
+                    height="38"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="white"
+                    stroke-width="2"
+                  >
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="9" cy="7" r="4"></circle>
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                  </svg>
+                </div>
+                <h4
+                  style="
+                    font-size: 1.3rem;
+                    margin-bottom: 1rem;
+                    color: var(--gray-900);
+                    font-weight: 700;
+                  "
+                >
+                  Partenariat
+                </h4>
+                <p
+                  style="
+                    color: var(--gray-600);
+                    margin-bottom: 0;
+                    font-size: 0.95rem;
+                    line-height: 1.7;
+                  "
+                >
+                  Relation de confiance durable, écoute active et transparence
+                  totale à chaque étape de votre projet.
+                </p>
+              </div>
+            </div>
+
+            <!-- Value 3: Innovation -->
+            <div class="col-md-4">
+              <div
+                style="
+                  background: var(--white);
+                  border-radius: 20px;
+                  padding: 2.5rem 2rem;
+                  text-align: center;
+                  box-shadow: var(--shadow-md);
+                  border: 1px solid var(--gray-100);
+                  height: 100%;
+                  transition: all 0.3s ease;
+                  position: relative;
+                  overflow: hidden;
+                "
+                onmouseover="
+                  this.style.transform = 'translateY(-6px)';
+                  this.style.boxShadow = 'var(--shadow-xl)';
+                "
+                onmouseout="
+                  this.style.transform = '';
+                  this.style.boxShadow = 'var(--shadow-md)';
+                "
+              >
+                <div
+                  style="
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    height: 4px;
+                    background: linear-gradient(90deg, #f1c40f, #ffd700);
+                  "
+                ></div>
+                <div
+                  style="
+                    width: 80px;
+                    height: 80px;
+                    background: linear-gradient(135deg, #f1c40f, #ffd700);
+                    border-radius: 20px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin: 0 auto 1.75rem;
+                    box-shadow: 0 8px 20px rgba(241, 196, 15, 0.35);
+                  "
+                >
+                  <svg width="38" height="38" viewBox="0 0 24 24" fill="white">
+                    <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path>
+                  </svg>
+                </div>
+                <h4
+                  style="
+                    font-size: 1.3rem;
+                    margin-bottom: 1rem;
+                    color: var(--gray-900);
+                    font-weight: 700;
+                  "
+                >
+                  Innovation
+                </h4>
+                <p
+                  style="
+                    color: var(--gray-600);
+                    margin-bottom: 0;
+                    font-size: 0.95rem;
+                    line-height: 1.7;
+                  "
+                >
+                  Solutions modernes, technologies à jour et amélioration
+                  continue pour rester à la pointe.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ====================================
+         SERVICES SECTION
+         ==================================== -->
+    <section id="services" class="services-section">
+      <div class="container">
+        <!-- Section Header -->
+        <div class="section-header">
+          <span class="section-subtitle">Services Odoo</span>
+          <h2 class="section-title">Des solutions Odoo pour chaque besoin</h2>
+          <p class="section-description">
+            Audit, migration, intégration, développement spécifique, support,
+            formation : bénéficiez d'un accompagnement complet pour tirer le
+            meilleur d'Odoo.
+          </p>
+        </div>
+
+        <div class="row" id="servicesContainer">
+          <!-- Service Card 1 -->
+          <div class="col-lg-4 col-md-6 mb-4 service-item">
+            <div class="service-card animate-on-scroll">
+              <div class="service-icon">
+                <i class="bi bi-lightbulb-fill"></i>
+              </div>
+              <h3>Audit & Optimisation Odoo</h3>
+              <p>
+                Analyse complète de votre instance Odoo, recommandations
+                d'optimisation, plan d'action priorisé et accompagnement à la
+                mise en œuvre.
+              </p>
+              <ul class="service-features">
+                <li>
+                  <i class="bi bi-check-circle-fill"></i> Analyse technique
+                  complète
+                </li>
+                <li>
+                  <i class="bi bi-check-circle-fill"></i> Rapport détaillé
+                </li>
+                <li>
+                  <i class="bi bi-check-circle-fill"></i> Plan d'action priorisé
+                </li>
+              </ul>
+              <a href="#contact" class="service-link">
+                Demander un devis
+                <i class="bi bi-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Service Card 2 -->
+          <div class="col-lg-4 col-md-6 mb-4 service-item">
+            <div
+              class="service-card animate-on-scroll"
+              style="animation-delay: 0.1s"
+            >
+              <div class="service-icon">
+                <i class="bi bi-arrow-repeat"></i>
+              </div>
+              <h3>Migration Odoo</h3>
+              <p>
+                Migration sécurisée de vos données et modules vers Odoo
+                v16/v17/v19. Gestion des risques, reprise de données, validation
+                métier.
+              </p>
+              <ul class="service-features">
+                <li>
+                  <i class="bi bi-check-circle-fill"></i> Audit de migration
+                </li>
+                <li>
+                  <i class="bi bi-check-circle-fill"></i> Reprise de données
+                </li>
+                <li>
+                  <i class="bi bi-check-circle-fill"></i> Support post-migration
+                </li>
+              </ul>
+              <a href="#contact" class="service-link">
+                Demander un devis
+                <i class="bi bi-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Service Card 3 -->
+          <div class="col-lg-4 col-md-6 mb-4 service-item">
+            <div
+              class="service-card animate-on-scroll"
+              style="animation-delay: 0.2s"
+            >
+              <div class="service-icon">
+                <i class="bi bi-plug"></i>
+              </div>
+              <h3>Intégration API & E-commerce</h3>
+              <p>
+                Connexion Odoo à Shopify, WooCommerce, CRM, ERP tiers :
+                synchronisation catalogue, clients, commandes, automatisation
+                des flux.
+              </p>
+              <ul class="service-features">
+                <li>
+                  <i class="bi bi-check-circle-fill"></i> Intégration e-commerce
+                </li>
+                <li>
+                  <i class="bi bi-check-circle-fill"></i> Synchronisation
+                  données
+                </li>
+                <li>
+                  <i class="bi bi-check-circle-fill"></i> Automatisation flux
+                </li>
+              </ul>
+              <a href="#contact" class="service-link">
+                Demander un devis
+                <i class="bi bi-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Service Card 4 -->
+          <div class="col-lg-4 col-md-6 mb-4 service-item">
+            <div
+              class="service-card animate-on-scroll"
+              style="animation-delay: 0.3s"
+            >
+              <div class="service-icon">
+                <i class="bi bi-code-square"></i>
+              </div>
+              <h3>Développement Spécifique</h3>
+              <p>
+                Modules sur-mesure, automatisations, reporting avancé,
+                adaptation métier : faites évoluer Odoo selon vos besoins.
+              </p>
+              <ul class="service-features">
+                <li>
+                  <i class="bi bi-check-circle-fill"></i> Modules personnalisés
+                </li>
+                <li>
+                  <i class="bi bi-check-circle-fill"></i> Automatisations métier
+                </li>
+                <li>
+                  <i class="bi bi-check-circle-fill"></i> Reporting avancé
+                </li>
+              </ul>
+              <a href="#contact" class="service-link">
+                Demander un devis
+                <i class="bi bi-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Service Card 5 -->
+          <div class="col-lg-4 col-md-6 mb-4 service-item">
+            <div
+              class="service-card animate-on-scroll"
+              style="animation-delay: 0.4s"
+            >
+              <div class="service-icon">
+                <i class="bi bi-mortarboard-fill"></i>
+              </div>
+              <h3>Formation & Support</h3>
+              <p>
+                Formation utilisateurs, support technique réactif, assistance à
+                la prise en main, maintenance évolutive et corrective,
+                documentation personnalisée.
+              </p>
+              <ul class="service-features">
+                <li>
+                  <i class="bi bi-check-circle-fill"></i> Formation utilisateurs
+                </li>
+                <li><i class="bi bi-check-circle-fill"></i> Support 24h/24</li>
+                <li><i class="bi bi-check-circle-fill"></i> Documentation</li>
+              </ul>
+              <a href="#contact" class="service-link">
+                Demander un devis
+                <i class="bi bi-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Service Card 6 -->
+          <div class="col-lg-4 col-md-6 mb-4 service-item">
+            <div
+              class="service-card animate-on-scroll"
+              style="animation-delay: 0.5s"
+            >
+              <div class="service-icon">
+                <i class="bi bi-chat-left-dots-fill"></i>
+              </div>
+              <h3>Conseil & Accompagnement</h3>
+              <p>
+                Conseil stratégique, accompagnement projet, gestion du
+                changement : sécurisez la réussite de votre transformation
+                digitale avec Odoo.
+              </p>
+              <ul class="service-features">
+                <li>
+                  <i class="bi bi-check-circle-fill"></i> Conseil stratégique
+                </li>
+                <li>
+                  <i class="bi bi-check-circle-fill"></i> Gestion du changement
+                </li>
+                <li><i class="bi bi-check-circle-fill"></i> Suivi projet</li>
+              </ul>
+              <a href="#contact" class="service-link">
+                Demander un devis
+                <i class="bi bi-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Service Card 7 - HIDDEN -->
+          <div class="col-lg-4 col-md-6 mb-4 service-item service-hidden">
+            <div
+              class="service-card animate-on-scroll"
+              style="animation-delay: 0.6s"
+            >
+              <div class="service-icon">
+                <i class="bi bi-graph-up"></i>
+              </div>
+              <h3>Reporting & Analytics</h3>
+              <p>
+                Tableaux de bord personnalisés, KPI métier, analyses avancées,
+                export de données, visualisations interactives pour une
+                meilleure prise de décision.
+              </p>
+              <ul class="service-features">
+                <li>
+                  <i class="bi bi-check-circle-fill"></i> Tableaux de bord
+                  custom
+                </li>
+                <li><i class="bi bi-check-circle-fill"></i> KPI métier</li>
+                <li>
+                  <i class="bi bi-check-circle-fill"></i> Analyses avancées
+                </li>
+              </ul>
+              <a href="#contact" class="service-link">
+                Demander un devis
+                <i class="bi bi-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Service Card 8 - HIDDEN -->
+          <div class="col-lg-4 col-md-6 mb-4 service-item service-hidden">
+            <div
+              class="service-card animate-on-scroll"
+              style="animation-delay: 0.7s"
+            >
+              <div class="service-icon">
+                <i class="bi bi-shield-lock"></i>
+              </div>
+              <h3>Sécurité & Conformité</h3>
+              <p>
+                Audit de sécurité, gestion des accès, conformité RGPD,
+                sauvegarde et récupération de données, protection contre les
+                risques.
+              </p>
+              <ul class="service-features">
+                <li>
+                  <i class="bi bi-check-circle-fill"></i> Audit de sécurité
+                </li>
+                <li>
+                  <i class="bi bi-check-circle-fill"></i> Gestion des accès
+                </li>
+                <li><i class="bi bi-check-circle-fill"></i> Conformité RGPD</li>
+              </ul>
+              <a href="#contact" class="service-link">
+                Demander un devis
+                <i class="bi bi-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Service Card 9 - HIDDEN -->
+          <div class="col-lg-4 col-md-6 mb-4 service-item service-hidden">
+            <div
+              class="service-card animate-on-scroll"
+              style="animation-delay: 0.8s"
+            >
+              <div class="service-icon">
+                <i class="bi bi-gear"></i>
+              </div>
+              <h3>Maintenance & Support</h3>
+              <p>
+                Support technique continu, maintenance corrective et évolutive,
+                gestion des incidents, mises à jour, assistance prioritaire.
+              </p>
+              <ul class="service-features">
+                <li><i class="bi bi-check-circle-fill"></i> Support 24h/24</li>
+                <li>
+                  <i class="bi bi-check-circle-fill"></i> Maintenance corrective
+                </li>
+                <li><i class="bi bi-check-circle-fill"></i> Mises à jour</li>
+              </ul>
+              <a href="#contact" class="service-link">
+                Demander un devis
+                <i class="bi bi-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Service Card 10 - HIDDEN -->
+          <div class="col-lg-4 col-md-6 mb-4 service-item service-hidden">
+            <div
+              class="service-card animate-on-scroll"
+              style="animation-delay: 0.9s"
+            >
+              <div class="service-icon">
+                <i class="bi bi-diagram-3"></i>
+              </div>
+              <h3>Optimisation des Processus</h3>
+              <p>
+                Analyse et optimisation des workflows, automatisation des tâches
+                répétitives, amélioration de la productivité et réduction des
+                coûts opérationnels.
+              </p>
+              <ul class="service-features">
+                <li>
+                  <i class="bi bi-check-circle-fill"></i> Analyse des workflows
+                </li>
+                <li>
+                  <i class="bi bi-check-circle-fill"></i> Automatisation des
+                  tâches
+                </li>
+                <li>
+                  <i class="bi bi-check-circle-fill"></i> Optimisation des coûts
+                </li>
+              </ul>
+              <a href="#contact" class="service-link">
+                Demander un devis
+                <i class="bi bi-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Service Card 11 - HIDDEN -->
+          <div class="col-lg-4 col-md-6 mb-4 service-item service-hidden">
+            <div
+              class="service-card animate-on-scroll"
+              style="animation-delay: 1s"
+            >
+              <div class="service-icon">
+                <i class="bi bi-cloud-arrow-up"></i>
+              </div>
+              <h3>Cloud & Infrastructure</h3>
+              <p>
+                Déploiement sur cloud, gestion d'infrastructure, scalabilité,
+                haute disponibilité, sauvegarde automatisée et disaster
+                recovery.
+              </p>
+              <ul class="service-features">
+                <li>
+                  <i class="bi bi-check-circle-fill"></i> Déploiement cloud
+                </li>
+                <li>
+                  <i class="bi bi-check-circle-fill"></i> Haute disponibilité
+                </li>
+                <li>
+                  <i class="bi bi-check-circle-fill"></i> Disaster recovery
+                </li>
+              </ul>
+              <a href="#contact" class="service-link">
+                Demander un devis
+                <i class="bi bi-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Service Card 12 - HIDDEN -->
+          <div class="col-lg-4 col-md-6 mb-4 service-item service-hidden">
+            <div
+              class="service-card animate-on-scroll"
+              style="animation-delay: 1.1s"
+            >
+              <div class="service-icon">
+                <i class="bi bi-person-check"></i>
+              </div>
+              <h3>Gestion des Ressources Humaines</h3>
+              <p>
+                Module RH complet, gestion des paies, congés, recrutement,
+                évaluations, intégration avec systèmes externes.
+              </p>
+              <ul class="service-features">
+                <li>
+                  <i class="bi bi-check-circle-fill"></i> Gestion des paies
+                </li>
+                <li>
+                  <i class="bi bi-check-circle-fill"></i> Gestion des congés
+                </li>
+                <li><i class="bi bi-check-circle-fill"></i> Recrutement</li>
+              </ul>
+              <a href="#contact" class="service-link">
+                Demander un devis
+                <i class="bi bi-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Show More Button -->
+        <div
+          style="text-align: center; margin-top: 1.5rem; margin-bottom: 1.5rem"
+        >
+          <button id="showMoreBtn" class="btn-custom btn-primary-custom">
+            Afficher plus de services
+            <i class="bi bi-chevron-down"></i>
+          </button>
+        </div>
+        <!-- Services CTA - Appears after all services -->
+        <div
+          id="servicesCTA"
+          style="
+            margin-top: 2rem;
+            text-align: center;
+            display: none;
+            padding: 2rem;
+            background: var(--gray-50);
+            border-radius: 16px;
+          "
+        >
+          <h3 style="margin-bottom: 1.5rem; color: var(--gray-900)">
+            Vous ne trouvez pas ce que vous cherchez ?
+          </h3>
+          <p
+            style="
+              margin-bottom: 2rem;
+              color: var(--gray-600);
+              font-size: 1.05rem;
+              max-width: 600px;
+              margin-left: auto;
+              margin-right: auto;
+            "
+          >
+            Contactez-nous pour discuter de vos besoins spécifiques. Nous
+            proposons des solutions sur-mesure adaptées à votre contexte.
+          </p>
+          <a href="#contact" class="btn-custom btn-primary-custom">
+            Demander une consultation gratuite
+            <i class="bi bi-calendar-check"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================
+         PROCESSUS DE TRAVAIL SECTION
+         ==================================== -->
+
+    <section id="processus" style="background: var(--white); padding: 3rem 0">
+      <div class="container">
+        <div class="section-header animate-on-scroll">
+          <span class="section-subtitle">Notre méthode</span>
+          <h2 class="section-title">Comment nous travaillons ensemble</h2>
+          <p class="section-description">
+            Un processus éprouvé en 4 étapes pour garantir la réussite de votre
+            projet Odoo.
+          </p>
+        </div>
+
+        <div class="row g-4 justify-content-center" style="margin-top: 2rem">
+          <!-- Étape 1 -->
+          <div class="col-lg-3 col-md-6">
+            <div
+              class="animate-on-scroll"
+              style="
+                text-align: center;
+                padding: 2.5rem 1.5rem;
+                background: var(--white);
+                border-radius: 20px;
+                box-shadow: var(--shadow-md);
+                border: 1px solid var(--gray-100);
+                height: 100%;
+                position: relative;
+                transition: all 0.3s ease;
+              "
+              onmouseover="
+                this.style.transform = 'translateY(-6px)';
+                this.style.boxShadow = 'var(--shadow-xl)';
+              "
+              onmouseout="
+                this.style.transform = '';
+                this.style.boxShadow = 'var(--shadow-md)';
+              "
+            >
+              <!-- Numéro d'étape -->
+              <div
+                style="
+                  position: absolute;
+                  top: -18px;
+                  left: 50%;
+                  transform: translateX(-50%);
+                  width: 36px;
+                  height: 36px;
+                  background: linear-gradient(
+                    135deg,
+                    var(--primary-blue),
+                    var(--primary-blue-dark)
+                  );
+                  border-radius: 50%;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  color: white;
+                  font-weight: 700;
+                  font-size: 0.9rem;
+                  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4);
+                "
+              >
+                1
+              </div>
+              <div
+                style="
+                  width: 72px;
+                  height: 72px;
+                  background: linear-gradient(
+                    135deg,
+                    rgba(37, 99, 235, 0.1),
+                    rgba(37, 99, 235, 0.2)
+                  );
+                  border-radius: 18px;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  margin: 0.5rem auto 1.5rem;
+                "
+              >
+                <i
+                  class="bi bi-telephone-fill"
+                  style="font-size: 1.8rem; color: var(--primary-blue)"
+                ></i>
+              </div>
+              <h4
+                style="
+                  font-size: 1.15rem;
+                  margin-bottom: 0.75rem;
+                  color: var(--gray-900);
+                "
+              >
+                Consultation gratuite
+              </h4>
+              <p
+                style="
+                  font-size: 0.9rem;
+                  color: var(--gray-600);
+                  line-height: 1.6;
+                  margin: 0;
+                "
+              >
+                Échange de 30 min pour comprendre vos besoins, votre contexte et
+                vos objectifs Odoo.
+              </p>
+            </div>
+          </div>
+
+          <!-- Flèche -->
+          <div
+            class="col-lg-auto d-none d-lg-flex align-items-center"
+            style="padding: 0 0.5rem"
+          >
+            <i
+              class="bi bi-arrow-right"
+              style="font-size: 1.5rem; color: var(--gray-300)"
+            ></i>
+          </div>
+
+          <!-- Étape 2 -->
+          <div class="col-lg-3 col-md-6">
+            <div
+              class="animate-on-scroll"
+              style="
+                text-align: center;
+                padding: 2.5rem 1.5rem;
+                background: var(--white);
+                border-radius: 20px;
+                box-shadow: var(--shadow-md);
+                border: 1px solid var(--gray-100);
+                height: 100%;
+                position: relative;
+                transition: all 0.3s ease;
+              "
+              onmouseover="
+                this.style.transform = 'translateY(-6px)';
+                this.style.boxShadow = 'var(--shadow-xl)';
+              "
+              onmouseout="
+                this.style.transform = '';
+                this.style.boxShadow = 'var(--shadow-md)';
+              "
+            >
+              <div
+                style="
+                  position: absolute;
+                  top: -18px;
+                  left: 50%;
+                  transform: translateX(-50%);
+                  width: 36px;
+                  height: 36px;
+                  background: linear-gradient(135deg, var(--teal), #00a8b0);
+                  border-radius: 50%;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  color: white;
+                  font-weight: 700;
+                  font-size: 0.9rem;
+                  box-shadow: 0 4px 12px rgba(1, 126, 132, 0.4);
+                "
+              >
+                2
+              </div>
+              <div
+                style="
+                  width: 72px;
+                  height: 72px;
+                  background: linear-gradient(
+                    135deg,
+                    rgba(1, 126, 132, 0.1),
+                    rgba(1, 126, 132, 0.2)
+                  );
+                  border-radius: 18px;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  margin: 0.5rem auto 1.5rem;
+                "
+              >
+                <i
+                  class="bi bi-search"
+                  style="font-size: 1.8rem; color: var(--teal)"
+                ></i>
+              </div>
+              <h4
+                style="
+                  font-size: 1.15rem;
+                  margin-bottom: 0.75rem;
+                  color: var(--gray-900);
+                "
+              >
+                Audit & Analyse
+              </h4>
+              <p
+                style="
+                  font-size: 0.9rem;
+                  color: var(--gray-600);
+                  line-height: 1.6;
+                  margin: 0;
+                "
+              >
+                Analyse approfondie de votre instance, identification des axes
+                d'amélioration et proposition chiffrée.
+              </p>
+            </div>
+          </div>
+
+          <!-- Flèche -->
+          <div
+            class="col-lg-auto d-none d-lg-flex align-items-center"
+            style="padding: 0 0.5rem"
+          >
+            <i
+              class="bi bi-arrow-right"
+              style="font-size: 1.5rem; color: var(--gray-300)"
+            ></i>
+          </div>
+
+          <!-- Étape 3 -->
+          <div class="col-lg-3 col-md-6">
+            <div
+              class="animate-on-scroll"
+              style="
+                text-align: center;
+                padding: 2.5rem 1.5rem;
+                background: var(--white);
+                border-radius: 20px;
+                box-shadow: var(--shadow-md);
+                border: 1px solid var(--gray-100);
+                height: 100%;
+                position: relative;
+                transition: all 0.3s ease;
+              "
+              onmouseover="
+                this.style.transform = 'translateY(-6px)';
+                this.style.boxShadow = 'var(--shadow-xl)';
+              "
+              onmouseout="
+                this.style.transform = '';
+                this.style.boxShadow = 'var(--shadow-md)';
+              "
+            >
+              <div
+                style="
+                  position: absolute;
+                  top: -18px;
+                  left: 50%;
+                  transform: translateX(-50%);
+                  width: 36px;
+                  height: 36px;
+                  background: linear-gradient(135deg, #f1c40f, #ffd700);
+                  border-radius: 50%;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  color: white;
+                  font-weight: 700;
+                  font-size: 0.9rem;
+                  box-shadow: 0 4px 12px rgba(241, 196, 15, 0.5);
+                "
+              >
+                3
+              </div>
+              <div
+                style="
+                  width: 72px;
+                  height: 72px;
+                  background: linear-gradient(
+                    135deg,
+                    rgba(241, 196, 15, 0.15),
+                    rgba(241, 196, 15, 0.3)
+                  );
+                  border-radius: 18px;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  margin: 0.5rem auto 1.5rem;
+                "
+              >
+                <i
+                  class="bi bi-gear-fill"
+                  style="font-size: 1.8rem; color: var(--accent-yellow)"
+                ></i>
+              </div>
+              <h4
+                style="
+                  font-size: 1.15rem;
+                  margin-bottom: 0.75rem;
+                  color: var(--gray-900);
+                "
+              >
+                Réalisation
+              </h4>
+              <p
+                style="
+                  font-size: 0.9rem;
+                  color: var(--gray-600);
+                  line-height: 1.6;
+                  margin: 0;
+                "
+              >
+                Mise en œuvre agile, livrables validés à chaque étape,
+                communication transparente tout au long du projet.
+              </p>
+            </div>
+          </div>
+
+          <!-- Flèche -->
+          <div
+            class="col-lg-auto d-none d-lg-flex align-items-center"
+            style="padding: 0 0.5rem"
+          >
+            <i
+              class="bi bi-arrow-right"
+              style="font-size: 1.5rem; color: var(--gray-300)"
+            ></i>
+          </div>
+
+          <!-- Étape 4 -->
+          <div class="col-lg-3 col-md-6">
+            <div
+              class="animate-on-scroll"
+              style="
+                text-align: center;
+                padding: 2.5rem 1.5rem;
+                background: linear-gradient(
+                  135deg,
+                  var(--primary-blue),
+                  var(--primary-blue-dark)
+                );
+                border-radius: 20px;
+                box-shadow: 0 8px 30px rgba(37, 99, 235, 0.3);
+                height: 100%;
+                position: relative;
+                transition: all 0.3s ease;
+              "
+              onmouseover="
+                this.style.transform = 'translateY(-6px)';
+                this.style.boxShadow = '0 16px 40px rgba(37,99,235,0.4)';
+              "
+              onmouseout="
+                this.style.transform = '';
+                this.style.boxShadow = '0 8px 30px rgba(37,99,235,0.3)';
+              "
+            >
+              <div
+                style="
+                  position: absolute;
+                  top: -18px;
+                  left: 50%;
+                  transform: translateX(-50%);
+                  width: 36px;
+                  height: 36px;
+                  background: white;
+                  border-radius: 50%;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  color: var(--primary-blue);
+                  font-weight: 700;
+                  font-size: 0.9rem;
+                  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+                "
+              >
+                4
+              </div>
+              <div
+                style="
+                  width: 72px;
+                  height: 72px;
+                  background: rgba(255, 255, 255, 0.15);
+                  border-radius: 18px;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  margin: 0.5rem auto 1.5rem;
+                "
+              >
+                <i
+                  class="bi bi-shield-check"
+                  style="font-size: 1.8rem; color: white"
+                ></i>
+              </div>
+              <h4
+                style="font-size: 1.15rem; margin-bottom: 0.75rem; color: white"
+              >
+                Suivi & Support
+              </h4>
+              <p
+                style="
+                  font-size: 0.9rem;
+                  color: rgba(255, 255, 255, 0.85);
+                  line-height: 1.6;
+                  margin: 0;
+                "
+              >
+                Accompagnement post-livraison, support réactif, formation et
+                amélioration continue de votre Odoo.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================
+         TÉMOIGNAGES CLIENTS SECTION
+         ==================================== -->
+    <section
+      id="temoignages"
+      style="
+        background: linear-gradient(
+          180deg,
+          var(--gray-50) 0%,
+          var(--white) 100%
+        );
+        padding: var(--section-padding) 0;
+      "
+    >
+      <div class="container">
+        <div class="section-header animate-on-scroll">
+          <span class="section-subtitle">Témoignages</span>
+          <h2 class="section-title">Ce que disent nos clients</h2>
+          <p class="section-description">
+            Plus de 60 projets Odoo livrés avec succès. Voici ce que nos clients
+            pensent de notre accompagnement.
+          </p>
+        </div>
+
+        <div class="row g-4">
+          <!-- Témoignage 1 -->
+          <div class="col-lg-4 col-md-6">
+            <div
+              class="animate-on-scroll"
+              style="
+                background: var(--white);
+                border-radius: 20px;
+                padding: 2rem;
+                box-shadow: var(--shadow-md);
+                border: 1px solid var(--gray-100);
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                transition: all 0.3s ease;
+                position: relative;
+              "
+              onmouseover="
+                this.style.transform = 'translateY(-6px)';
+                this.style.boxShadow = 'var(--shadow-xl)';
+              "
+              onmouseout="
+                this.style.transform = '';
+                this.style.boxShadow = 'var(--shadow-md)';
+              "
+            >
+              <!-- Guillemets décoratifs -->
+              <div
+                style="
+                  position: absolute;
+                  top: 1.5rem;
+                  right: 1.5rem;
+                  font-size: 4rem;
+                  line-height: 1;
+                  color: var(--primary-blue);
+                  opacity: 0.08;
+                  font-family: Georgia, serif;
+                "
+              >
+                "
+              </div>
+              <!-- Étoiles -->
+              <div style="display: flex; gap: 0.25rem; margin-bottom: 1.25rem">
+                <i
+                  class="bi bi-star-fill"
+                  style="color: #f1c40f; font-size: 1rem"
+                ></i>
+                <i
+                  class="bi bi-star-fill"
+                  style="color: #f1c40f; font-size: 1rem"
+                ></i>
+                <i
+                  class="bi bi-star-fill"
+                  style="color: #f1c40f; font-size: 1rem"
+                ></i>
+                <i
+                  class="bi bi-star-fill"
+                  style="color: #f1c40f; font-size: 1rem"
+                ></i>
+                <i
+                  class="bi bi-star-fill"
+                  style="color: #f1c40f; font-size: 1rem"
+                ></i>
+              </div>
+              <!-- Texte -->
+              <p
+                style="
+                  font-size: 0.95rem;
+                  color: var(--gray-700);
+                  line-height: 1.8;
+                  flex-grow: 1;
+                  font-style: italic;
+                  margin-bottom: 1.5rem;
+                "
+              >
+                "ASNL TECH a réalisé la migration de notre Odoo v12 vers v17 en
+                un temps record, sans perte de données. L'équipe est très
+                réactive et professionnelle. Je recommande vivement !"
+              </p>
+              <!-- Auteur -->
+              <div
+                style="
+                  display: flex;
+                  align-items: center;
+                  gap: 1rem;
+                  border-top: 1px solid var(--gray-100);
+                  padding-top: 1.25rem;
+                "
+              >
+                <div
+                  style="
+                    width: 48px;
+                    height: 48px;
+                    border-radius: 50%;
+                    background: linear-gradient(
+                      135deg,
+                      var(--primary-blue),
+                      var(--teal)
+                    );
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: white;
+                    font-weight: 700;
+                    font-size: 1.1rem;
+                    flex-shrink: 0;
+                  "
+                >
+                  K
+                </div>
+                <div>
+                  <div
+                    style="
+                      font-weight: 700;
+                      color: var(--gray-900);
+                      font-size: 0.95rem;
+                    "
+                  >
+                    Karim B.
+                  </div>
+                  <div style="font-size: 0.82rem; color: var(--gray-500)">
+                    DSI — Entreprise industrielle, Casablanca
+                  </div>
+                </div>
+                <!-- Badge service -->
+                <div
+                  style="
+                    margin-left: auto;
+                    background: rgba(37, 99, 235, 0.08);
+                    color: var(--primary-blue);
+                    padding: 0.3rem 0.75rem;
+                    border-radius: 20px;
+                    font-size: 0.75rem;
+                    font-weight: 600;
+                    white-space: nowrap;
+                  "
+                >
+                  Migration
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Témoignage 2 -->
+          <div class="col-lg-4 col-md-6">
+            <div
+              class="animate-on-scroll"
+              style="
+                background: linear-gradient(
+                  135deg,
+                  var(--primary-blue),
+                  var(--primary-blue-dark)
+                );
+                border-radius: 20px;
+                padding: 2rem;
+                box-shadow: 0 8px 30px rgba(37, 99, 235, 0.3);
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                transition: all 0.3s ease;
+                position: relative;
+              "
+              onmouseover="
+                this.style.transform = 'translateY(-6px)';
+                this.style.boxShadow = '0 16px 40px rgba(37,99,235,0.4)';
+              "
+              onmouseout="
+                this.style.transform = '';
+                this.style.boxShadow = '0 8px 30px rgba(37,99,235,0.3)';
+              "
+            >
+              <div
+                style="
+                  position: absolute;
+                  top: 1.5rem;
+                  right: 1.5rem;
+                  font-size: 4rem;
+                  line-height: 1;
+                  color: white;
+                  opacity: 0.15;
+                  font-family: Georgia, serif;
+                "
+              >
+                "
+              </div>
+              <div style="display: flex; gap: 0.25rem; margin-bottom: 1.25rem">
+                <i
+                  class="bi bi-star-fill"
+                  style="color: #f1c40f; font-size: 1rem"
+                ></i>
+                <i
+                  class="bi bi-star-fill"
+                  style="color: #f1c40f; font-size: 1rem"
+                ></i>
+                <i
+                  class="bi bi-star-fill"
+                  style="color: #f1c40f; font-size: 1rem"
+                ></i>
+                <i
+                  class="bi bi-star-fill"
+                  style="color: #f1c40f; font-size: 1rem"
+                ></i>
+                <i
+                  class="bi bi-star-fill"
+                  style="color: #f1c40f; font-size: 1rem"
+                ></i>
+              </div>
+              <p
+                style="
+                  font-size: 0.95rem;
+                  color: rgba(255, 255, 255, 0.9);
+                  line-height: 1.8;
+                  flex-grow: 1;
+                  font-style: italic;
+                  margin-bottom: 1.5rem;
+                "
+              >
+                "L'intégration Odoo / Shopify réalisée par ASNL TECH a
+                transformé notre gestion e-commerce. Synchronisation parfaite
+                des stocks et commandes. Un gain de temps énorme pour nos
+                équipes !"
+              </p>
+              <div
+                style="
+                  display: flex;
+                  align-items: center;
+                  gap: 1rem;
+                  border-top: 1px solid rgba(255, 255, 255, 0.15);
+                  padding-top: 1.25rem;
+                "
+              >
+                <div
+                  style="
+                    width: 48px;
+                    height: 48px;
+                    border-radius: 50%;
+                    background: rgba(255, 255, 255, 0.2);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: white;
+                    font-weight: 700;
+                    font-size: 1.1rem;
+                    flex-shrink: 0;
+                  "
+                >
+                  S
+                </div>
+                <div>
+                  <div
+                    style="font-weight: 700; color: white; font-size: 0.95rem"
+                  >
+                    Sara M.
+                  </div>
+                  <div
+                    style="font-size: 0.82rem; color: rgba(255, 255, 255, 0.65)"
+                  >
+                    Directrice e-commerce, Maroc
+                  </div>
+                </div>
+                <div
+                  style="
+                    margin-left: auto;
+                    background: rgba(255, 255, 255, 0.15);
+                    color: white;
+                    padding: 0.3rem 0.75rem;
+                    border-radius: 20px;
+                    font-size: 0.75rem;
+                    font-weight: 600;
+                    white-space: nowrap;
+                  "
+                >
+                  Intégration
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Témoignage 3 -->
+          <div class="col-lg-4 col-md-6">
+            <div
+              class="animate-on-scroll"
+              style="
+                background: var(--white);
+                border-radius: 20px;
+                padding: 2rem;
+                box-shadow: var(--shadow-md);
+                border: 1px solid var(--gray-100);
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                transition: all 0.3s ease;
+                position: relative;
+              "
+              onmouseover="
+                this.style.transform = 'translateY(-6px)';
+                this.style.boxShadow = 'var(--shadow-xl)';
+              "
+              onmouseout="
+                this.style.transform = '';
+                this.style.boxShadow = 'var(--shadow-md)';
+              "
+            >
+              <div
+                style="
+                  position: absolute;
+                  top: 1.5rem;
+                  right: 1.5rem;
+                  font-size: 4rem;
+                  line-height: 1;
+                  color: var(--teal);
+                  opacity: 0.1;
+                  font-family: Georgia, serif;
+                "
+              >
+                "
+              </div>
+              <div style="display: flex; gap: 0.25rem; margin-bottom: 1.25rem">
+                <i
+                  class="bi bi-star-fill"
+                  style="color: #f1c40f; font-size: 1rem"
+                ></i>
+                <i
+                  class="bi bi-star-fill"
+                  style="color: #f1c40f; font-size: 1rem"
+                ></i>
+                <i
+                  class="bi bi-star-fill"
+                  style="color: #f1c40f; font-size: 1rem"
+                ></i>
+                <i
+                  class="bi bi-star-fill"
+                  style="color: #f1c40f; font-size: 1rem"
+                ></i>
+                <i
+                  class="bi bi-star-half"
+                  style="color: #f1c40f; font-size: 1rem"
+                ></i>
+              </div>
+              <p
+                style="
+                  font-size: 0.95rem;
+                  color: var(--gray-700);
+                  line-height: 1.8;
+                  flex-grow: 1;
+                  font-style: italic;
+                  margin-bottom: 1.5rem;
+                "
+              >
+                "Audit complet de notre Odoo en 48h, rapport très détaillé et
+                plan d'action clair. ASNL TECH a identifié des problèmes que
+                nous n'avions pas vus depuis des mois. Excellent travail !"
+              </p>
+              <div
+                style="
+                  display: flex;
+                  align-items: center;
+                  gap: 1rem;
+                  border-top: 1px solid var(--gray-100);
+                  padding-top: 1.25rem;
+                "
+              >
+                <div
+                  style="
+                    width: 48px;
+                    height: 48px;
+                    border-radius: 50%;
+                    background: linear-gradient(135deg, var(--teal), #00a8b0);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: white;
+                    font-weight: 700;
+                    font-size: 1.1rem;
+                    flex-shrink: 0;
+                  "
+                >
+                  Y
+                </div>
+                <div>
+                  <div
+                    style="
+                      font-weight: 700;
+                      color: var(--gray-900);
+                      font-size: 0.95rem;
+                    "
+                  >
+                    Youssef A.
+                  </div>
+                  <div style="font-size: 0.82rem; color: var(--gray-500)">
+                    CEO — PME Services, Rabat
+                  </div>
+                </div>
+                <div
+                  style="
+                    margin-left: auto;
+                    background: rgba(1, 126, 132, 0.08);
+                    color: var(--teal);
+                    padding: 0.3rem 0.75rem;
+                    border-radius: 20px;
+                    font-size: 0.75rem;
+                    font-weight: 600;
+                    white-space: nowrap;
+                  "
+                >
+                  Audit
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bandeau de confiance -->
+        <div
+          class="animate-on-scroll"
+          style="
+            margin-top: 4rem;
+            padding: 2.5rem 3rem;
+            background: linear-gradient(
+              135deg,
+              rgba(37, 99, 235, 0.04),
+              rgba(1, 126, 132, 0.04)
+            );
+            border-radius: 20px;
+            border: 1px solid rgba(37, 99, 235, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 2rem;
+          "
+        >
+          <div
+            style="
+              display: flex;
+              align-items: center;
+              gap: 1.5rem;
+              flex-wrap: wrap;
+              gap: 2.5rem;
+            "
+          >
+            <div style="text-align: center">
+              <div
+                style="
+                  font-size: 2rem;
+                  font-weight: 700;
+                  color: var(--primary-blue);
+                  line-height: 1;
+                "
+              >
+                60+
+              </div>
+              <div
+                style="
+                  font-size: 0.8rem;
+                  color: var(--gray-500);
+                  font-weight: 600;
+                  text-transform: uppercase;
+                  letter-spacing: 1px;
+                "
+              >
+                Projets livrés
+              </div>
+            </div>
+            <div
+              style="width: 1px; height: 40px; background: var(--gray-200)"
+            ></div>
+            <div style="text-align: center">
+              <div
+                style="
+                  font-size: 2rem;
+                  font-weight: 700;
+                  color: var(--accent-yellow);
+                  line-height: 1;
+                "
+              >
+                4.9/5
+              </div>
+              <div
+                style="
+                  font-size: 0.8rem;
+                  color: var(--gray-500);
+                  font-weight: 600;
+                  text-transform: uppercase;
+                  letter-spacing: 1px;
+                "
+              >
+                Note moyenne
+              </div>
+            </div>
+            <div
+              style="width: 1px; height: 40px; background: var(--gray-200)"
+            ></div>
+            <div style="text-align: center">
+              <div
+                style="
+                  font-size: 2rem;
+                  font-weight: 700;
+                  color: var(--teal);
+                  line-height: 1;
+                "
+              >
+                100%
+              </div>
+              <div
+                style="
+                  font-size: 0.8rem;
+                  color: var(--gray-500);
+                  font-weight: 600;
+                  text-transform: uppercase;
+                  letter-spacing: 1px;
+                "
+              >
+                Clients satisfaits
+              </div>
+            </div>
+          </div>
+          <a href="#contact" class="btn-custom btn-primary-custom">
+            Rejoindre nos clients satisfaits
+            <i class="bi bi-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================
+         TECHNOLOGIES & PARTENAIRES SECTION
+         ==================================== -->
+    <section
+      style="
+        background: var(--white);
+        padding: 4rem 0;
+        border-top: 1px solid var(--gray-100);
+      "
+    >
+      <div class="container">
+        <div
+          class="animate-on-scroll"
+          style="text-align: center; margin-bottom: 2.5rem"
+        >
+          <span class="section-subtitle">Technologies maîtrisées</span>
+          <h3
+            style="
+              font-size: 1.5rem;
+              color: var(--gray-700);
+              font-weight: 500;
+              margin-top: 0.5rem;
+            "
+          >
+            Nous intégrons Odoo avec vos outils existants
+          </h3>
+        </div>
+
+        <div
+          class="animate-on-scroll"
+          style="
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+          "
+        >
+          <!-- Odoo -->
+          <div
+            style="
+              display: flex;
+              align-items: center;
+              gap: 0.75rem;
+              background: var(--gray-50);
+              border: 1.5px solid var(--gray-200);
+              border-radius: 14px;
+              padding: 1rem 1.75rem;
+              transition: all 0.3s ease;
+              cursor: default;
+            "
+            onmouseover="
+              this.style.borderColor = 'var(--primary-blue)';
+              this.style.background = 'rgba(37,99,235,0.04)';
+              this.style.transform = 'translateY(-3px)';
+            "
+            onmouseout="
+              this.style.borderColor = 'var(--gray-200)';
+              this.style.background = 'var(--gray-50)';
+              this.style.transform = '';
+            "
+          >
+            <div
+              style="
+                width: 36px;
+                height: 36px;
+                background: linear-gradient(135deg, #714b67, #875a7b);
+                border-radius: 8px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+              "
+            >
+              <span style="color: white; font-weight: 800; font-size: 0.85rem"
+                >O</span
+              >
+            </div>
+            <span
+              style="font-weight: 700; color: var(--gray-800); font-size: 1rem"
+              >Odoo</span
+            >
+          </div>
+
+          <!-- Shopify -->
+          <div
+            style="
+              display: flex;
+              align-items: center;
+              gap: 0.75rem;
+              background: var(--gray-50);
+              border: 1.5px solid var(--gray-200);
+              border-radius: 14px;
+              padding: 1rem 1.75rem;
+              transition: all 0.3s ease;
+              cursor: default;
+            "
+            onmouseover="
+              this.style.borderColor = '#96bf48';
+              this.style.background = 'rgba(150,191,72,0.05)';
+              this.style.transform = 'translateY(-3px)';
+            "
+            onmouseout="
+              this.style.borderColor = 'var(--gray-200)';
+              this.style.background = 'var(--gray-50)';
+              this.style.transform = '';
+            "
+          >
+            <div
+              style="
+                width: 36px;
+                height: 36px;
+                background: #96bf48;
+                border-radius: 8px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+              "
+            >
+              <i
+                class="bi bi-bag-fill"
+                style="color: white; font-size: 1rem"
+              ></i>
+            </div>
+            <span
+              style="font-weight: 700; color: var(--gray-800); font-size: 1rem"
+              >Shopify</span
+            >
+          </div>
+
+          <!-- WooCommerce -->
+          <div
+            style="
+              display: flex;
+              align-items: center;
+              gap: 0.75rem;
+              background: var(--gray-50);
+              border: 1.5px solid var(--gray-200);
+              border-radius: 14px;
+              padding: 1rem 1.75rem;
+              transition: all 0.3s ease;
+              cursor: default;
+            "
+            onmouseover="
+              this.style.borderColor = '#7f54b3';
+              this.style.background = 'rgba(127,84,179,0.05)';
+              this.style.transform = 'translateY(-3px)';
+            "
+            onmouseout="
+              this.style.borderColor = 'var(--gray-200)';
+              this.style.background = 'var(--gray-50)';
+              this.style.transform = '';
+            "
+          >
+            <div
+              style="
+                width: 36px;
+                height: 36px;
+                background: #7f54b3;
+                border-radius: 8px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+              "
+            >
+              <i
+                class="bi bi-cart-fill"
+                style="color: white; font-size: 1rem"
+              ></i>
+            </div>
+            <span
+              style="font-weight: 700; color: var(--gray-800); font-size: 1rem"
+              >WooCommerce</span
+            >
+          </div>
+
+          <!-- PostgreSQL -->
+          <div
+            style="
+              display: flex;
+              align-items: center;
+              gap: 0.75rem;
+              background: var(--gray-50);
+              border: 1.5px solid var(--gray-200);
+              border-radius: 14px;
+              padding: 1rem 1.75rem;
+              transition: all 0.3s ease;
+              cursor: default;
+            "
+            onmouseover="
+              this.style.borderColor = '#336791';
+              this.style.background = 'rgba(51,103,145,0.05)';
+              this.style.transform = 'translateY(-3px)';
+            "
+            onmouseout="
+              this.style.borderColor = 'var(--gray-200)';
+              this.style.background = 'var(--gray-50)';
+              this.style.transform = '';
+            "
+          >
+            <div
+              style="
+                width: 36px;
+                height: 36px;
+                background: #336791;
+                border-radius: 8px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+              "
+            >
+              <i
+                class="bi bi-database-fill"
+                style="color: white; font-size: 1rem"
+              ></i>
+            </div>
+            <span
+              style="font-weight: 700; color: var(--gray-800); font-size: 1rem"
+              >PostgreSQL</span
+            >
+          </div>
+
+          <!-- Python -->
+          <div
+            style="
+              display: flex;
+              align-items: center;
+              gap: 0.75rem;
+              background: var(--gray-50);
+              border: 1.5px solid var(--gray-200);
+              border-radius: 14px;
+              padding: 1rem 1.75rem;
+              transition: all 0.3s ease;
+              cursor: default;
+            "
+            onmouseover="
+              this.style.borderColor = '#3776ab';
+              this.style.background = 'rgba(55,118,171,0.05)';
+              this.style.transform = 'translateY(-3px)';
+            "
+            onmouseout="
+              this.style.borderColor = 'var(--gray-200)';
+              this.style.background = 'var(--gray-50)';
+              this.style.transform = '';
+            "
+          >
+            <div
+              style="
+                width: 36px;
+                height: 36px;
+                background: linear-gradient(135deg, #3776ab, #ffd43b);
+                border-radius: 8px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+              "
+            >
+              <i
+                class="bi bi-code-slash"
+                style="color: white; font-size: 1rem"
+              ></i>
+            </div>
+            <span
+              style="font-weight: 700; color: var(--gray-800); font-size: 1rem"
+              >Python</span
+            >
+          </div>
+
+          <!-- REST API -->
+          <div
+            style="
+              display: flex;
+              align-items: center;
+              gap: 0.75rem;
+              background: var(--gray-50);
+              border: 1.5px solid var(--gray-200);
+              border-radius: 14px;
+              padding: 1rem 1.75rem;
+              transition: all 0.3s ease;
+              cursor: default;
+            "
+            onmouseover="
+              this.style.borderColor = 'var(--teal)';
+              this.style.background = 'rgba(1,126,132,0.05)';
+              this.style.transform = 'translateY(-3px)';
+            "
+            onmouseout="
+              this.style.borderColor = 'var(--gray-200)';
+              this.style.background = 'var(--gray-50)';
+              this.style.transform = '';
+            "
+          >
+            <div
+              style="
+                width: 36px;
+                height: 36px;
+                background: linear-gradient(135deg, var(--teal), #00a8b0);
+                border-radius: 8px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+              "
+            >
+              <i
+                class="bi bi-arrow-left-right"
+                style="color: white; font-size: 1rem"
+              ></i>
+            </div>
+            <span
+              style="font-weight: 700; color: var(--gray-800); font-size: 1rem"
+              >REST API</span
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================
+         CONTACT SECTION
+         ==================================== -->
+    <section id="contact" class="contact-section">
+      <div class="container">
+        <!-- Section Header -->
+        <div class="section-header">
+          <span class="section-subtitle">Contact</span>
+          <h2 class="section-title">Discutons de votre projet Odoo</h2>
+          <p class="section-description">
+            Besoin d’un audit, d’une migration ou d’un accompagnement Odoo ?
+            Contactez-nous pour un devis ou un conseil personnalisé.
+          </p>
+        </div>
+
+        <div class="row">
+          <!-- Contact Information -->
+          <div class="col-lg-5 mb-5 mb-lg-0">
+            <div class="contact-info">
+              <div class="contact-item">
+                <i class="bi bi-geo-alt-fill"></i>
+                <h4>Our Office</h4>
+                <p>
+                  Résidence Essalam TR.A, Sidi-Bernoussi<br />
+                  Casablanca, 20600<br />
+                  Maroc
+                </p>
+              </div>
+
+              <div class="contact-item">
+                <i class="bi bi-telephone-fill"></i>
+                <h4>Phone</h4>
+                <p>
+                  Main: <a href="tel:+212614550116">+212 614-550-116 </a><br />
+                  Support: <a href="tel:+2126700595748">+212 670-059-5748</a>
+                </p>
+              </div>
+
+              <div class="contact-item">
+                <i class="bi bi-envelope-fill"></i>
+                <h4>Email</h4>
+                <p>
+                  General:
+                  <a href="mailto:contact@asnl-tech.com"
+                    >contact@asnl-tech.com</a
+                  ><br />
+                  Support:
+                  <a href="mailto:nada.asnl.dev@gmail.com"
+                    >nada.asnl.dev@gmail.com</a
+                  >
+                </p>
+              </div>
+
+              <div class="contact-item">
+                <i class="bi bi-clock-fill"></i>
+                <h4>Business Hours</h4>
+                <p>
+                  Du lundi au vendredi : de 9h00 à 18h00<br />
+                  Samedi : 10h00 - 16h00<br />
+                  Dimanche : Fermé
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contact Form -->
+          <div class="col-lg-7">
+            <form class="contact-form" id="contactForm">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="name" class="form-label">Nom Complet *</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="name"
+                      placeholder="Votre nom"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="email" class="form-label">Email *</label>
+                    <input
+                      type="email"
+                      class="form-control"
+                      id="email"
+                      placeholder="votre@email.com"
+                      required
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="company" class="form-label">Entreprise</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="company"
+                      placeholder="Nom de votre entreprise"
+                    />
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="phone" class="form-label">Téléphone</label>
+                    <input
+                      type="tel"
+                      class="form-control"
+                      id="phone"
+                      placeholder="+33 6 12 34 56 78"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="subject" class="form-label">Votre besoin *</label>
+                <select class="form-control" id="subject" required>
+                  <option value="">Sélectionnez…</option>
+                  <option>Audit Odoo</option>
+                  <option>Migration Odoo</option>
+                  <option>Intégration e-commerce/API</option>
+                  <option>Développement spécifique</option>
+                  <option>Formation / Support</option>
+                  <option>Conseil & Accompagnement</option>
+                  <option>Autre</option>
+                </select>
+              </div>
+
+              <!-- <div class="form-group">
+                <label for="budget" class="form-label">Budget estimé</label>
+                <select class="form-control" id="budget">
+                  <option value="">Sélectionnez…</option>
+                  <option>Moins de 5 000 €</option>
+                  <option>5 000 € - 15 000 €</option>
+                  <option>15 000 € - 50 000 €</option>
+                  <option>50 000 € - 100 000 €</option>
+                  <option>Plus de 100 000 €</option>
+                  <option>À définir</option>
+                </select>
+              </div> -->
+
+              <div class="form-group">
+                <label for="message" class="form-label">Message *</label>
+                <textarea
+                  class="form-control"
+                  id="message"
+                  rows="5"
+                  placeholder="Décrivez votre projet, vos besoins ou vos attentes…"
+                  required
+                ></textarea>
+              </div>
+
+              <div class="form-group form-check">
+                <input
+                  type="checkbox"
+                  class="form-check-input"
+                  id="consent"
+                  required
+                />
+                <label class="form-check-label" for="consent">
+                  J'accepte les
+                  <a
+                    href="#"
+                    data-bs-toggle="modal"
+                    data-bs-target="#mentionsLegalesModal"
+                    style="color: var(--primary-blue-light); cursor: pointer"
+                    >conditions d'utilisation</a
+                  >
+                  et la
+                  <a
+                    href="#"
+                    data-bs-toggle="modal"
+                    data-bs-target="#politiqueConfidentialiteModal"
+                    style="color: var(--primary-blue-light); cursor: pointer"
+                    >politique de confidentialité</a
+                  >
+                </label>
+              </div>
+              <button
+                type="submit"
+                class="btn-custom btn-primary-custom w-100 d-flex justify-content-center"
+              >
+                Envoyer la demande
+                <i class="bi bi-send-fill"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================
+         MODALS - MENTIONS LÉGALES & POLITIQUE DE CONFIDENTIALITÉ
+         ==================================== -->
+
+    <!-- Modal Mentions Légales -->
+    <div
+      class="modal fade"
+      id="mentionsLegalesModal"
+      tabindex="-1"
+      aria-labelledby="mentionsLegalesLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="mentionsLegalesLabel">
+              Mentions Légales
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <h6>1. Informations légales</h6>
+            <p>
+              <strong>Entreprise :</strong> ASNL TECH<br />
+              <strong>Forme juridique :</strong> Auto-entrepreneur<br />
+              <strong>Adresse :</strong> Résidence Essalam TR.A, Sidi-Bernoussi,
+              Casablanca, 20600, Maroc<br />
+              <strong>Téléphone :</strong> +212 614-550-116<br />
+              <strong>Email :</strong> contact@asnl-tech.com<br />
+              <strong>Numéro ICE :</strong> 003926354000033 <br />
+              <strong>Numéro IF :</strong> 71937033
+            </p>
+
+            <h6>2. Directeur de la publication</h6>
+            <p>
+              Responsable de la publication : SALIM Abdessamad<br />
+              Contact : contact@asnl-tech.com
+            </p>
+
+            <h6>3. Hébergement</h6>
+            <p>
+              <strong>Hébergeur :</strong> HOSTINGER<br />
+              <strong>Adresse e-mail :</strong> support@hostinger.com<br />
+            </p>
+
+            <h6>4. Propriété intellectuelle</h6>
+            <p>
+              Tous les contenus présents sur ce site (textes, images, logos,
+              vidéos, etc.) sont la propriété exclusive d'ASNL TECH ou sont
+              utilisés avec autorisation. Toute reproduction, distribution ou
+              utilisation sans autorisation préalable est interdite.
+            </p>
+
+            <h6>5. Limitation de responsabilité</h6>
+            <p>
+              ASNL TECH décline toute responsabilité pour les dommages directs
+              ou indirects résultant de l'accès ou de l'utilisation du site. Les
+              informations fournies sont à titre informatif et ne constituent
+              pas un engagement contractuel.
+            </p>
+
+            <h6>6. Liens externes</h6>
+            <p>
+              ASNL TECH n'est pas responsable du contenu des sites externes
+              auxquels renvoient les liens présents sur ce site.
+            </p>
+
+            <h6>7. Modifications</h6>
+            <p>
+              ASNL TECH se réserve le droit de modifier le contenu de ce site à
+              tout moment sans préavis.
+            </p>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Fermer
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Politique de Confidentialité -->
+    <div
+      class="modal fade"
+      id="politiqueConfidentialiteModal"
+      tabindex="-1"
+      aria-labelledby="politiqueConfidentialiteLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="politiqueConfidentialiteLabel">
+              Politique de Confidentialité
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <h6>1. Collecte des données</h6>
+            <p>
+              ASNL TECH collecte les données personnelles que vous fournissez
+              volontairement via le formulaire de contact (nom, email,
+              téléphone, entreprise, message). Ces données sont nécessaires pour
+              traiter votre demande et vous contacter.
+            </p>
+
+            <h6>2. Utilisation des données</h6>
+            <p>
+              Vos données personnelles sont utilisées pour :<br />
+              • Répondre à votre demande de contact<br />
+              • Vous envoyer des informations sur nos services<br />
+              • Améliorer notre site et nos services<br />
+              • Respecter nos obligations légales
+            </p>
+
+            <h6>3. Partage des données</h6>
+            <p>
+              ASNL TECH ne partage pas vos données personnelles avec des tiers
+              sans votre consentement, sauf si la loi l'exige.
+            </p>
+
+            <h6>4. Sécurité des données</h6>
+            <p>
+              Vos données sont protégées par des mesures de sécurité
+              appropriées. Cependant, aucune transmission sur Internet n'est
+              100% sécurisée.
+            </p>
+
+            <h6>5. Durée de conservation</h6>
+            <p>
+              Vos données personnelles sont conservées aussi longtemps que
+              nécessaire pour traiter votre demande, puis supprimées ou
+              anonymisées.
+            </p>
+
+            <h6>6. Vos droits</h6>
+            <p>
+              Conformément au RGPD, vous avez le droit de :<br />
+              • Accéder à vos données personnelles<br />
+              • Rectifier vos données<br />
+              • Demander la suppression de vos données<br />
+              • Vous opposer au traitement de vos données<br />
+              • Demander la portabilité de vos données<br />
+              <br />
+              Pour exercer ces droits, contactez-nous à : contact@asnl-tech.com
+            </p>
+
+            <h6>7. Cookies</h6>
+            <p>
+              Ce site utilise des cookies pour améliorer votre expérience. Vous
+              pouvez configurer votre navigateur pour refuser les cookies.
+            </p>
+
+            <h6>8. Modifications de la politique</h6>
+            <p>
+              ASNL TECH se réserve le droit de modifier cette politique de
+              confidentialité à tout moment. Les modifications seront publiées
+              sur cette page.
+            </p>
+
+            <h6>9. Contact</h6>
+            <p>
+              Pour toute question concernant cette politique de confidentialité,
+              contactez-nous à : contact@asnl-tech.com
+            </p>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Fermer
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ====================================
+         FOOTER
+         ==================================== -->
+    <footer class="footer">
+      <div class="container">
+        <!-- Footer Content -->
+        <div class="footer-content">
+          <div class="row">
+            <!-- Brand & Description -->
+            <div class="col-lg-4 mb-4 mb-lg-0">
+              <div class="footer-brand">
+                <span style="color: var(--primary-blue); font-weight: 700"
+                  >ASNL TECH</span
+                >
+                <span style="color: var(--teal); font-weight: 700"
+                  >| Consultant Odoo</span
+                >
+              </div>
+              <p class="footer-description">
+                Spécialiste Odoo : audit, migration, intégration, support,
+                formation. ASNL TECH : votre réussite Odoo, notre mission.
+              </p>
+
+              <!-- Social Links -->
+              <div class="social-links">
+                <a
+                  href="#"
+                  class="social-link"
+                  aria-label="LinkedIn"
+                  title="Suivez-nous sur LinkedIn"
+                >
+                  <i class="bi bi-linkedin"></i>
+                </a>
+                <a
+                  href="#"
+                  class="social-link"
+                  aria-label="Facebook"
+                  title="Suivez-nous sur Facebook"
+                >
+                  <i class="bi bi-facebook"></i>
+                </a>
+                <a
+                  href="#"
+                  class="social-link"
+                  aria-label="Twitter"
+                  title="Suivez-nous sur Twitter"
+                >
+                  <i class="bi bi-twitter"></i>
+                </a>
+                <a
+                  href="#"
+                  class="social-link"
+                  aria-label="Instagram"
+                  title="Suivez-nous sur Instagram"
+                >
+                  <i class="bi bi-instagram"></i>
+                </a>
+              </div>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="col-lg-2 col-md-4 mb-4 mb-lg-0">
+              <div class="footer-links">
+                <h5>Navigation</h5>
+                <ul>
+                  <li><a href="#about">À propos</a></li>
+                  <li><a href="#packs">Packs Odoo</a></li>
+                  <li><a href="#services">Services</a></li>
+                  <li><a href="#processus">Notre méthode</a></li>
+                  <li><a href="#temoignages">Témoignages</a></li>
+                  <li><a href="#contact">Contact</a></li>
+                </ul>
+              </div>
+            </div>
+            <!-- Services Links -->
+            <div class="col-lg-3 col-md-4 mb-4 mb-lg-0">
+              <div class="footer-links">
+                <h5>Liens utiles</h5>
+                <ul>
+                  <li><a href="https://www.odoo.com/fr_FR/page/tour" target="_blank" rel="noopener">Découvrir Odoo</a></li>
+                  <li><a href="https://runbot.odoo.com/" target="_blank" rel="noopener">Démo Odoo (Runbot)</a></li>
+                  <li><a href="https://www.odoo.com/fr_FR/page/pricing" target="_blank" rel="noopener">Tarifs Odoo</a></li>
+                  <li><a href="https://www.odoo.com/fr_FR/forum/aide-1" target="_blank" rel="noopener">Forum d’aide Odoo</a></li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Contact & Legal -->
+            <div class="col-lg-3 col-md-4">
+              <div class="footer-links">
+                <h5>Informations</h5>
+                <ul>
+                  <li>
+                    <a href="tel:+212614550116" class="footer-contact-link">
+                      +212 614-550-116
+                    </a>
+                  </li>
+                  <li>
+                    <a href="mailto:contact@asnl-tech.com" class="footer-contact-link">
+                      contact@asnl-tech.com
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#contact" class="footer-contact-link">
+                      Demander un devis
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#faqModal" class="footer-contact-link">
+                      FAQ
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#realisationsModal" class="footer-contact-link">
+                      Études de cas
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer Divider -->
+            <div
+              style="border-top: 1px solid rgba(255, 255, 255, 0.1); margin: 2rem 0"
+            ></div>
+
+            <!-- Footer Bottom -->
+            <div class="footer-bottom">
+              <div class="row align-items-center">
+                <div class="col-md-6 mb-3 mb-md-0">
+                  <p style="margin-bottom: 0">
+                    &copy; 2026 ASNL TECH. Tous droits réservés.
+                  </p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                  <div class="footer-legal-links">
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#faqModal" style="cursor: pointer">FAQ</a>
+                    <span class="footer-separator">|</span>
+                    <a
+                      href="#"
+                      data-bs-toggle="modal"
+                      data-bs-target="#mentionsLegalesModal"
+                      style="cursor: pointer"
+                    >
+                      Mentions légales
+                    </a>
+                    <span class="footer-separator">|</span>
+                    <a
+                      href="#"
+                      data-bs-toggle="modal"
+                      data-bs-target="#politiqueConfidentialiteModal"
+                      style="cursor: pointer"
+                    >
+                      Politique de confidentialité
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </footer>
+
+        <!-- Bouton flottant WhatsApp/Appel à l'action -->
+        <a href="https://wa.me/212614550116" target="_blank" title="Discuter sur WhatsApp" id="whatsapp-float-btn" style="position: fixed; bottom: 24px; right: 24px; z-index: 9999; background: #25d366; color: white; border-radius: 50%; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 16px rgba(37,211,102,0.25); font-size: 2rem; transition: box-shadow 0.2s;">
+          <i class="bi bi-whatsapp"></i>
+        </a>
+
+        <!-- MODAL FAQ -->
+        <div class="modal fade" id="faqModal" tabindex="-1" aria-labelledby="faqModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-lg modal-dialog-scrollable">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="faqModalLabel">FAQ – Questions fréquentes</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fermer"></button>
+              </div>
+              <div class="modal-body">
+                <div class="accordion" id="faqAccordion">
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="faq1">
+                      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1" aria-expanded="true" aria-controls="collapse1">
+                        Pourquoi choisir ASNL TECH pour mon projet Odoo ?
+                      </button>
+                    </h2>
+                    <div id="collapse1" class="accordion-collapse collapse show" aria-labelledby="faq1" data-bs-parent="#faqAccordion">
+                      <div class="accordion-body">
+                        Nous avons plus de 10 ans d’expertise, 60+ projets livrés, et un accompagnement sur-mesure pour chaque client.
+                      </div>
+                    </div>
+                  </div>
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="faq2">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
+                        Combien de temps dure une migration Odoo ?
+                      </button>
+                    </h2>
+                    <div id="collapse2" class="accordion-collapse collapse" aria-labelledby="faq2" data-bs-parent="#faqAccordion">
+                      <div class="accordion-body">
+                        Cela dépend du périmètre, mais la plupart des migrations sont réalisées en 2 à 6 semaines, sans interruption d’activité.
+                      </div>
+                    </div>
+                  </div>
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="faq3">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3" aria-expanded="false" aria-controls="collapse3">
+                        Proposez-vous un support après la livraison ?
+                      </button>
+                    </h2>
+                    <div id="collapse3" class="accordion-collapse collapse" aria-labelledby="faq3" data-bs-parent="#faqAccordion">
+                      <div class="accordion-body">
+                        Oui, nous assurons un support réactif (24h) et des formations pour garantir la prise en main de votre solution.
+                      </div>
+                    </div>
+                  </div>
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="faq4">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4" aria-expanded="false" aria-controls="collapse4">
+                        Puis-je demander un audit gratuit ?
+                      </button>
+                    </h2>
+                    <div id="collapse4" class="accordion-collapse collapse" aria-labelledby="faq4" data-bs-parent="#faqAccordion">
+                      <div class="accordion-body">
+                        Oui, contactez-nous via le formulaire ou WhatsApp pour bénéficier d’un diagnostic offert.
+                      </div>
+                    </div>
+                  </div>
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="faq5">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5" aria-expanded="false" aria-controls="collapse5">
+                        Travaillez-vous avec des PME et des grands comptes ?
+                      </button>
+                    </h2>
+                    <div id="collapse5" class="accordion-collapse collapse" aria-labelledby="faq5" data-bs-parent="#faqAccordion">
+                      <div class="accordion-body">
+                        Oui, nous accompagnons aussi bien les PME, ETI que les grandes entreprises, dans tous secteurs d’activité.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- MODAL ÉTUDES DE CAS / RÉALISATIONS -->
+        <div class="modal fade" id="realisationsModal" tabindex="-1" aria-labelledby="realisationsModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-lg modal-dialog-scrollable">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="realisationsModalLabel">Études de cas & Réalisations</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fermer"></button>
+              </div>
+              <div class="modal-body">
+                <div class="mb-4">
+                  <h6>Migration Odoo pour une industrie (Casablanca)</h6>
+                  <ul>
+                    <li><b>Contexte :</b> Odoo v12 obsolète, processus manuels, risques de perte de données.</li>
+                    <li><b>Problématique :</b> Moderniser sans interrompre l’activité.</li>
+                    <li><b>Solution :</b> Migration vers Odoo v17, automatisation, formation des équipes.</li>
+                    <li><b>Résultats :</b> +30% de productivité, 0 perte de données, satisfaction client 5/5.</li>
+                    <li><b>Témoignage :</b> “Migration rapide, équipe très pro, aucun souci. Merci ASNL TECH !”</li>
+                  </ul>
+                </div>
+                <div class="mb-4">
+                  <h6>Intégration e-commerce pour un retailer (Maroc)</h6>
+                  <ul>
+                    <li><b>Contexte :</b> Gestion séparée des stocks et commandes entre Odoo et Shopify.</li>
+                    <li><b>Problématique :</b> Double saisie, erreurs fréquentes, perte de temps.</li>
+                    <li><b>Solution :</b> Intégration API Odoo-Shopify, synchronisation automatique.</li>
+                    <li><b>Résultats :</b> -80% d’erreurs, +25% de ventes en ligne, gestion centralisée.</li>
+                    <li><b>Témoignage :</b> “Synchronisation parfaite, gain de temps énorme pour nos équipes !”</li>
+                  </ul>
+                </div>
+                <div class="mb-4">
+                  <h6>Optimisation & Reporting pour une PME de services (Rabat)</h6>
+                  <ul>
+                    <li><b>Contexte :</b> Difficulté à suivre les indicateurs clés, reporting manuel.</li>
+                    <li><b>Problématique :</b> Décisions lentes, manque de visibilité.</li>
+                    <li><b>Solution :</b> Mise en place de tableaux de bord Odoo personnalisés.</li>
+                    <li><b>Résultats :</b> Décisions accélérées, +40% de réactivité, meilleure satisfaction client.</li>
+                    <li><b>Témoignage :</b> “ASNL TECH a transformé notre pilotage d’activité, reporting simple et efficace.”</li>
+                  </ul>
+                </div>
+                <div class="mb-4">
+                  <h6>Déploiement Odoo multi-filiales pour un groupe international</h6>
+                  <ul>
+                    <li><b>Contexte :</b> Plusieurs filiales avec des systèmes différents, reporting consolidé impossible.</li>
+                    <li><b>Problématique :</b> Centraliser la gestion, harmoniser les processus, garantir la conformité multi-pays.</li>
+                    <li><b>Solution :</b> Déploiement Odoo multi-sociétés, paramétrage multi-devises, formation centralisée.</li>
+                    <li><b>Résultats :</b> Reporting consolidé, +50% d’efficacité sur la clôture mensuelle, conformité RGPD.</li>
+                    <li><b>Témoignage :</b> “Un vrai changement pour notre groupe, pilotage simplifié et visibilité globale.”</li>
+                  </ul>
+                </div>
+                <div class="mb-4">
+                  <h6>Automatisation de la facturation pour un cabinet de conseil</h6>
+                  <ul>
+                    <li><b>Contexte :</b> Facturation manuelle, erreurs fréquentes, perte de temps pour les consultants.</li>
+                    <li><b>Problématique :</b> Automatiser la génération et l’envoi des factures clients.</li>
+                    <li><b>Solution :</b> Développement d’un module Odoo sur-mesure pour la facturation automatique.</li>
+                    <li><b>Résultats :</b> -90% d’erreurs, +20h/mois économisées, paiement clients accéléré.</li>
+                    <li><b>Témoignage :</b> “L’automatisation a libéré du temps pour nos équipes, retour sur investissement immédiat.”</li>
+                  </ul>
+                </div>
+                <div class="mb-4">
+                  <h6>Migration Odoo + Intégration API pour une startup tech</h6>
+                  <ul>
+                    <li><b>Contexte :</b> Odoo Community, besoin d’intégrer des outils SaaS externes (CRM, support, marketing).</li>
+                    <li><b>Problématique :</b> Centraliser la donnée, automatiser les flux entre Odoo et les outils tiers.</li>
+                    <li><b>Solution :</b> Migration vers Odoo Enterprise, développement d’API personnalisées.</li>
+                    <li><b>Résultats :</b> Données synchronisées en temps réel, +35% de productivité, meilleure expérience client.</li>
+                    <li><b>Témoignage :</b> “ASNL TECH a su connecter tous nos outils, on a gagné en efficacité et en visibilité.”</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+              </div>
+            </div>
+          </div>
+        </div>
+    <!-- Bootstrap 5 JavaScript Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- EmailJS Library (Official CDN) -->
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+    ></script>
+
+    <script>
+      (function () {
+        emailjs.init({
+          publicKey: "s-cCu_Lrna8JmX60W",
+        });
+      })();
+
+      // ====================================
+      // NAVBAR SCROLL EFFECT
+      // ====================================
+      window.addEventListener("scroll", function () {
+        const navbar = document.querySelector(".navbar");
+        if (window.scrollY > 50) {
+          navbar.classList.add("scrolled");
+        } else {
+          navbar.classList.remove("scrolled");
+        }
+      });
+
+      // ====================================
+      // SMOOTH SCROLLING FOR NAVIGATION LINKS
+      // ====================================
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            const navbarCollapse = document.querySelector(".navbar-collapse");
+            if (navbarCollapse.classList.contains("show")) {
+              const bsCollapse = new bootstrap.Collapse(navbarCollapse);
+              bsCollapse.hide();
+            }
+
+            target.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          }
+        });
+      });
+
+      // ====================================
+      // SHOW MORE SERVICES
+      // ====================================
+      const showMoreBtn = document.getElementById("showMoreBtn");
+      const servicesCTA = document.getElementById("servicesCTA");
+      const hiddenServices = document.querySelectorAll(".service-hidden");
+      let servicesExpanded = false;
+
+      if (showMoreBtn) {
+        showMoreBtn.addEventListener("click", function (e) {
+          e.preventDefault();
+          servicesExpanded = !servicesExpanded;
+
+          if (servicesExpanded) {
+            hiddenServices.forEach((service, index) => {
+              setTimeout(() => {
+                service.classList.add("show");
+              }, index * 100);
+            });
+
+            setTimeout(
+              () => {
+                servicesCTA.style.display = "block";
+                servicesCTA.style.animation = "fadeInUp 0.6s ease-out";
+              },
+              hiddenServices.length * 100 + 100,
+            );
+
+            showMoreBtn.innerHTML =
+              'Afficher moins de services <i class="bi bi-chevron-up"></i>';
+            showMoreBtn.setAttribute("aria-expanded", "true");
+
+            setTimeout(() => {
+              hiddenServices[0].scrollIntoView({
+                behavior: "smooth",
+                block: "center",
+              });
+            }, 200);
+          } else {
+            hiddenServices.forEach((service) => {
+              service.classList.remove("show");
+            });
+
+            servicesCTA.style.display = "none";
+
+            showMoreBtn.innerHTML =
+              'Afficher plus de services <i class="bi bi-chevron-down"></i>';
+            showMoreBtn.setAttribute("aria-expanded", "false");
+
+            setTimeout(() => {
+              showMoreBtn.scrollIntoView({
+                behavior: "smooth",
+                block: "center",
+              });
+            }, 300);
+          }
+        });
+      }
+
+      // ====================================
+      // SCROLL ANIMATION FOR ELEMENTS
+      // ====================================
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
+      };
+
+      const observer = new IntersectionObserver(function (entries) {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("animated");
+          } else {
+            // Réinitialiser l'animation quand l'élément sort de la vue
+            entry.target.classList.remove("animated");
+          }
+        });
+      }, observerOptions);
+
+      document.querySelectorAll(".animate-on-scroll").forEach((element) => {
+        observer.observe(element);
+      });
+
+      // ====================================
+      // CONTACT FORM HANDLING WITH EMAILJS
+      // ====================================
+      document
+        .getElementById("contactForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          const name = document.getElementById("name").value;
+          const email = document.getElementById("email").value;
+          const company = document.getElementById("company").value;
+          const phone = document.getElementById("phone").value;
+          const subject = document.getElementById("subject").value;
+          const message = document.getElementById("message").value;
+          const consent = document.getElementById("consent").checked;
+
+          if (!consent) {
+            alert("Veuillez accepter les conditions d'utilisation");
+            return;
+          }
+
+          const now = new Date();
+          const options = {
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+            hour: "2-digit",
+            minute: "2-digit",
+            second: "2-digit",
+            timeZone: "Africa/Casablanca",
+          };
+          const formattedDate = now.toLocaleDateString("fr-FR", options);
+
+          const submitBtn = document.querySelector(
+            "#contactForm button[type='submit']",
+          );
+          const originalText = submitBtn.innerHTML;
+          submitBtn.disabled = true;
+          submitBtn.innerHTML =
+            '<i class="bi bi-hourglass-split"></i> Envoi en cours...';
+
+          const ownerParams = {
+            to_email: "contact@asnl-tech.com",
+            from_name: name,
+            from_email: email,
+            company: company || "Non spécifiée",
+            phone: phone || "Non fourni",
+            subject: subject,
+            message: message,
+            date: formattedDate,
+          };
+
+          emailjs.send("service_esjqyei", "template_63c46ro", ownerParams).then(
+            function (response) {
+              const clientParams = {
+                to_email: email,
+                client_name: name,
+                from_email: "contact@asnl-tech.com",
+                company: company || "Non spécifiée",
+                phone: phone || "Non fourni",
+                subject: subject,
+                message: message,
+                date: formattedDate,
+              };
+
+              emailjs
+                .send("service_esjqyei", "template_2o6bwhh", clientParams)
+                .then(
+                  function (response) {
+                    document.getElementById("contactForm").reset();
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = originalText;
+
+                    alert(
+                      "Merci ! Votre demande a été envoyée avec succès.\nNous vous répondrons dans les 24h.",
+                    );
+                  },
+                  function (error) {
+                    document.getElementById("contactForm").reset();
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = originalText;
+
+                    alert(
+                      "Votre demande a été reçue !\nNous vous répondrons bientôt.",
+                    );
+                  },
+                );
+            },
+            function (error) {
+              submitBtn.disabled = false;
+              submitBtn.innerHTML = originalText;
+
+              if (error.status === 400) {
+                alert(
+                  "Erreur 400 : Vérifiez que vos IDs EmailJS sont corrects.\n\nVérifiez :\n- Service ID : service_asnl_tech\n- Template ID : template_63c46ro\n- Public Key dans le code",
+                );
+              } else if (error.status === 401) {
+                alert(
+                  "Erreur 401 : Votre clé publique EmailJS est invalide ou expirée.\n\nVérifiez votre Public Key dans EmailJS Dashboard.",
+                );
+              } else {
+                alert(
+                  "Erreur lors de l'envoi. Veuillez réessayer ou nous contacter directement.\n\nErreur : " +
+                    error.status,
+                );
+              }
+            },
+          );
+        });
+
+      // ====================================
+      // ACTIVE NAVIGATION LINK ON SCROLL
+      // ====================================
+      window.addEventListener("scroll", function () {
+        let current = "";
+        const sections = document.querySelectorAll("section[id]");
+
+        sections.forEach((section) => {
+          const sectionTop = section.offsetTop;
+          const sectionHeight = section.clientHeight;
+          if (pageYOffset >= sectionTop - 100) {
+            current = section.getAttribute("id");
+          }
+        });
+
+        document.querySelectorAll(".nav-link").forEach((link) => {
+          link.classList.remove("active");
+          if (link.getAttribute("href") === `#${current}`) {
+            link.classList.add("active");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

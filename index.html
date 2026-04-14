@@ -12,475 +12,6 @@
   <meta property="og:description" content="Accompagnement Odoo de bout en bout: cadrage, implementation, integration et maintenance.">
   <meta property="og:type" content="website">
   <link rel="stylesheet" href="assets/css/main.css">
-  <style>
-    html,
-    body {
-      height: 100%;
-      overflow: hidden;
-      overscroll-behavior: none;
-      background-color: #f3f0ee;
-      color: #3d3d3d;
-    }
-
-    .about--details,
-    .selected-pack-note,
-    .selected-pack-services,
-    .method-card p,
-    .method-card ul,
-    .method-card li,
-    .pack-services-panel,
-    .pack-services-panel ul,
-    .pack-services-panel li,
-    .contact--lockup .modal--information p,
-    .contact--lockup .modal--information a,
-    .pack-services-panel .pack-actions a,
-    .intro--banner .hero-note,
-    .intro--trust span,
-    .selected-pack-services .pack-title,
-    .pack-services-panel h3,
-    .method-card h3,
-    .work-request-group h3,
-    .header--logo p,
-    .header--cta,
-    .side-nav>li span,
-    .side-nav>li,
-    .outer-nav>li {
-      color: #4b3b4f !important;
-    }
-
-    .header--cta,
-    .pack-services-panel .pack-actions a,
-    .service-pack-tags span.is-selected,
-    .method-card .method-step,
-    .selected-pack-services .pack-title,
-    .pack-services-panel h3,
-    .method-card h3 {
-      color: #714B67 !important;
-    }
-
-    .pack-services-panel .pack-actions a,
-    .intro--banner .hero-cta-link {
-      background: #f8f4f0 !important;
-      color: #714B67 !important;
-      border: 1px solid #714B67 !important;
-    }
-
-    .pack-services-panel .pack-actions a:hover,
-    .intro--banner .hero-cta-link:hover {
-      background: #714B67 !important;
-      color: #fff !important;
-    }
-
-    .work-request--information .information-field input,
-    .work-request--information .information-field textarea {
-      color: #4b3b4f !important;
-      border-bottom: 1px solid #714B67 !important;
-      background: #fff7f0 !important;
-    }
-
-    .work-request--information .information-field label {
-      color: #714B67 !important;
-    }
-
-    .header--logo p,
-    .header--nav-toggle span,
-    .header--nav-toggle::before,
-    .header--nav-toggle::after {
-      color: #714B67 !important;
-      background: #714B67 !important;
-    }
-
-    .side-nav>li.is-active,
-    .side-nav>li.is-active span {
-      color: #714B67 !important;
-    }
-
-    .side-nav>li span {
-      color: #4b3b4f !important;
-    }
-
-    .outer-nav>li.is-active {
-      color: #714B67 !important;
-    }
-
-    .outer-nav>li {
-      color: #4b3b4f !important;
-    }
-
-    .service-pack-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      justify-content: center;
-      margin: 0 0 14px 0;
-    }
-
-    .service-pack-tags span {
-      background: #f8f4f0 !important;
-      color: #714B67 !important;
-      border: 1px solid #d9c9d6 !important;
-      cursor: pointer;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: .4px;
-      padding: 4px 8px;
-      text-transform: uppercase;
-    }
-
-    .service-pack-tags span.is-selected {
-      background: #714B67 !important;
-      color: #fff !important;
-    }
-
-    .selected-pack-note {
-      color: #c6c6c6;
-      font-size: 13px;
-      margin: 10px 0 0;
-      text-align: center;
-    }
-
-    .selected-pack-services {
-      margin-top: 12px;
-      text-align: left;
-      color: #c6c6c6;
-      font-size: 13px;
-    }
-
-    .selected-pack-services p {
-      margin: 0 0 8px 0;
-    }
-
-    .selected-pack-services .pack-block {
-      margin-bottom: 8px;
-    }
-
-    .selected-pack-services .pack-title {
-      color: #ffffff;
-      font-size: 12px;
-      font-weight: 700;
-      margin: 0 0 4px 0;
-      text-transform: uppercase;
-    }
-
-    .selected-pack-services ul {
-      margin: 0;
-      padding-left: 16px;
-    }
-
-    .selected-pack-services li {
-      margin: 2px 0;
-    }
-
-    .pack-services-panel {
-      border: 1px solid rgba(113, 75, 103, 0.45);
-      margin: 0 auto 18px;
-      max-width: 760px;
-      padding: 18px 20px;
-      text-align: left;
-      background: #fff7f0 !important;
-      border: 1px solid #e9ecef !important;
-      box-shadow: 0 2px 12px 0 rgba(113,75,103,0.07);
-    }
-
-    .pack-services-panel.is-empty {
-      opacity: 0.9;
-    }
-
-    .pack-services-panel h3 {
-      color: #ffffff;
-      font-size: 14px;
-      margin: 0 0 8px 0;
-      text-transform: uppercase;
-    }
-
-    .pack-services-panel .pack-actions {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-top: 14px;
-    }
-
-    .pack-services-panel .pack-actions a {
-      border: 1px solid #714B67;
-      color: #ffffff;
-      padding: 10px 14px;
-      text-decoration: none;
-      text-transform: uppercase;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: .4px;
-    }
-
-    .intro--trust {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 18px;
-    }
-
-    .intro--trust span {
-      border: 1px solid rgba(113, 75, 103, 0.45);
-      color: #c6c6c6;
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: .3px;
-      padding: 8px 10px;
-      text-transform: uppercase;
-    }
-
-    .intro--banner .hero-note {
-      color: #c6c6c6;
-      font-size: 14px;
-      line-height: 1.7;
-      margin: 14px 0 0;
-      max-width: 520px;
-    }
-
-    .intro--banner .hero-cta-link {
-      display: inline-block;
-      color: #ffffff;
-      border: 1px solid #714B67;
-      margin-top: 16px;
-      padding: 10px 14px;
-      text-decoration: none;
-      text-transform: uppercase;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: .4px;
-    }
-
-    .method-cards {
-      display: grid;
-      gap: 10px;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      margin-top: 14px;
-    }
-
-    .method-card {
-      border: 1px solid rgba(113, 75, 103, 0.45);
-      padding: 14px 14px;
-      background: rgba(20, 20, 20, 0.15);
-    }
-
-    .method-card .method-step {
-      color: #714B67;
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: .5px;
-      margin: 0 0 6px 0;
-      text-transform: uppercase;
-    }
-
-    .method-card h3 {
-      color: #ffffff;
-      font-size: 16px;
-      margin: 0 0 6px 0;
-    }
-
-    .method-card p {
-      color: #c6c6c6;
-      font-size: 13px;
-      line-height: 1.5;
-      margin: 0 0 8px 0;
-    }
-
-    .method-card ul {
-      color: #c6c6c6;
-      margin: 0;
-      padding-left: 16px;
-    }
-
-    .method-card li {
-      margin: 3px 0;
-    }
-
-    #methode .about--banner {
-      margin-bottom: 8px;
-    }
-
-    #methode .about--banner img {
-      max-width: 320px;
-    }
-
-    #methode .about--options {
-      margin-top: 10px;
-    }
-
-    #methode .about--details {
-      margin-top: 12px;
-    }
-
-    .work-request--information {
-      flex-wrap: wrap;
-      gap: 20px 4%;
-    }
-
-    .work-request--information .information-field {
-      position: relative;
-      width: 48%;
-      min-height: 50px;
-      font-size: 30px;
-      font-weight: 300;
-    }
-
-    .work-request--information .information-field--full {
-      width: 100%;
-      min-height: 120px;
-    }
-
-    .work-request--information .information-field input[type="text"],
-    .work-request--information .information-field input[type="email"],
-    .work-request--information .information-field input[type="tel"],
-    .work-request--information .information-field textarea {
-      width: 100%;
-      padding: 0 0 5px 0;
-      background-color: transparent;
-      border: none;
-      border-bottom: 1px solid #fff;
-      border-radius: 0;
-      color: #fff;
-    }
-
-    .work-request--information .information-field textarea {
-      min-height: 110px;
-      resize: vertical;
-    }
-
-    .work-request--information .information-field input:focus,
-    .work-request--information .information-field textarea:focus {
-      outline: none;
-      background-color: #f8f4f0 !important;
-      color: #3d3d3d !important;
-    }
-
-    .work-request--information .information-field label {
-      position: absolute;
-      top: 0;
-      left: 0;
-      pointer-events: none;
-      transition: top .2s ease-in-out, font-size .2s ease-in-out;
-    }
-
-    .work-request--information .information-field input:focus + label,
-    .work-request--information .information-field input.has-value + label,
-    .work-request--information .information-field textarea:focus + label,
-    .work-request--information .information-field textarea.has-value + label {
-      top: -15px;
-      font-size: 14px;
-    }
-
-    #devis .hire {
-      max-height: calc(100vh - 120px);
-      overflow-y: auto;
-      overflow-x: hidden;
-      justify-content: flex-start;
-      padding-top: 14px;
-      padding-bottom: 10px;
-      padding-right: 0;
-      -ms-overflow-style: none;
-      scrollbar-width: none;
-    }
-
-    #devis .hire::-webkit-scrollbar {
-      width: 0;
-      height: 0;
-    }
-
-    .work-request-group {
-      width: 100%;
-      margin-bottom: 12px;
-    }
-
-    .work-request-group h3 {
-      margin: 0 0 8px 0;
-      color: #ffffff;
-      font-size: 13px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: .4px;
-    }
-
-    .work-request--information {
-      margin-bottom: 18px;
-    }
-
-    @media (max-width: 900px) {
-      .method-cards {
-        grid-template-columns: 1fr;
-        margin-top: 10px;
-      }
-
-      .work-request--information .information-field,
-      .work-request--information .information-field--full {
-        width: 100%;
-      }
-
-      #devis .hire {
-        max-height: calc(100vh - 100px);
-      }
-
-      #methode .about--banner img {
-        max-width: 260px;
-      }
-    }
-
-    @media (max-width: 600px) {
-      #methode .about--banner {
-        margin-bottom: 4px;
-      }
-
-      #methode .about--banner img {
-        max-width: 220px;
-      }
-
-      #methode .about--options {
-        margin-top: 6px;
-      }
-
-      #methode .about--details {
-        margin-top: 8px;
-      }
-
-      .method-cards {
-        gap: 8px;
-        margin-top: 10px;
-      }
-
-      .method-card {
-        padding: 12px 12px;
-      }
-
-      .method-card h3 {
-        font-size: 15px;
-      }
-
-      .method-card p {
-        font-size: 12px;
-        line-height: 1.45;
-      }
-
-      .work-request-group {
-        margin-bottom: 10px;
-      }
-
-      .work-request-group h3 {
-        margin: 0 0 6px 0;
-      }
-
-      .selected-pack-note {
-        margin-top: 6px;
-      }
-
-      .selected-pack-services {
-        margin-top: 6px;
-      }
-
-      #devis .hire {
-        max-height: calc(100vh - 84px);
-        padding-top: 10px;
-      }
-    }
-  </style>
 </head>
 <body>
 
@@ -493,7 +24,7 @@
             <img src="assets/img/logo.png" alt="ASNL TECH">
             <p>ASNL TECH</p>
           </a>
-          <button class="header--cta cta">Demander un audit</button>
+          <!-- <button class="header--cta cta">Demander un audit</button> -->
           <div class="header--nav-toggle">
             <span></span>
           </div>
@@ -528,7 +59,7 @@
                   <p>Analyse complete de votre instance, roadmap priorisee et actions rapides a fort impact.</p>
                 </a>
                 <a href="#devis">
-                  <h3>Migration Odoo v16-v19</h3>
+                  <h3>Migration Odoo vers v19</h3>
                   <p>Migration maitrisee avec controle des risques, reprise de donnees et plan de validation.</p>
                 </a>
                 <a href="#devis">
@@ -806,59 +337,189 @@
           </li>
           <li id="methode" class="l-section section">
             <div class="about">
-              <div class="about--banner">
-                <h2>Une<br>methode<br>claire et<br>orientee resultat</h2>
-                <a href="#devis">Demarrer un projet</a>
-                <img src="assets/img/about-visual.png" alt="Methode de projet Odoo">
+              <div class="about--banner methode-banner">
+                <img src="assets/img/about-visual.png" alt="Methode de projet Odoo" class="methode-banner-img">
+                <div class="methode-banner-content">
+                  <h2>Une<br>methode<br>claire et<br>orientée résultat</h2>
+                  <a href="#devis" class="methode-banner-btn">Demarrer un projet</a>
+                </div>
               </div>
-              <div class="about--options">
-                <a href="#methode">
-                  <h3>Cadrage</h3>
-                </a>
-                <a href="#methode">
-                  <h3>Execution</h3>
-                </a>
-                <a href="#methode">
-                  <h3>Suivi</h3>
-                </a>
+              <div class="about--options methode-options">
+                <a href="#methode"><h3>Cadrage</h3></a>
+                <a href="#methode"><h3>Execution</h3></a>
+                <a href="#methode"><h3>Suivi</h3></a>
               </div>
-              <div class="about--details">
+              <div class="about--details methode-details">
                 <p><strong>Notre approche:</strong> on commence par comprendre vos process, puis on livre rapidement des actions utiles et mesurables.</p>
-                <p><strong>Objectif:</strong> reduire les frictions, fiabiliser vos donnees et accelerer vos equipes sans complexifier votre usage d Odoo.</p>
+                <p><strong>Objectif:</strong> reduire les frictions, fiabiliser vos donnees et accelerer vos equipes sans complexifier votre usage d'Odoo.</p>
                 <p><strong>Resultat attendu:</strong> un projet lisible, des etapes courtes, un suivi clair et une adoption plus rapide par vos utilisateurs.</p>
               </div>
-              <div class="method-cards">
+              <div class="method-cards methode-cards">
                 <div class="method-card">
                   <p class="method-step">Etape 1</p>
                   <h3>Analyse & cadrage</h3>
-                  <p>Audit des besoins, lecture des flux, identification des points bloquants et priorisation des actions a fort impact.</p>
+                  <p>Audit des besoins, lecture des flux, identification des points bloquants et priorisation des actions à fort impact.</p>
                   <ul>
                     <li>ateliers de cadrage</li>
                     <li>liste des risques</li>
-                    <li>plan de travail priorise</li>
+                    <li>plan de travail priorisé</li>
                   </ul>
                 </div>
                 <div class="method-card">
                   <p class="method-step">Etape 2</p>
                   <h3>Execution & livraison</h3>
-                  <p>Configuration, developpement, integration et parametres de recette avec un point de validation regulier.</p>
+                  <p>Configuration, développement, intégration et paramètres de recette avec un point de validation régulier.</p>
                   <ul>
                     <li>configuration Odoo</li>
-                    <li>developpements utiles</li>
+                    <li>développements utiles</li>
                     <li>tests de validation</li>
                   </ul>
                 </div>
                 <div class="method-card">
                   <p class="method-step">Etape 3</p>
                   <h3>Suivi & optimisation</h3>
-                  <p>Accompagnement au demarrage, corrections rapides et ajustements selon vos retours et vos KPI metier.</p>
+                  <p>Accompagnement au démarrage, corrections rapides et ajustements selon vos retours et vos KPI métier.</p>
                   <ul>
                     <li>support post-livraison</li>
                     <li>stabilisation</li>
-                    <li>ameliorations continues</li>
+                    <li>améliorations continues</li>
                   </ul>
                 </div>
               </div>
+            </li>
+            <style>
+              /* Section méthode bannière */
+              .methode-banner {
+                display: flex;
+                align-items: stretch;
+                gap: 2.5rem;
+                justify-content: center;
+                margin-bottom: 1.5rem;
+                flex-wrap: wrap;
+              }
+              .methode-banner-img {
+                max-width: 260px;
+                width: 100%;
+                height: auto;
+                object-fit: contain;
+                border-radius: 12px;
+                background: #fff;
+                box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+                margin: 0;
+                flex: 0 0 260px;
+                align-self: center;
+              }
+              .methode-banner-content {
+                flex: 1 1 260px;
+                min-width: 220px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                gap: 1.2rem;
+                align-items: flex-start;
+                padding: 0.5rem 0;
+              }
+              .methode-banner-content h2 {
+                font-size: 2.2rem;
+                line-height: 1.1;
+                margin: 0 0 0.5rem 0;
+                color: #2d2d2d;
+                font-weight: 700;
+              }
+              .methode-banner-btn {
+                display: inline-block;
+                background: #6c63ff;
+                color: #fff;
+                padding: 0.6em 1.3em;
+                border-radius: 6px;
+                font-weight: 600;
+                text-decoration: none;
+                margin-top: 0.5rem;
+                transition: background 0.2s;
+              }
+              .methode-banner-btn:hover {
+                background: #4b47b6;
+              }
+              /* Méthode options */
+              .methode-options {
+                display: flex;
+                gap: 1.2rem;
+                justify-content: center;
+                margin: 1.5rem 0 0.5rem 0;
+                flex-wrap: wrap;
+              }
+              .methode-options a {
+                flex: 1 1 100px;
+                min-width: 90px;
+                text-align: center;
+                color: #6c63ff;
+                text-decoration: none;
+                border-bottom: 2px solid transparent;
+                transition: border 0.2s, color 0.2s;
+                padding-bottom: 2px;
+              }
+              .methode-options a:hover {
+                border-bottom: 2px solid #6c63ff;
+                color: #2d2d2d;
+              }
+              /* Méthode détails */
+              .methode-details {
+                max-width: 700px;
+                margin: 0 auto 1.5rem auto;
+                font-size: 1.08em;
+                color: #333;
+              }
+              /* Méthode cards */
+              .methode-cards {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 1.5rem;
+                justify-content: center;
+                margin-top: 1.5rem;
+              }
+              .methode-cards .method-card {
+                flex: 1 1 220px;
+                min-width: 220px;
+                max-width: 320px;
+                background: #f8f8f8;
+                border-radius: 10px;
+                padding: 1rem 1.2rem;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+                display: flex;
+                flex-direction: column;
+                gap: 0.5rem;
+                align-items: flex-start;
+              }
+              .methode-cards .method-step {
+                font-weight: bold;
+                color: #6c63ff;
+                margin-bottom: 0.2rem;
+              }
+              @media (max-width: 900px) {
+                .methode-banner {
+                  flex-direction: column;
+                  align-items: center;
+                  gap: 1.2rem;
+                }
+                .methode-banner-content {
+                  align-items: center;
+                  text-align: center;
+                }
+              }
+              @media (max-width: 600px) {
+                .methode-banner-content h2 {
+                  font-size: 1.3rem;
+                }
+                .methode-cards {
+                  flex-direction: column;
+                  gap: 1rem;
+                }
+                .methode-cards .method-card {
+                  min-width: 0;
+                  max-width: 100%;
+                }
+              }
+            </style>
             </div>
           </li>
           <li id="contact" class="l-section section">
